@@ -1,0 +1,19 @@
+QorIQ Yocto SDK Project
+=============================
+
+To get the SDK you need to have `repo` installed and use it as:
+
+Install the `repo` utility:
+$: mkdir ~/bin
+$: curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
+$: chmod a+x ~/bin/repo
+
+Download the SDK source:
+$: export PATH=${PATH}:~/bin
+$: mkdir yocto-sdk
+$: cd yocto-sdk
+$: repo init -u https://github.com/qoriq-open-source/yocto-sdk.git -b master
+$: repo sync --no-clone-bundle
+
+Start build (ls1088ardb as an example):
+$: . ./setup-env -m ls1088ardb
