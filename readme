@@ -15,5 +15,8 @@ $: cd yocto-sdk
 $: repo init -u https://github.com/qoriq-open-source/yocto-sdk.git -b master
 $: repo sync --no-clone-bundle
 
+Setting up to use the Yocto project:
+Follow this guide http://www.yoctoproject.org/docs/2.4/yocto-project-qs/yocto-project-qs.html#qs-native-linux-build-host to install appropriate packages on the build host.
+
 Start build (ls1088ardb as an example):
 $: . ./setup-env -m ls1088ardb
