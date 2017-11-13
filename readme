@@ -12,7 +12,7 @@ Download the SDK source:
 $: export PATH=${PATH}:~/bin
 $: mkdir yocto-sdk
 $: cd yocto-sdk
-$: repo init -u https://github.com/qoriq-open-source/yocto-sdk.git -b master
+$: repo init -u https://github.com/qoriq-open-source/yocto-sdk.git -b rocko
 $: repo sync --no-clone-bundle
 
 Setting up to use the Yocto project:
