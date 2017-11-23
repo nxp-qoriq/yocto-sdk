@@ -1,22 +1,136 @@
 QorIQ Yocto SDK Project
-=============================
+======================================================
+QorIQ Yocto SDK is a complete Linux kit for NXP QorIQ ARM-based SoC's and 
+the reference and evaluation boards.
 
-To get the SDK you need to have `repo` installed and use it as:
+Supported boards
+======================================================
+ls1012ardb
+ls1012ardb-32b
+ls1012afrdm
+ls1012afrdm-32b
+ls1021atwr
+ls1043ardb
+ls1043ardb-32b
+ls1046ardb
+ls1046ardb-32b
+ls1088ardb
+ls2088ardb
 
-Install the `repo` utility:
+Setting up to use the Yocto project
+======================================================
+Follow below guide to get your build host ready:
+http://www.yoctoproject.org/docs/2.4/yocto-project-qs/yocto-project-qs.html#yp-resources
+
+Install the repo utility:
 $: mkdir ~/bin
 $: curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
 $: chmod a+x ~/bin/repo
 
-Download the SDK source:
+Download the metadata:
 $: export PATH=${PATH}:~/bin
 $: mkdir yocto-sdk
 $: cd yocto-sdk
 $: repo init -u https://github.com/qoriq-open-source/yocto-sdk.git -b rocko
 $: repo sync --no-clone-bundle
 
-Setting up to use the Yocto project:
-Follow this guide http://www.yoctoproject.org/docs/2.4/yocto-project-qs/yocto-project-qs.html#qs-native-linux-build-host to install appropriate packages on the build host.
-
-Start build (ls1088ardb as an example):
+Building images
+======================================================
+Take ls1088ardb as an example:
 $: . ./setup-env -m ls1088ardb
+$: bitbake fsl-image-networking
+or:
+$: bitbake fsl-image-networking-full
+
+Images will be found under tmp/deploy/images/ls1088ardb/.
+
+Booting the images for supported boards
+======================================================
+Prerequisites:
+1. TFTP server being setup to hold the images.
+2. A serial cable connected from your PC to UART1
+3. Ethernet connected to the first ethernet port on the board.
+
+Booting with fsl-image-networking rootfs:
+
+1.Power up or reset the board and press a key on the terminal when prompted
+  to get to the U-Boot command line.
+
+2.Set up the environment in U-Boot:
+  => setenv ipaddr <board_ipaddr>
+  => setenv serverip <tftp_serverip>
+  For ls1021atwr:
+  => setenv bootargs root=/dev/ram0 rw console=ttyS0,115200 ramdisk_size=0x1000000
+  For ls1012a,ls1043a,ls1046a
+  => setenv bootargs root=/dev/ram0 rw console=ttyS0,115200 earlycon=uart8250,mmio,0x21c0500 ramdisk_size=0x10000000
+  For ls1088ardb: 
+  => setenv bootargs root=/dev/ram0 rw console=ttyS0,115200 earlycon=uart8250,mmio,0x21c0500 ramdisk_size=0x2000000 default_hugepagesz=2m hugepagesz=2m hugepages=512
+  For ls2088ardb:
+  => setenv bootargs root=/dev/ram0 rw console=ttyS1,115200 earlycon=uart8250,mmio,0x21c0600 ramdisk_size=0x2000000 default_hugepagesz=1024m hugepagesz=1024m hugepages=8
+
+3.ls1088ardb and ls2088ardb need run below commands to enable DPAA2 ethernet in Linux:
+  For ls1088ardb:
+  => sf probe 0:0
+  => sf read 0x80000000 0xA00000 0x100000
+  => sf read 0x80100000 0xE00000 0x100000
+  => fsl_mc start mc 0x80000000 0x88000000
+  => sf read 0x80200000 0xd00000 0x100000
+  => fsl_mc apply dpl 0x80200000
+  For ls2088ardb:
+  => fsl_mc start mc 0x580a00000 0x580e00000
+  => fsl_mc apply dpl 0x580d00000
+
+4.Download Images and bootup:
+  For ls1021atwr:
+  => tftp 82000000 uImage-ls1021atwr.bin
+  => tftp 88000000 fsl-image-networking-ls1021atwr.ext2.gz.u-boot
+  => tftp 8f000000 uImage-ls1021a-twr.dtb
+  => bootm 82000000 88000000 8f000000
+  For other boards:
+  => tftp a0000000 itbImage-fsl-image-networking-<board>.bin
+  => bootm a0000000
+
+Booting with fsl-image-networking-full rootfs:
+
+1.Prepare the media (sata/sd/usb) and format it as ext4 format
+  mount the ext4 partition and extract a full rootfs in this partition. After
+  uncompressing, unmount this partition.
+
+2.Power up or reset the board and press a key on the terminal when prompted
+  to get to the U-Boot command line.
+
+3.Set up the environment in U-Boot:
+  => setenv ipaddr <board_ipaddr>
+  => setenv serverip <tftp_serverip>
+  For ls1021atwr:
+  => setenv bootargs root=/dev/sda* rootdelay=5 rw console=ttyS0,115200 ramdisk_size=0x1000000
+  For ls1012a,ls1043a,ls1046a
+  => setenv bootargs root=/dev/sda* rootdelay=5 rw console=ttyS0,115200 earlycon=uart8250,mmio,0x21c0500 ramdisk_size=0x10000000
+  For ls1088ardb:
+  => setenv bootargs root=/dev/sda* rootdelay=5 rw console=ttyS0,115200 earlycon=uart8250,mmio,0x21c0500 ramdisk_size=0x2000000 default_hugepagesz=2m hugepagesz=2m hugepages=512
+  For ls2088ardb:
+  => setenv bootargs root=/dev/sda* rootdelay=5 rw console=ttyS1,115200 earlycon=uart8250,mmio,0x21c0600 ramdisk_size=0x2000000 default_hugepagesz=1024m hugepagesz=1024m hugepages=8
+
+4.ls1088ardb and ls2088ardb need run below commands to enable DPAA2 ethernet in Linux:
+  For ls1088ardb:
+  => sf probe 0:0
+  => sf read 0x80000000 0xA00000 0x100000
+  => sf read 0x80100000 0xE00000 0x100000
+  => fsl_mc start mc 0x80000000 0x88000000
+  => sf read 0x80200000 0xd00000 0x100000
+  => fsl_mc apply dpl 0x80200000
+  For ls2088ardb:
+  => fsl_mc start mc 0x580a00000 0x580e00000
+  => fsl_mc apply dpl 0x580d00000
+
+5.Download Image and bootup:
+  For ls1021atwr:
+  => tftp 82000000 uImage-ls1021atwr.bin
+  => tftp 8f000000 uImage-ls1021a-twr.dtb
+  => bootm 82000000 - 8f000000
+  For other boards:
+  => tftp a0000000 itbImage-<board>.bin
+  => bootm a0000000:kernel@1 - a0000000:<fdt name>
+  Note: <fdt name> can be got by command:
+  $: grep fdt@ itbImage-its-<board>.its
+
