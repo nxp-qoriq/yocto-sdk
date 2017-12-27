@@ -12,7 +12,7 @@
   <project remote="yocto" revision="rocko" name="meta-freescale" path="sources/meta-freescale"/>
   <project remote="oe" revision="rocko" name="meta-openembedded" path="sources/meta-openembedded"/>
   <project remote="github" revision="rocko" name="Freescale/meta-freescale-distro" path="sources/meta-freescale-distro"/>
-  <project remote="stash" revision="rocko" name="meta-qoriq-demos" path="sources/meta-qoriq-demos">
+  <project remote="stash" revision="rocko" name="meta-qoriq-demos" path="sources/meta-qoriq-demos"/>
     <copyfile dest="setup-env" src="scripts/setup-env"/>
   </project>
 </manifest>
