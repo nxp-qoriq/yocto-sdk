@@ -4,7 +4,7 @@
 
   <remote fetch="git://git.yoctoproject.org" name="yocto"/>
   <remote fetch="git://git.openembedded.org" name="oe"/>
-  <remote fetch="https://github.com" name="github"/>
+  <remote fetch="https://bitbucket.sw.nxp.com/scm/~nxa13725" name="stash"/>
 
   <project remote="yocto" revision="rocko" name="poky" path="sources/poky"/>
   <project remote="yocto" revision="rocko" name="meta-security" path="sources/meta-security"/>
@@ -12,7 +12,7 @@
   <project remote="yocto" revision="rocko" name="meta-freescale" path="sources/meta-freescale"/>
   <project remote="oe" revision="rocko" name="meta-openembedded" path="sources/meta-openembedded"/>
   <project remote="github" revision="rocko" name="Freescale/meta-freescale-distro" path="sources/meta-freescale-distro"/>
-  <project remote="github" revision="rocko" name="qoriq-open-source/meta-qoriq-demos" path="sources/meta-qoriq-demos">
+  <project remote="stash" revision="rocko" name="meta-qoriq-demos" path="sources/meta-qoriq-demos">
     <copyfile dest="setup-env" src="scripts/setup-env"/>
   </project>
 </manifest>
