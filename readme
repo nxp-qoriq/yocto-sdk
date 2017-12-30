@@ -31,7 +31,7 @@ Download the metadata:
 $: export PATH=${PATH}:~/bin
 $: mkdir yocto-sdk
 $: cd yocto-sdk
-$: repo init -u https://github.com/qoriq-open-source/yocto-sdk.git -b rocko
+$: repo init -u https://bitbucket.sw.nxp.com/scm/~nxa13725/yocto-sdk.git -b rocko
 $: repo sync --no-clone-bundle
 
 Building images
