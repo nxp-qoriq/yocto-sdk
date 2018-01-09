@@ -16,6 +16,10 @@ ls1046ardb
 ls1046ardb-32b
 ls1088ardb
 ls2088ardb
+mpc8548cds
+p2020rdb
+t1042d4rdb
+t1042d4rdb-64b
 
 Setting up to use the Yocto project
 ======================================================
@@ -67,6 +71,10 @@ Booting with fsl-image-networking rootfs:
   => setenv bootargs root=/dev/ram0 rw console=ttyS0,115200 earlycon=uart8250,mmio,0x21c0500 ramdisk_size=0x2000000 default_hugepagesz=2m hugepagesz=2m hugepages=512
   For ls2088ardb:
   => setenv bootargs root=/dev/ram0 rw console=ttyS1,115200 earlycon=uart8250,mmio,0x21c0600 ramdisk_size=0x2000000 default_hugepagesz=1024m hugepagesz=1024m hugepages=8
+  For mpc8548cds:
+  => setenv bootargs         root=/dev/ram rw console=ttyS1,115200 ramdisk_size=1000000 log_buf_len=128K
+  For p2020rdb,t1042d4rdb:
+  => setenv bootargs         root=/dev/ram rw console=ttyS0,115200 ramdisk_size=1000000 log_buf_len=128K
 
 3.ls1088ardb and ls2088ardb need run below commands to enable DPAA2 ethernet in Linux:
   For ls1088ardb:
@@ -86,14 +94,29 @@ Booting with fsl-image-networking rootfs:
   => tftp 88000000 fsl-image-networking-ls1021atwr.ext2.gz.u-boot
   => tftp 8f000000 uImage-ls1021a-twr.dtb
   => bootm 82000000 88000000 8f000000
+  For mpc8548cds:
+  => tftpboot  0x01000000 uImage-mpc8548cds.bin
+  => tftpboot  0x03000000 fsl-image-networking-mpc8548cds.ext2.gz.u-boot
+  => tftpboot  0x02000000 uImage-mpc8548cds_32b.dtb
+  => bootm 0x01000000 0x03000000 0x02000000
+  For p2020rdb:
+  => tftpboot  0x01000000 uImage-p2020rdb.bin
+  => tftpboot  0x02000000 fsl-image-networking-p2020rdb.ext2.gz.u-boot
+  => tftpboot  0x00c00000 uImage-p2020rdb-pc_32b.dtb
+  => bootm 0x01000000 0x02000000 0x00c00000
+  For t1042d4rdb,t1042d4rdb-64b:
+  => tftpboot  0x01000000 uImage-<board>.bin
+  => tftpboot  0x05000000 fsl-image-networking-<board>.ext2.gz.u-boot
+  => tftpboot  0x02000000 uImage-<board>.dtb
+  => bootm 0x01000000 0x05000000 0x02000000
   For other boards:
   => tftp a0000000 itbImage-fsl-image-networking-<board>.bin
   => bootm a0000000
 
 Booting with fsl-image-networking-full rootfs:
 
-1.Prepare the media (sata/sd/usb) and format it as ext4 format
-  mount the ext4 partition and extract a full rootfs in this partition. After
+1.Prepare the media (sata/sd/usb) and format it as ext2 format
+  mount the ext2 partition and extract a full rootfs in this partition. After
   uncompressing, unmount this partition.
 
 2.Power up or reset the board and press a key on the terminal when prompted
@@ -110,6 +133,10 @@ Booting with fsl-image-networking-full rootfs:
   => setenv bootargs root=/dev/sda* rootdelay=5 rw console=ttyS0,115200 earlycon=uart8250,mmio,0x21c0500 ramdisk_size=0x2000000 default_hugepagesz=2m hugepagesz=2m hugepages=512
   For ls2088ardb:
   => setenv bootargs root=/dev/sda* rootdelay=5 rw console=ttyS1,115200 earlycon=uart8250,mmio,0x21c0600 ramdisk_size=0x2000000 default_hugepagesz=1024m hugepagesz=1024m hugepages=8
+  For mpc8548cds:
+  => setenv bootargs root=/dev/sda* rootdelay=5 rw console=ttyS1,115200 ramdisk_size=1000000 log_buf_len=128K
+  For p2020rdb,t1042d4rdb:
+  => setenv bootargs root=/dev/sda* rootdelay=5 rw console=ttyS0,115200 ramdisk_size=1000000 log_buf_len=128K
 
 4.ls1088ardb and ls2088ardb need run below commands to enable DPAA2 ethernet in Linux:
   For ls1088ardb:
@@ -128,6 +155,18 @@ Booting with fsl-image-networking-full rootfs:
   => tftp 82000000 uImage-ls1021atwr.bin
   => tftp 8f000000 uImage-ls1021a-twr.dtb
   => bootm 82000000 - 8f000000
+  For mpc8548cds:
+  => tftpboot  0x01000000 uImage-mpc8548cds.bin
+  => tftpboot  0x02000000 uImage-mpc8548cds_32b.dtb
+  => bootm 0x01000000 - 0x02000000
+  For p2020rdb:
+  => tftpboot  0x01000000 uImage-p2020rdb.bin
+  => tftpboot  0x00c00000 uImage-p2020rdb-pc_32b.dtb
+  => bootm 0x01000000 - 0x00c00000
+  For t1042d4rdb,t1042d4rdb-64b:
+  => tftpboot  0x01000000 uImage-<board>.bin
+  => tftpboot  0x02000000 uImage-<board>.dtb
+  => bootm 0x01000000 - 0x02000000
   For other boards:
   => tftp a0000000 itbImage-<board>.bin
   => bootm a0000000:kernel@1 - a0000000:<fdt name>
