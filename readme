@@ -1,10 +1,10 @@
 QorIQ Yocto SDK Project
-======================================================
+=======================
 QorIQ Yocto SDK is a complete Linux kit for NXP QorIQ ARM-based SoC's and 
 the reference and evaluation boards.
 
 Supported boards
-======================================================
+================
 ls1012ardb
 ls1012ardb-32b
 ls1012afrdm
@@ -22,7 +22,7 @@ t1042d4rdb
 t1042d4rdb-64b
 
 Setting up to use the Yocto project
-======================================================
+===================================
 Follow below guide to get your build host ready:
 http://www.yoctoproject.org/docs/2.4/yocto-project-qs/yocto-project-qs.html#yp-resources
 
@@ -39,7 +39,7 @@ $: repo init -u https://bitbucket.sw.nxp.com/scm/dnyocto/yocto-sdk.git -b rocko
 $: repo sync --no-clone-bundle
 
 Building images
-======================================================
+===============
 Take ls1088ardb as an example:
 $: . ./setup-env -m ls1088ardb
 $: bitbake fsl-image-networking
@@ -49,7 +49,7 @@ $: bitbake fsl-image-networking-full
 Images will be found under tmp/deploy/images/ls1088ardb/.
 
 Booting the images for supported boards
-======================================================
+=======================================
 Prerequisites:
 1. TFTP server being setup to hold the images.
 2. A serial cable connected from your PC to UART1
@@ -175,13 +175,33 @@ Booting with fsl-image-networking-full rootfs:
 
 
 Known Issues
-======================================================
-The following know issues exist for  Yocto PowerPC
-
-* AR8021 PHY do not work on P2020RDB-PC under uboot. Workarounds,set auto-negotiation for AR8021 in atheros.c.
-* VSC7385 connected to eTSEC1 do not work on P2020RDB-PC. Workarounds,Current phy driver in U-boot only supports real phy, however, VSC73  83 is a 5-ports switch. Recommended to use the other ethernet port. 
-* Marvell 88e1145 Phy cannot work on MPC8548CDS. Workarounds,This Marvell PHY has an errata which requires that certain registers get wr   itten in order to restart autonegotiation. Need to apply this errata workaround for 88e1145.
-* Print error message "spi_master spi32766: failed to transfer one message from queue" for mtd_debug write command on P2020RDB. Workaroun  ds,It’s a opensource issue on m25p80 driver. Need to apply the patch from 4.14 kernel:
-  commit 9e276de6a367cde07c1a63522152985d4e5cca8b
-  mtd: m25p80: consider max message size in m25p80_read
-* Talitos driver don’t work when running ipsec transport mode on P2020RDB. 
+============
+The following known issues exist for PowerPC targets.
+----------------------------------------------------------------------------------------------------------------------|
+| ID          | Description	                | Disposition | Opened In | Workarounds                               |
+----------------------------------------------------------------------------------------------------------------------|
+| QUBOOT-3528 | AR8021 PHY do not work on       | Open        | LSDK-1712 | set auto-negotiation for AR8021 in        |
+|             | P2020RDB-PC under uboot         |             |           | atheros.c.                                |
+|---------------------------------------------------------------------------------------------------------------------|
+| QUBOOT-3619 | VSC7385 connected to eTSEC1     | Open        | LSDK-1712 | Current phy driver in U-boot only supports|
+|             | do not work on P2020RDB-PC      |             |           | real phy, however, VSC7383 is a 5-ports   |
+|             |                                 |             |           | switch. Recommended to use the other      |
+|             |                                 |             |           | ethernet port.                            |
+|---------------------------------------------------------------------------------------------------------------------|
+| QLINUX-8637 | Marvell 88e1145 Phy cannot work | Open        | LSDK-1712 | This Marvell PHY has an errata which      |
+|             | on MPC8548CDS                   |             |           | requires that certain registers get       |
+|             |                                 |             |           | written in order to restart               |
+|             |                                 |             |           | autonegotiation. Need to apply this errata|
+|             |                                 |             |           | workaround for 88e1145.                   |
+|---------------------------------------------------------------------------------------------------------------------|
+| QLINUX-8486 | Print error message "spi_master | Open        | LSDK-1712 | It¡¯s a opensource issue on m25p80 driver.|
+|             | spi32766: failed to transfer one|             |           | Need to apply the patch from 4.14 kernel  |
+|             | message from queue" for         |             |           | (commit:                                  |
+|             | mtd_debug write command on      |             |           | 9e276de6a367cde07c1a63522152985d4e5cca8b  |
+|             | P2020RDB.                       |             |           | mtd: m25p80: consider max message size in |
+|             |                                 |             |           | m25p80_read)                              |
+|---------------------------------------------------------------------------------------------------------------------|
+| QLINUX-8722 | Talitos driver don¡¯t work when | Open        | LSDK-1712 |                                           |
+|             | running ipsec transport mode on |             |           |                                           |
+|             | P2020RDB.                       |             |           |                                           |
+|---------------------------------------------------------------------------------------------------------------------|
