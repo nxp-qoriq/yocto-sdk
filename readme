@@ -1,6 +1,6 @@
 QorIQ Yocto SDK Project
 =======================
-QorIQ Yocto SDK is a complete Linux kit for NXP QorIQ ARM-based SoC's and 
+QorIQ Yocto SDK is a complete Linux kit for NXP QorIQ SoC's and 
 the reference and evaluation boards.
 
 Supported boards
@@ -81,7 +81,7 @@ Booting with fsl-image-networking rootfs:
   => sf probe 0:0
   => sf read 0x80000000 0xA00000 0x100000
   => sf read 0x80100000 0xE00000 0x100000
-  => fsl_mc start mc 0x80000000 0x88000000
+  => fsl_mc start mc 0x80000000 0x80100000
   => sf read 0x80200000 0xd00000 0x100000
   => fsl_mc apply dpl 0x80200000
   For ls2088ardb:
@@ -126,24 +126,24 @@ Booting with fsl-image-networking-full rootfs:
   => setenv ipaddr <board_ipaddr>
   => setenv serverip <tftp_serverip>
   For ls1021atwr:
-  => setenv bootargs root=/dev/sda* rootdelay=5 rw console=ttyS0,115200 ramdisk_size=0x1000000
+  => setenv bootargs root=/dev/sda* rootdelay=5 rw console=ttyS0,115200
   For ls1012a,ls1043a,ls1046a
-  => setenv bootargs root=/dev/sda* rootdelay=5 rw console=ttyS0,115200 earlycon=uart8250,mmio,0x21c0500 ramdisk_size=0x10000000
+  => setenv bootargs root=/dev/sda* rootdelay=5 rw console=ttyS0,115200 earlycon=uart8250,mmio,0x21c0500
   For ls1088ardb:
-  => setenv bootargs root=/dev/sda* rootdelay=5 rw console=ttyS0,115200 earlycon=uart8250,mmio,0x21c0500 ramdisk_size=0x2000000 default_hugepagesz=2m hugepagesz=2m hugepages=512
+  => setenv bootargs root=/dev/sda* rootdelay=5 rw console=ttyS0,115200 earlycon=uart8250,mmio,0x21c0500 default_hugepagesz=2m hugepagesz=2m hugepages=512
   For ls2088ardb:
-  => setenv bootargs root=/dev/sda* rootdelay=5 rw console=ttyS1,115200 earlycon=uart8250,mmio,0x21c0600 ramdisk_size=0x2000000 default_hugepagesz=1024m hugepagesz=1024m hugepages=8
+  => setenv bootargs root=/dev/sda* rootdelay=5 rw console=ttyS1,115200 earlycon=uart8250,mmio,0x21c0600 default_hugepagesz=1024m hugepagesz=1024m hugepages=8
   For mpc8548cds:
-  => setenv bootargs root=/dev/sda* rootdelay=5 rw console=ttyS1,115200 ramdisk_size=1000000 log_buf_len=128K
+  => setenv bootargs root=/dev/sda* rootdelay=5 rw console=ttyS1,115200 log_buf_len=128K
   For p2020rdb,t1042d4rdb:
-  => setenv bootargs root=/dev/sda* rootdelay=5 rw console=ttyS0,115200 ramdisk_size=1000000 log_buf_len=128K
+  => setenv bootargs root=/dev/sda* rootdelay=5 rw console=ttyS0,115200 log_buf_len=128K
 
 4.ls1088ardb and ls2088ardb need run below commands to enable DPAA2 ethernet in Linux:
   For ls1088ardb:
   => sf probe 0:0
   => sf read 0x80000000 0xA00000 0x100000
   => sf read 0x80100000 0xE00000 0x100000
-  => fsl_mc start mc 0x80000000 0x88000000
+  => fsl_mc start mc 0x80000000 0x80100000
   => sf read 0x80200000 0xd00000 0x100000
   => fsl_mc apply dpl 0x80200000
   For ls2088ardb:
