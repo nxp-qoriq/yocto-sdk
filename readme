@@ -48,6 +48,17 @@ $: bitbake fsl-image-networking-full
 
 Images will be found under tmp/deploy/images/ls1088ardb/.
 
+Note:Kernel configuration options to enable upstream version of DPAA driver for PowerPC targets:
+     CONFIG_FSL_DPAA,  CONFIG_FSL_FMAN and CONFIG_FSL_DPAA_ETH need to be enabled in kernel menuconfig as below:
+     Device Drivers  --->
+        SOC (System On Chip) specific Drivers  --->
+            [*] Freescale DPAA 1.x support  --->
+     Device Drivers  --->
+        [*] Network device support  --->
+        [*]   Ethernet driver support  --->
+              <*>     FMan support
+              <*>       DPAA Ethernet  ----
+  
 Booting the images for supported boards
 =======================================
 Prerequisites:
