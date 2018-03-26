@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
   <remote fetch="https://github.com" name="github"/>
+  <remote fetch="https://source.codeaurora.org" name="caf"/>
   <remote fetch="git://git.openembedded.org" name="oe"/>
   <remote fetch="git://git.yoctoproject.org" name="yocto"/>
   
@@ -10,7 +11,7 @@
   <project name="meta-security" path="sources/meta-security" remote="yocto" revision="3d4183b6b4d4ac530c232bcff338af6a9158f8df" upstream="rocko"/>
   <project name="meta-virtualization" path="sources/meta-virtualization" remote="yocto" revision="2520ee86700f167c7c156267ddec02301119727f" upstream="rocko"/>
   <project name="poky" path="sources/poky" remote="yocto" revision="165b337dfe00fd460c62d2e15a8a2c5613bb326c" upstream="rocko"/>
-  <project name="qoriq-open-source/meta-qoriq-demos" path="sources/meta-qoriq-demos" remote="github" revision="a7ea6c50aa581d967e5410a60d11f12f5bd0cdd9" upstream="rocko">
+  <project name="external/qoriq/qoriq-components/meta-qoriq-demos" path="sources/meta-qoriq-demos" remote="caf" revision="a7ea6c50aa581d967e5410a60d11f12f5bd0cdd9">
     <copyfile dest="setup-env" src="scripts/setup-env"/>
   </project>
 </manifest>
