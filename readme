@@ -3,23 +3,9 @@ QorIQ Yocto SDK Project
 QorIQ Yocto SDK is a complete Linux kit for NXP QorIQ SoC's and 
 the reference and evaluation boards.
 
-Supported boards
+Supported board
 ================
 ls1012ardb
-ls1012ardb-32b
-ls1012afrdm
-ls1012afrdm-32b
-ls1021atwr
-ls1043ardb
-ls1043ardb-32b
-ls1046ardb
-ls1046ardb-32b
-ls1088ardb
-ls2088ardb
-mpc8548cds
-p2020rdb
-t1042d4rdb
-t1042d4rdb-64b
 
 Setting up to use the Yocto project
 ===================================
@@ -35,172 +21,43 @@ Download the metadata:
 $: export PATH=${PATH}:~/bin
 $: mkdir yocto-sdk
 $: cd yocto-sdk
-$: repo init -u https://github.com/qoriq-open-source/yocto-sdk.git -b refs/tags/LSDK-17.12
+$: repo init -u https://source.codeaurora.org/external/qoriq/qoriq-components/yocto-sdk -b refs/tags/LSDK-17.12-ls1012a-AB-tc1
 $: repo sync --no-clone-bundle
 
-Building images
-===============
-Take ls1088ardb as an example:
-$: . ./setup-env -m ls1088ardb
-$: bitbake fsl-image-networking
-or:
-$: bitbake fsl-image-networking-full
+Building images which includes the dpdk and vpp
+===============================================
+1. Build dependence for VPP.
+$ cd yocto-sdk
+$ . ./setup-env -m ls1012ardb
+$ bitbake dpdk
+$ bitbake fsl-toolchain     # yocto standalone toolchain is generated in <path>/yocto-sdk/build_ls1012ardb/tmp/deploy/sdk folder
 
-Images will be found under tmp/deploy/images/ls1088ardb/.
+2. Build VPP.
+<1>. Install the yocto standalone toolchain.
+$  ./fsl-qoriq-glibc-x86_64-fsl-toolchain-aarch64-toolchain-2.4.1.sh
+<2>. Compile VPP using the toolchain you just installed.
+$  git clone https://source.codeaurora.org/external/qoriq/qoriq-components/vpp
+$  cd vpp; git checkout ls1012_AB_tc1
+$  export DPDK_PATH=<path>/yocto-sdk/build_ls1012ardb/tmp/work/ls1012ardb-fsl-linux/dpdk/17.11-r0/git
+$  export OPENSSL_PATH=<path>/yocto-sdk/build_ls1012ardb/tmp/work/ls1012ardb-fsl-linux/dpdk/17.11-r0/recipe-sysroot
+$  cd build-root; make distclean; ./bootstrap.sh
+$  source  <your_yocto_standalone_toolchain_install_path>/environment-setup-aarch64-fsl-linux
+$  export CFLAGS="-I${DPDK_PATH}/arm64-dpaa-linuxapp-gcc/include"
+$  export LDFLAGS="-L${DPDK_PATH}/arm64-dpaa-linuxapp-gcc/lib"
+$  make V=0 PLATFORM=dpaa2 TAG=dpaa2 install-rpm   # All the rpm packages will be generated in current folder
 
-Booting the images for supported boards
-=======================================
-Prerequisites:
-1. TFTP server being setup to hold the images.
-2. A serial cable connected from your PC to UART1
-3. Ethernet connected to the first ethernet port on the board.
+3. Merge VPP binaries and libs into yocto rootfs and build kernelitb.
+<1>. Copy the following three rpm packages into the <path>/yocto-sdk/sources/meta-qoriq-demos/recipes-extended/merge-file/merge-file/merge folder
+vpp-18.01_ls1012-release.x86_64.rpm
+vpp-lib-18.01_ls1012-release.x86_64.rpm
+vpp-plugins-18.01_ls1012-release.x86_64.rpm
 
-Booting with fsl-image-networking rootfs:
+<2>. Extract the contents from above rpms
+$ cd <path>/yocto-sdk/sources/meta-qoriq-demos/recipes-extended/merge-file/merge-file/merge
+$ rpm2cpio vpp-18.01_ls1012-release.x86_64.rpm | cpio -idmv; rm -fr usr/share; rm vpp-18.01_ls1012-release.x86_64.rpm
+$ rpm2cpio vpp-lib-18.01_ls1012-release.x86_64.rpm | cpio -idmv; rm -fr usr/share;mv usr/lib64 usr/lib; rm vpp-lib-18.01_ls1012-release.x86_64.rpm
+$ rpm2cpio vpp-plugins-18.01_ls1012-release.x86_64.rpm | cpio -idmv; rm -fr usr/share; rm vpp-plugins-18.01_ls1012-release.x86_64.rpm
 
-1.Power up or reset the board and press a key on the terminal when prompted
-  to get to the U-Boot command line.
-
-2.Set up the environment in U-Boot:
-  => setenv ipaddr <board_ipaddr>
-  => setenv serverip <tftp_serverip>
-  For ls1021atwr:
-  => setenv bootargs root=/dev/ram0 rw console=ttyS0,115200 ramdisk_size=0x1000000
-  For ls1012a,ls1043a,ls1046a
-  => setenv bootargs root=/dev/ram0 rw console=ttyS0,115200 earlycon=uart8250,mmio,0x21c0500 ramdisk_size=0x10000000
-  For ls1088ardb: 
-  => setenv bootargs root=/dev/ram0 rw console=ttyS0,115200 earlycon=uart8250,mmio,0x21c0500 ramdisk_size=0x2000000 default_hugepagesz=2m hugepagesz=2m hugepages=512
-  For ls2088ardb:
-  => setenv bootargs root=/dev/ram0 rw console=ttyS1,115200 earlycon=uart8250,mmio,0x21c0600 ramdisk_size=0x2000000 default_hugepagesz=1024m hugepagesz=1024m hugepages=8
-  For mpc8548cds:
-  => setenv bootargs         root=/dev/ram rw console=ttyS1,115200 ramdisk_size=1000000 log_buf_len=128K
-  For p2020rdb,t1042d4rdb:
-  => setenv bootargs         root=/dev/ram rw console=ttyS0,115200 ramdisk_size=1000000 log_buf_len=128K
-
-3.ls1088ardb and ls2088ardb need run below commands to enable DPAA2 ethernet in Linux:
-  For ls1088ardb:
-  => sf probe 0:0
-  => sf read 0x80000000 0xA00000 0x100000
-  => sf read 0x80100000 0xE00000 0x100000
-  => fsl_mc start mc 0x80000000 0x80100000
-  => sf read 0x80200000 0xd00000 0x100000
-  => fsl_mc apply dpl 0x80200000
-  For ls2088ardb:
-  => fsl_mc start mc 0x580a00000 0x580e00000
-  => fsl_mc apply dpl 0x580d00000
-
-4.Download Images and bootup:
-  For ls1021atwr:
-  => tftp 82000000 uImage-ls1021atwr.bin
-  => tftp 88000000 fsl-image-networking-ls1021atwr.ext2.gz.u-boot
-  => tftp 8f000000 uImage-ls1021a-twr.dtb
-  => bootm 82000000 88000000 8f000000
-  For mpc8548cds:
-  => tftpboot  0x01000000 uImage-mpc8548cds.bin
-  => tftpboot  0x03000000 fsl-image-networking-mpc8548cds.ext2.gz.u-boot
-  => tftpboot  0x02000000 uImage-mpc8548cds_32b.dtb
-  => bootm 0x01000000 0x03000000 0x02000000
-  For p2020rdb:
-  => tftpboot  0x01000000 uImage-p2020rdb.bin
-  => tftpboot  0x02000000 fsl-image-networking-p2020rdb.ext2.gz.u-boot
-  => tftpboot  0x00c00000 uImage-p2020rdb-pc_32b.dtb
-  => bootm 0x01000000 0x02000000 0x00c00000
-  For t1042d4rdb,t1042d4rdb-64b:
-  => tftpboot  0x01000000 uImage-<board>.bin
-  => tftpboot  0x05000000 fsl-image-networking-<board>.ext2.gz.u-boot
-  => tftpboot  0x02000000 uImage-<board>.dtb
-  => bootm 0x01000000 0x05000000 0x02000000
-  For other boards:
-  => tftp a0000000 itbImage-fsl-image-networking-<board>.bin
-  => bootm a0000000
-
-Booting with fsl-image-networking-full rootfs:
-
-1.Prepare the media (sata/sd/usb) and format it as ext2 format
-  mount the ext2 partition and extract a full rootfs in this partition. After
-  uncompressing, unmount this partition.
-
-2.Power up or reset the board and press a key on the terminal when prompted
-  to get to the U-Boot command line.
-
-3.Set up the environment in U-Boot:
-  => setenv ipaddr <board_ipaddr>
-  => setenv serverip <tftp_serverip>
-  For ls1021atwr:
-  => setenv bootargs root=/dev/sda* rootdelay=5 rw console=ttyS0,115200
-  For ls1012a,ls1043a,ls1046a
-  => setenv bootargs root=/dev/sda* rootdelay=5 rw console=ttyS0,115200 earlycon=uart8250,mmio,0x21c0500
-  For ls1088ardb:
-  => setenv bootargs root=/dev/sda* rootdelay=5 rw console=ttyS0,115200 earlycon=uart8250,mmio,0x21c0500 default_hugepagesz=2m hugepagesz=2m hugepages=512
-  For ls2088ardb:
-  => setenv bootargs root=/dev/sda* rootdelay=5 rw console=ttyS1,115200 earlycon=uart8250,mmio,0x21c0600 default_hugepagesz=1024m hugepagesz=1024m hugepages=8
-  For mpc8548cds:
-  => setenv bootargs root=/dev/sda* rootdelay=5 rw console=ttyS1,115200 log_buf_len=128K
-  For p2020rdb,t1042d4rdb:
-  => setenv bootargs root=/dev/sda* rootdelay=5 rw console=ttyS0,115200 log_buf_len=128K
-
-4.ls1088ardb and ls2088ardb need run below commands to enable DPAA2 ethernet in Linux:
-  For ls1088ardb:
-  => sf probe 0:0
-  => sf read 0x80000000 0xA00000 0x100000
-  => sf read 0x80100000 0xE00000 0x100000
-  => fsl_mc start mc 0x80000000 0x80100000
-  => sf read 0x80200000 0xd00000 0x100000
-  => fsl_mc apply dpl 0x80200000
-  For ls2088ardb:
-  => fsl_mc start mc 0x580a00000 0x580e00000
-  => fsl_mc apply dpl 0x580d00000
-
-5.Download Image and bootup:
-  For ls1021atwr:
-  => tftp 82000000 uImage-ls1021atwr.bin
-  => tftp 8f000000 uImage-ls1021a-twr.dtb
-  => bootm 82000000 - 8f000000
-  For mpc8548cds:
-  => tftpboot  0x01000000 uImage-mpc8548cds.bin
-  => tftpboot  0x02000000 uImage-mpc8548cds_32b.dtb
-  => bootm 0x01000000 - 0x02000000
-  For p2020rdb:
-  => tftpboot  0x01000000 uImage-p2020rdb.bin
-  => tftpboot  0x00c00000 uImage-p2020rdb-pc_32b.dtb
-  => bootm 0x01000000 - 0x00c00000
-  For t1042d4rdb,t1042d4rdb-64b:
-  => tftpboot  0x01000000 uImage-<board>.bin
-  => tftpboot  0x02000000 uImage-<board>.dtb
-  => bootm 0x01000000 - 0x02000000
-  For other boards:
-  => tftp a0000000 itbImage-<board>.bin
-  => bootm a0000000:kernel@1 - a0000000:<fdt name>
-  Note: <fdt name> can be got by command:
-  $: grep fdt@ itbImage-its-<board>.its
-
-
-Known Issues
-============
-The following known issues exist for PowerPC targets.
------------------------------------------------------------------------------------------------------------------------
-| ID          | Description                     | Disposition | Opened In | Workarounds                               |
-|---------------------------------------------------------------------------------------------------------------------|
-| QUBOOT-3528 | AR8021 PHY does not work on     | Open        | LSDK-1712 | Set auto-negotiation for AR8021 in        |
-|             | P2020RDB-PC under uboot.        |             |           | atheros.c.                                |
-|---------------------------------------------------------------------------------------------------------------------|
-| QUBOOT-3619 | VSC7385 connected to eTSEC1     | Open        | LSDK-1712 | Current PHY driver in U-boot only supports|
-|             | does not work on P2020RDB-PC.   |             |           | real PHY. However, VSC7383 is a 5-ports   |
-|             |                                 |             |           | switch. Recommended using the other       |
-|             |                                 |             |           | ethernet port.                            |
-|---------------------------------------------------------------------------------------------------------------------|
-| QLINUX-8637 | Marvell 88e1145 PHY cannot work | Open        | LSDK-1712 | Marvell PHY has errata which require      |
-|             | on MPC8548CDS.                  |             |           | certain registers to get written in order |
-|             |                                 |             |           | to restart autonegotiation. The errata    |
-|             |                                 |             |           | workaround should be applied for 88e1145. |
-|---------------------------------------------------------------------------------------------------------------------|
-| QLINUX-8486 | There is error message          | Open        | LSDK-1712 | m25p80 driver has issue in kernel 4.9 in  |
-|             | "spi_master" spi32766: failed to|             |           | opensource. Need to apply the patch from  |
-|             | transfer one message from queue"|             |           | 4.14 kernel: (commit:                     |
-|             | for mtd_debug write command on  |             |           | 9e276de6a367cde07c1a63522152985d4e5cca8b  |
-|             | P2020RDB.                       |             |           | mtd: m25p80: consider max message size in |
-|             |                                 |             |           | m25p80_read)                              |
-|---------------------------------------------------------------------------------------------------------------------|
-| QLINUX-8722 | Talitos driver does not work    | Open        | LSDK-1712 |                                           |
-|             | when running ipsec transport    |             |           |                                           |
-|             | mode on P2020RDB.               |             |           |                                           |
------------------------------------------------------------------------------------------------------------------------
+<3>. Build kernelitb
+$ source <path>/yocto-sdk/build_ls1012ardb/SOURCE_THIS
+$ bitbake fsl-image-kernelitb     # All the images will be generated in <path>/yocto-sdk/build_ls1012ardb/tmp/deploy/images/ls1012ardb/ folder
