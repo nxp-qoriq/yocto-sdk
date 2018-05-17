@@ -20,6 +20,18 @@ mpc8548cds
 p2020rdb
 t1042d4rdb
 t1042d4rdb-64b
+t2080rdb 
+t1024rdb 
+p5040ds 
+p4080ds 
+p3041ds 
+p2041rdb 
+p1020rdb 
+p5040ds-64b 
+t1024rdb-64b  
+t2080rdb-64b  
+t4240rdb-64b
+ 
 
 Setting up to use the Yocto project
 ===================================
