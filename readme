@@ -206,25 +206,21 @@ The following known issues exist for PowerPC targets.
 -----------------------------------------------------------------------------------------------------------------------
 | ID          | Description                     | Disposition | Opened In | Workarounds                               |
 |---------------------------------------------------------------------------------------------------------------------|
-| QUBOOT-3528 | AR8021 PHY does not work on     | Open        | LSDK-1712 | Set auto-negotiation for AR8021 in        |
-|             | P2020RDB-PC under uboot.        |             |           | atheros.c.                                |
+| QLINUX-8953 | CONFIG_SUSPEND=y but doesn't    | Open        | LSDK-1803 |                                           |
+|             | support standby mode on p1020   |             |           |                                           |
+| 			  | p2020                           |             |           |                                           |
 |---------------------------------------------------------------------------------------------------------------------|
-| QUBOOT-3619 | VSC7385 connected to eTSEC1     | Open        | LSDK-1712 | Current PHY driver in U-boot only supports|
-|             | does not work on P2020RDB-PC.   |             |           | real PHY. However, VSC7383 is a 5-ports   |
-|             |                                 |             |           | switch. Recommended using the other       |
-|             |                                 |             |           | ethernet port.                            |
+| QLINUX-8954 | no "Suspend to RAM and standby" | Open        | LSDK-1803 |                                           |
+|             | in menuconfig for DPAA platform |             |           |                                           |
+|             |                                 |             |           |                                           |
+|             |                                 |             |           |                                           |
 |---------------------------------------------------------------------------------------------------------------------|
-| QLINUX-8637 | Marvell 88e1145 PHY cannot work | Open        | LSDK-1712 | Marvell PHY has errata which require      |
-|             | on MPC8548CDS.                  |             |           | certain registers to get written in order |
-|             |                                 |             |           | to restart autonegotiation. The errata    |
-|             |                                 |             |           | workaround should be applied for 88e1145. |
-|---------------------------------------------------------------------------------------------------------------------|
-| QLINUX-8486 | There is error message          | Open        | LSDK-1712 | m25p80 driver has issue in kernel 4.9 in  |
-|             | "spi_master" spi32766: failed to|             |           | opensource. Need to apply the patch from  |
-|             | transfer one message from queue"|             |           | 4.14 kernel: (commit:                     |
-|             | for mtd_debug write command on  |             |           | 9e276de6a367cde07c1a63522152985d4e5cca8b  |
-|             | P2020RDB.                       |             |           | mtd: m25p80: consider max message size in |
-|             |                                 |             |           | m25p80_read)                              |
+| QLINUX-9022 | fman tgec port got init_phy()   | Open        | LSDK-1803 |                                           |
+|             | failed on p3041                 |             |           |                                           |
+|             |                                 |             |           |                                           |
+|             |                                 |             |           |                                           |
+|             |                                 |             |           |                                           |
+|             |                                 |             |           |                                           |
 |---------------------------------------------------------------------------------------------------------------------|
 | QLINUX-8722 | Talitos driver does not work    | Open        | LSDK-1712 |                                           |
 |             | when running ipsec transport    |             |           |                                           |
