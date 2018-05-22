@@ -20,16 +20,17 @@ mpc8548cds
 p2020rdb
 t1042d4rdb
 t1042d4rdb-64b
-t2080rdb 
-t1024rdb 
-p5040ds 
-p4080ds 
-p3041ds 
-p2041rdb 
-p1020rdb 
-p5040ds-64b 
-t1024rdb-64b  
-t2080rdb-64b  
+t1024rdb
+t2080rdb
+t4240rdb
+p1020rdb
+p2041rdb
+p3041ds
+p4080ds
+p5040ds
+p5040ds-64b
+t1024rdb-64b
+t2080rdb-64b
 t4240rdb-64b
  
 
@@ -96,7 +97,9 @@ Booting with fsl-image-networking rootfs:
   => setenv bootargs root=/dev/ram0 rw console=ttyS1,115200 earlycon=uart8250,mmio,0x21c0600 ramdisk_size=0x2000000 default_hugepagesz=1024m hugepagesz=1024m hugepages=8
   For mpc8548cds:
   => setenv bootargs         root=/dev/ram rw console=ttyS1,115200 ramdisk_size=1000000 log_buf_len=128K
-  For p2020rdb,t1042d4rdb:
+  For t1024rdb:
+  => setenv bootargs         root=/dev/ram rw console=ttyS1,115200 ramdisk_size=30000000 log_buf_len=128K
+  For other PowerPC targets:
   => setenv bootargs         root=/dev/ram rw console=ttyS0,115200 ramdisk_size=1000000 log_buf_len=128K
 
 3.ls1088ardb and ls2088ardb need run below commands to enable DPAA2 ethernet in Linux:
@@ -122,12 +125,12 @@ Booting with fsl-image-networking rootfs:
   => tftpboot  0x03000000 fsl-image-networking-mpc8548cds.ext2.gz.u-boot
   => tftpboot  0x02000000 uImage-mpc8548cds_32b.dtb
   => bootm 0x01000000 0x03000000 0x02000000
-  For p2020rdb:
+  For p1020rdb,p2041rdb,p3041ds,p4080ds,p5040ds:
   => tftpboot  0x01000000 uImage-p2020rdb.bin
   => tftpboot  0x02000000 fsl-image-networking-p2020rdb.ext2.gz.u-boot
   => tftpboot  0x00c00000 uImage-p2020rdb-pc_32b.dtb
-  => bootm 0x01000000 0x02000000 0x00c00000
-  For t1042d4rdb,t1042d4rdb-64b:
+  => bootm 0x01000000 0x04000000 0x02000000
+  For other PowerPC targets:
   => tftpboot  0x01000000 uImage-<board>.bin
   => tftpboot  0x05000000 fsl-image-networking-<board>.ext2.gz.u-boot
   => tftpboot  0x02000000 uImage-<board>.dtb
@@ -158,7 +161,7 @@ Booting with fsl-image-networking-full rootfs:
   => setenv bootargs root=/dev/sda* rootdelay=5 rw console=ttyS1,115200 earlycon=uart8250,mmio,0x21c0600 default_hugepagesz=1024m hugepagesz=1024m hugepages=8
   For mpc8548cds:
   => setenv bootargs root=/dev/sda* rootdelay=5 rw console=ttyS1,115200 log_buf_len=128K
-  For p2020rdb,t1042d4rdb:
+  For other PowerPC targets:
   => setenv bootargs root=/dev/sda* rootdelay=5 rw console=ttyS0,115200 log_buf_len=128K
 
 4.ls1088ardb and ls2088ardb need run below commands to enable DPAA2 ethernet in Linux:
@@ -186,7 +189,7 @@ Booting with fsl-image-networking-full rootfs:
   => tftpboot  0x01000000 uImage-p2020rdb.bin
   => tftpboot  0x00c00000 uImage-p2020rdb-pc_32b.dtb
   => bootm 0x01000000 - 0x00c00000
-  For t1042d4rdb,t1042d4rdb-64b:
+  For other PowerPC targets:
   => tftpboot  0x01000000 uImage-<board>.bin
   => tftpboot  0x02000000 uImage-<board>.dtb
   => bootm 0x01000000 - 0x02000000
@@ -226,4 +229,9 @@ The following known issues exist for PowerPC targets.
 | QLINUX-8722 | Talitos driver does not work    | Open        | LSDK-1712 |                                           |
 |             | when running ipsec transport    |             |           |                                           |
 |             | mode on P2020RDB.               |             |           |                                           |
+-----------------------------------------------------------------------------------------------------------------------
+| QLINUX-9199 | lack of 2.5G SGMII node in      | Open        | LSDK-1803 | update t1024rdb.dts                       |
+|             | T1024RDB dts                    |             |           | aliases {                                 |
+|             |                                 |             |           |sg_2500_aqr105_phy4 = &sg_2500_aqr105_phy4;|
+|             |                                 |             |           |          };                               |
 -----------------------------------------------------------------------------------------------------------------------
