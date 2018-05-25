@@ -199,6 +199,10 @@ Booting with fsl-image-networking-full rootfs:
   Note: <fdt name> can be got by command:
   $: grep fdt@ itbImage-its-<board>.its
 
+6. Secure boot
+   For information on how to use secure boot, see the "6.1 Secure boot" section. 
+   You can find at  https://www.nxp.com/support/developer-resources/run-time-software/linux-software-and-development-tools/layerscape-software-development-kit:LAYERSCAPE-SDK?tab=Documentation_Tab
+ 
 
 Known Issues
 ============
