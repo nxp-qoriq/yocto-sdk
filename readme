@@ -1,0 +1,28 @@
+QorIQ Yocto SDK Project
+=======================
+QorIQ Yocto SDK is a complete Linux kit for NXP QorIQ SoC's and 
+the reference and evaluation boards.
+
+Supported boards
+================
+lx2160aqds
+lx2160ardb
+
+Setting up to use the Yocto project
+===================================
+
+(1) Install the 'repo' utility:
+$ mkdir ~/bin
+$ curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
+$ chmod a+x ~/bin/repo
+
+(2) Download the metadata:
+$ export PATH=${PATH}:~/bin
+$ mkdir yocto-sdk
+$ cd yocto-sdk
+$ repo init -u https://source.codeaurora.org/external/qoriq/qoriq-components/yocto-sdk -b refs/tags/lx2160a-early-access-bsp0.1-p2
+$ repo sync --no-clone-bundle
+
+(4) Build images:
+$ . ./setup-env -m lx2160ardb
+$ bitbake fsl-image-kernelitb
