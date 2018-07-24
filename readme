@@ -136,7 +136,7 @@ Booting with fsl-image-networking rootfs:
   => tftpboot  0x02000000 uImage-<board>.dtb
   => bootm 0x01000000 0x05000000 0x02000000
   For other boards:
-  => tftp a0000000 itbImage-fsl-image-networking-<board>.bin
+  => tftp a0000000 fitImage-fsl-image-networking-<board>.bin
   => bootm a0000000
 
 Booting with fsl-image-networking-full rootfs:
@@ -194,10 +194,10 @@ Booting with fsl-image-networking-full rootfs:
   => tftpboot  0x02000000 uImage-<board>.dtb
   => bootm 0x01000000 - 0x02000000
   For other boards:
-  => tftp a0000000 itbImage-<board>.bin
+  => tftp a0000000 fitImage-<board>.bin
   => bootm a0000000:kernel@1 - a0000000:<fdt name>
   Note: <fdt name> can be got by command:
-  $: grep fdt@ itbImage-its-<board>.its
+  $: grep fdt@ fitImage-its-<board>.its
 
 6. Secure boot
    For information on how to use secure boot, see the "6.1 Secure boot" section. 
