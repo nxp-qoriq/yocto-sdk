@@ -12,7 +12,7 @@
   <project remote="yocto" revision="2e8e06363369675c8cc15de418967392543a18a5" name="meta-virtualization" path="sources/meta-virtualization"/>
   <project remote="yocto" revision="a0799f3b4433f1377d1a082320e1165fe3cba696" name="meta-freescale" path="sources/meta-freescale"/>
   <project remote="oe" revision="a19aa29f7fa336cd075b72c496fe1102e6e5422b" name="meta-openembedded" path="sources/meta-openembedded"/>
-  <project remote="caf" revision="38a2162a342e3c0f6c16343737f1c7114f17a081" name="meta-qoriq-demos" path="sources/meta-qoriq-demos">
+  <project remote="caf" revision="e86a71c43ceb8b0f13689c1ac83c9e3ac8decb39" name="meta-qoriq-demos" path="sources/meta-qoriq-demos">
     <copyfile dest="setup-env" src="scripts/setup-env"/>
   </project>
 </manifest>
