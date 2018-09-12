@@ -11,6 +11,7 @@
   <project remote="yocto" revision="7a503cbfa2b64d60e547114b860a5320aeb721a2" name="meta-security" path="sources/meta-security"/>
   <project remote="yocto" revision="2e8e06363369675c8cc15de418967392543a18a5" name="meta-virtualization" path="sources/meta-virtualization"/>
   <project remote="yocto" revision="a0799f3b4433f1377d1a082320e1165fe3cba696" name="meta-freescale" path="sources/meta-freescale"/>
+  <project remote="yocto" revision="edb9fed9aca8452e54624d9da109cdd7cabcf30c" name="meta-cloud-services" path="sources/meta-cloud-services"/>
   <project remote="oe" revision="a19aa29f7fa336cd075b72c496fe1102e6e5422b" name="meta-openembedded" path="sources/meta-openembedded"/>
   <project remote="caf" revision="8c4085d9946031057a04f08b67e9098f2fc21453" name="meta-qoriq-demos" path="sources/meta-qoriq-demos">
     <copyfile dest="setup-env" src="scripts/setup-env"/>
