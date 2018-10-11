@@ -7,13 +7,13 @@
   <remote fetch="https://github.com" name="github"/>
   <remote fetch="https://bitbucket.sw.nxp.com/scm/dnyocto" name="stash"/>
 
-  <project remote="yocto" revision="c6edf2f8bc5778b267e3a7f4e8875d22f359fb8d" name="poky" path="sources/poky"/>
-  <project remote="yocto" revision="4bbc0d9d9423137eb826d292b6ac35644cac9744" name="meta-security" path="sources/meta-security"/>
-  <project remote="yocto" revision="6f2de77556960d6953aa56fb8e8d876f58fdd583" name="meta-virtualization" path="sources/meta-virtualization"/>
-  <project remote="yocto" revision="25b67706fe7a7969da3af52bb7b912bf3a02510e" name="meta-cloud-services" path="sources/meta-cloud-services"/>
+  <project remote="yocto" revision="4b8fd52f6d3682be287cc63d73bd06cb751751f4" name="poky" path="sources/poky"/>
+  <project remote="yocto" revision="729fca6d2cdf9d12d5e8659406029acae65076ee" name="meta-security" path="sources/meta-security"/>
+  <project remote="yocto" revision="f7738717b864f4d7a454034092c66bf95061bfcf" name="meta-virtualization" path="sources/meta-virtualization"/>
+  <project remote="yocto" revision="20f0f487f5f074bc9abc6899e8807c839950bc95" name="meta-cloud-services" path="sources/meta-cloud-services"/>
   <project remote="yocto" revision="3a889ee86db203eedea1c3ae3ad40d512327d637" name="meta-freescale" path="sources/meta-freescale"/>
-  <project remote="oe" revision="a06c29be2f5bc204f965ee07298c34232c5c39fc" name="meta-openembedded" path="sources/meta-openembedded"/>
-  <project remote="github" revision="914fb491fd23a46c58d906993f0d3adc23e4244c" name="Freescale/meta-freescale-distro" path="sources/meta-freescale-distro"/>
+  <project remote="oe" revision="99ecc889a0909d54b6bb5c795087585adde1bfbd" name="meta-openembedded" path="sources/meta-openembedded"/>
+  <project remote="github" revision="771fb6d4c0c9530083fcc8c5452270bb9b3915ba" name="Freescale/meta-freescale-distro" path="sources/meta-freescale-distro"/>
   <project remote="stash" revision="master" name="meta-qoriq-demos" path="sources/meta-qoriq-demos">
     <copyfile dest="setup-env" src="scripts/setup-env"/>
   </project>
