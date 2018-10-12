@@ -20,7 +20,7 @@ $ chmod a+x ~/bin/repo
 $ export PATH=${PATH}:~/bin
 $ mkdir yocto-sdk
 $ cd yocto-sdk
-$ repo init -u https://source.codeaurora.org/external/qoriq/qoriq-components/yocto-sdk -b refs/tags/lx2160a-early-access-bsp0.4
+$ repo init -u https://source.codeaurora.org/external/qoriq/qoriq-components/yocto-sdk -b refs/tags/lx2160a-early-access-bsp0.4-p1
 $ repo sync --no-clone-bundle
 
 (4) Build images:
