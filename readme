@@ -53,16 +53,14 @@ Download the metadata:
 $: export PATH=${PATH}:~/bin
 $: mkdir yocto-sdk
 $: cd yocto-sdk
-$: repo init -u https://bitbucket.sw.nxp.com/scm/dnyocto/yocto-sdk.git -b master
+$: repo init -u https://bitbucket.sw.nxp.com/scm/dnyocto/yocto-sdk.git -b edgescale-dev
 $: repo sync --no-clone-bundle
 
 Building images
 ===============
 Take ls1088ardb as an example:
 $: . ./setup-env -m ls1088ardb
-$: bitbake fsl-image-networking
-or:
-$: bitbake fsl-image-networking-full
+$: bitbake virtual/kernel
 
 Images will be found under tmp/deploy/images/ls1088ardb/.
 
@@ -76,7 +74,23 @@ Note:Kernel configuration options to enable upstream version of DPAA driver for 
         [*]   Ethernet driver support  --->
               <*>     FMan support
               <*>       DPAA Ethernet  ----
-  
+
+Build EdgeScale bootstrap images
+================================
+Take ls1012ardb for example:
+
+1. Copy the fit image to kernelitb
+$ cd <PATH>/build_ls1012ardb/tmp/deploy/images/ls1012ardb
+$ cp fitImage-fsl-image-edgescale-*.bin  kernel-fsl-ls1012a-rdb.itb
+
+2. Download flash image tool
+$ git clone ssh://git@bitbucket.sw.nxp.com/~nxa23275/flash-image-tool.git -b master
+
+3. Build flash image
+$ cd flash-image-tool
+$ ./gen_flash_image.pl -c ls1012ardb/flashmap_qspi.cfg -e ls1012ardb/uboot_env_qspi.txt -d <PATH>/build_ls1012ardb/tmp/deploy/images/ls1012ardb -o qspi_ls1012a.img
+
+
 Booting the images for supported boards
 =======================================
 Prerequisites:
