@@ -5,6 +5,7 @@ the reference and evaluation boards.
 
 Supported boards
 ================
+
 ls1012ardb
 ls1012ardb-32b
 ls1012afrdm
@@ -41,6 +42,7 @@ t4240rdb-64b
 
 Setting up to use the Yocto project
 ===================================
+
 Follow below guide to get your build host ready:
 http://www.yoctoproject.org/docs/2.4/yocto-project-qs/yocto-project-qs.html#yp-resources
 
@@ -58,13 +60,21 @@ $: repo sync --no-clone-bundle
 
 Building images
 ===============
+
 Take ls1088ardb as an example:
+
+1. Setup build envrioment for the target host
 $: . ./setup-env -m ls1088ardb
+
+2. Build EdgeScale bootstrap image on the target host
 $: bitbake fsl-image-kernelitb
+
+Note 1: To enable the ima_evm feature, need add following line to build_<machine>/conf/local.conf
+DELTA_KERNEL_DEFCONFIG = "ima-evm.config"
 
 Images will be found under tmp/deploy/images/ls1088ardb/.
 
-Note:Kernel configuration options to enable upstream version of DPAA driver for PowerPC targets:
+Note 2: Kernel configuration options to enable upstream version of DPAA driver for PowerPC targets:
      CONFIG_FSL_DPAA,  CONFIG_FSL_FMAN and CONFIG_FSL_DPAA_ETH need to be enabled in kernel menuconfig as below:
      Device Drivers  --->
         SOC (System On Chip) specific Drivers  --->
@@ -77,20 +87,28 @@ Note:Kernel configuration options to enable upstream version of DPAA driver for 
 
 Build EdgeScale bootstrap images
 ================================
+
 Take ls1012ardb for example:
 
 1. Download flash image tool
 $ git clone ssh://git@bitbucket.sw.nxp.com/~nxa23275/flash-image-tool.git -b master
 
-2. Build flash image
+2. Build flash image without ima_evm
 $ cd flash-image-tool
 $ ./gen_flash_image.pl -c ls1012ardb/flashmap_qspi.cfg -e ls1012ardb/uboot_env_qspi.txt -d <PATH>/build_ls1012ardb/tmp/deploy/images/ls1012ardb -o qspi_ls1012a.img
-Note:
+
+3. Build flash image with ima_evm (must be integrated the kernel option, detailes see above "Note 1")
+$ cd flash-image-tool
+$ ./gen_flash_image.pl -c ls1012ardb/flashmap_qspi.cfg -e ls1012ardb/uboot_env_qspi_enable_ima_evm.txt -d <PATH>/build_ls1012ardb/tmp/deploy/images/ls1012ardb -o qspi_ls1012a.img
+
+Note
+----
 please choose suitable kernelitb image and then update the flashmap file.
 
 
 Booting the images for supported boards
 =======================================
+
 Prerequisites:
 1. TFTP server being setup to hold the images.
 2. A serial cable connected from your PC to UART1
@@ -102,6 +120,7 @@ Booting with fsl-image-networking rootfs:
   to get to the U-Boot command line.
 
 2.Set up the environment in U-Boot:
+
   => setenv ipaddr <board_ipaddr>
   => setenv serverip <tftp_serverip>
   For ls1021atwr:
@@ -121,6 +140,7 @@ Booting with fsl-image-networking rootfs:
 
 3.ls1088ardb and ls2088ardb need run below commands to enable DPAA2 ethernet in Linux:
   For ls1088ardb:
+
   => sf probe 0:0
   => sf read 0x80000000 0xA00000 0x100000
   => sf read 0x80100000 0xE00000 0x100000
@@ -133,6 +153,7 @@ Booting with fsl-image-networking rootfs:
 
 4.Download Images and bootup:
   For ls1021atwr:
+
   => tftp 82000000 uImage-ls1021atwr.bin
   => tftp 88000000 fsl-image-networking-ls1021atwr.ext2.gz.u-boot
   => tftp 8f000000 uImage-ls1021a-twr.dtb
@@ -156,7 +177,8 @@ Booting with fsl-image-networking rootfs:
   => tftp a0000000 fitImage-fsl-image-networking-<board>.bin
   => bootm a0000000
 
-Booting with fsl-image-networking-full rootfs:
+Booting with fsl-image-networking-full rootfs
+=============================================
 
 1.Prepare the media (sata/sd/usb) and format it as ext2 format
   mount the ext2 partition and extract a full rootfs in this partition. After
@@ -166,9 +188,12 @@ Booting with fsl-image-networking-full rootfs:
   to get to the U-Boot command line.
 
 3.Set up the environment in U-Boot:
+
   => setenv ipaddr <board_ipaddr>
   => setenv serverip <tftp_serverip>
+
   For ls1021atwr:
+
   => setenv bootargs root=/dev/sda* rootdelay=5 rw console=ttyS0,115200
   For ls1012a,ls1043a,ls1046a
   => setenv bootargs root=/dev/sda* rootdelay=5 rw console=ttyS0,115200 earlycon=uart8250,mmio,0x21c0500
@@ -183,6 +208,7 @@ Booting with fsl-image-networking-full rootfs:
 
 4.ls1088ardb and ls2088ardb need run below commands to enable DPAA2 ethernet in Linux:
   For ls1088ardb:
+
   => sf probe 0:0
   => sf read 0x80000000 0xA00000 0x100000
   => sf read 0x80100000 0xE00000 0x100000
@@ -194,15 +220,21 @@ Booting with fsl-image-networking-full rootfs:
   => fsl_mc apply dpl 0x580d00000
 
 5.Download Image and bootup:
+
   For ls1021atwr:
+
   => tftp 82000000 uImage-ls1021atwr.bin
   => tftp 8f000000 uImage-ls1021a-twr.dtb
   => bootm 82000000 - 8f000000
+
   For mpc8548cds:
+
   => tftpboot  0x01000000 uImage-mpc8548cds.bin
   => tftpboot  0x02000000 uImage-mpc8548cds_32b.dtb
   => bootm 0x01000000 - 0x02000000
+
   For p2020rdb:
+
   => tftpboot  0x01000000 uImage-p2020rdb.bin
   => tftpboot  0x00c00000 uImage-p2020rdb-pc_32b.dtb
   => bootm 0x01000000 - 0x00c00000
@@ -210,19 +242,25 @@ Booting with fsl-image-networking-full rootfs:
   => tftpboot  0x01000000 uImage-<board>.bin
   => tftpboot  0x02000000 uImage-<board>.dtb
   => bootm 0x01000000 - 0x02000000
+
   For other boards:
+
   => tftp a0000000 fitImage-<board>.bin
   => bootm a0000000:kernel@1 - a0000000:<fdt name>
-  Note: <fdt name> can be got by command:
+
+Note: <fdt name> can be got by command:
+
   $: grep fdt@ fitImage-its-<board>.its
 
 6. Secure boot
+
    For information on how to use secure boot, see the "6.1 Secure boot" section. 
    You can find at  https://www.nxp.com/support/developer-resources/run-time-software/linux-software-and-development-tools/layerscape-software-development-kit:LAYERSCAPE-SDK?tab=Documentation_Tab
  
 
 Known Issues
 ============
+
 The following known issues exist for PowerPC targets.
 -----------------------------------------------------------------------------------------------------------------------
 | ID          | Description                     | Disposition | Opened In | Workarounds                               |
