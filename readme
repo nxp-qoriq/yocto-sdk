@@ -60,7 +60,7 @@ Building images
 ===============
 Take ls1088ardb as an example:
 $: . ./setup-env -m ls1088ardb
-$: bitbake virtual/kernel
+$: bitbake fsl-image-kernelitb
 
 Images will be found under tmp/deploy/images/ls1088ardb/.
 
@@ -79,16 +79,14 @@ Build EdgeScale bootstrap images
 ================================
 Take ls1012ardb for example:
 
-1. Copy the fit image to kernelitb
-$ cd <PATH>/build_ls1012ardb/tmp/deploy/images/ls1012ardb
-$ cp fitImage-fsl-image-edgescale-*.bin  kernel-fsl-ls1012a-rdb.itb
-
-2. Download flash image tool
+1. Download flash image tool
 $ git clone ssh://git@bitbucket.sw.nxp.com/~nxa23275/flash-image-tool.git -b master
 
-3. Build flash image
+2. Build flash image
 $ cd flash-image-tool
 $ ./gen_flash_image.pl -c ls1012ardb/flashmap_qspi.cfg -e ls1012ardb/uboot_env_qspi.txt -d <PATH>/build_ls1012ardb/tmp/deploy/images/ls1012ardb -o qspi_ls1012a.img
+Note:
+please choose suitable kernelitb image and then update the flashmap file.
 
 
 Booting the images for supported boards
