@@ -44,7 +44,7 @@ t4240rdb-64b
 Setting up to use the Yocto project
 ===================================
 Follow below guide to get your build host ready:
-http://www.yoctoproject.org/docs/2.4/yocto-project-qs/yocto-project-qs.html#yp-resources
+https://www.yoctoproject.org/docs/2.5.1/brief-yoctoprojectqs/brief-yoctoprojectqs.html
 
 Install the repo utility:
 $: mkdir ~/bin
