@@ -9,8 +9,8 @@
 
   <project remote="yocto" revision="thud" name="poky" path="sources/poky"/>
   <project remote="yocto" revision="thud" name="meta-security" path="sources/meta-security"/>
-  <project remote="yocto" revision="f7738717b864f4d7a454034092c66bf95061bfcf" name="meta-virtualization" path="sources/meta-virtualization"/>
-  <project remote="yocto" revision="20f0f487f5f074bc9abc6899e8807c839950bc95" name="meta-cloud-services" path="sources/meta-cloud-services"/>
+  <project remote="yocto" revision="f226bea1083b2bf7373ac7e4780459d454830cc4" name="meta-virtualization" path="sources/meta-virtualization"/>
+  <project remote="yocto" revision="5dec08769e026980e3b5d3217dbbe2ebd87bf33c" name="meta-cloud-services" path="sources/meta-cloud-services"/>
   <project remote="yocto" revision="master" name="meta-freescale" path="sources/meta-freescale"/>
   <project remote="oe" revision="thud" name="meta-openembedded" path="sources/meta-openembedded"/>
   <project remote="github" revision="771fb6d4c0c9530083fcc8c5452270bb9b3915ba" name="Freescale/meta-freescale-distro" path="sources/meta-freescale-distro"/>
