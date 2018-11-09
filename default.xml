@@ -5,16 +5,16 @@
   <remote fetch="git://git.yoctoproject.org" name="yocto"/>
   <remote fetch="git://git.openembedded.org" name="oe"/>
   <remote fetch="https://github.com" name="github"/>
-  <remote fetch="https://bitbucket.sw.nxp.com/scm/dnyocto" name="stash"/>
+  <remote fetch="https://bitbucket.sw.nxp.com/scm/dnyocto" name="bitbucket"/>
 
   <project remote="yocto" revision="4b8fd52f6d3682be287cc63d73bd06cb751751f4" name="poky" path="sources/poky"/>
   <project remote="yocto" revision="729fca6d2cdf9d12d5e8659406029acae65076ee" name="meta-security" path="sources/meta-security"/>
   <project remote="yocto" revision="f7738717b864f4d7a454034092c66bf95061bfcf" name="meta-virtualization" path="sources/meta-virtualization"/>
   <project remote="yocto" revision="20f0f487f5f074bc9abc6899e8807c839950bc95" name="meta-cloud-services" path="sources/meta-cloud-services"/>
-  <project remote="yocto" revision="9594fe7247fdcc4bc6a5080c966545cdd5d2230b" name="meta-freescale" path="sources/meta-freescale"/>
+  <project remote="bitbucket" revision="9594fe7247fdcc4bc6a5080c966545cdd5d2230b" name="meta-freescale" path="sources/meta-freescale"/>
   <project remote="oe" revision="ff0c0a1d83cafde9e039824329f0506335828745" name="meta-openembedded" path="sources/meta-openembedded"/>
   <project remote="github" revision="771fb6d4c0c9530083fcc8c5452270bb9b3915ba" name="Freescale/meta-freescale-distro" path="sources/meta-freescale-distro"/>
-  <project remote="stash" revision="edgescale-dev" name="meta-qoriq-demos" path="sources/meta-qoriq-demos">
+  <project remote="bitbucket" revision="edgescale-dev" name="meta-qoriq-demos" path="sources/meta-qoriq-demos">
     <copyfile dest="setup-env" src="scripts/setup-env"/>
   </project>
 </manifest>
