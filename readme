@@ -1,7 +1,6 @@
-QorIQ Yocto SDK Project
+Yocto community release
 =======================
-QorIQ Yocto SDK is a complete Linux kit for NXP QorIQ SoC's and 
-the reference and evaluation boards.
+Yocto with LSDK components provides recipes for the last Yocto release to use the latest and greatest components from LSDK as they get released. This eventually makes its way into the next community Yocto release at yoctoproject.org. 
 
 Supported boards
 ================
@@ -41,7 +40,7 @@ t2080rdb-64b
 t4240rdb-64b
  
 
-Setting up to use the Yocto project
+Setting up to use the Yocto community release
 ===================================
 Follow below guide to get your build host ready:
 https://www.yoctoproject.org/docs/2.5.1/brief-yoctoprojectqs/brief-yoctoprojectqs.html
@@ -59,39 +58,39 @@ $: repo init -u https://bitbucket.sw.nxp.com/scm/dnyocto/yocto-sdk.git -b master
 $: repo sync --no-clone-bundle
 
 Note:
-Or follow below steps to yocto layers 
-mkdir yocto-sdk
-cd yocto-sdk
-mkdir sources
-cd sources
-git clone git://git.yoctoproject.org/poky
-cd  poky 
-git reset --hard 84eecb017ef92ef36b4df730908828e54aeff85c
-cd ..
-git clone git://git.openembedded.org/meta-openembedded
-cd meta-openembedded
-git reset --hard f1511d254632a34c1deb51f4bf8b8c21e7423f51
-cd ..
-git clone git://git.yoctoproject.org/meta-freescale
-git clone git://git.yoctoproject.org/meta-virtualization
-cd meta-virtualization 
-git reset --hard d9c64d8aa0d7c5ca8d55e1443684c243b01186f0
-cd ..
-git clone git://git.yoctoproject.org/meta-cloud-services
-cd meta-cloud-services
-git reset --hard 4262e890cacaa14ebe78086fbf774c8c2bda92f1
-cd ..
-git clone git://git.yoctoproject.org/meta-security
-cd meta-security
-git reset --hard dcb0395033e1b4a5d44d467d041114c5cb5e13eb
-cd ..
-git clone https://github.com/Freescale/meta-freescale-distro
-cd meta-freescale-distro
-git reset --hard 771fb6d4c0c9530083fcc8c5452270bb9b3915ba
-cd ..
-git clone https://bitbucket.sw.nxp.com/scm/dnyocto/meta-qoriq-demos.git
-cd ..
-cp sources/meta-qoriq-demos/scripts/setup-env ./
+You can get Yocto layers directly from the community by follow below steps:
+$: mkdir yocto-sdk
+$: cd yocto-sdk
+$: mkdir sources
+$: cd sources
+$: git clone git://git.yoctoproject.org/poky
+$: cd  poky 
+$: git reset --hard 84eecb017ef92ef36b4df730908828e54aeff85c
+$: cd ..
+$: git clone git://git.openembedded.org/meta-openembedded
+$: cd meta-openembedded
+$: git reset --hard f1511d254632a34c1deb51f4bf8b8c21e7423f51
+$: cd ..
+$: git clone git://git.yoctoproject.org/meta-freescale
+$: git clone git://git.yoctoproject.org/meta-virtualization
+$: cd meta-virtualization 
+$: git reset --hard d9c64d8aa0d7c5ca8d55e1443684c243b01186f0
+$: cd ..
+$: git clone git://git.yoctoproject.org/meta-cloud-services
+$: cd meta-cloud-services
+$: git reset --hard 4262e890cacaa14ebe78086fbf774c8c2bda92f1
+$: cd ..
+$: git clone git://git.yoctoproject.org/meta-security
+$: cd meta-security
+$: git reset --hard dcb0395033e1b4a5d44d467d041114c5cb5e13eb
+$: cd ..
+$: git clone https://github.com/Freescale/meta-freescale-distro
+$: cd meta-freescale-distro
+$: git reset --hard 771fb6d4c0c9530083fcc8c5452270bb9b3915ba
+$: cd ..
+$: git clone https://bitbucket.sw.nxp.com/scm/dnyocto/meta-qoriq-demos.git
+$: cd ..
+$；cp sources/meta-qoriq-demos/scripts/setup-env ./
 
 Building images
 ===============
