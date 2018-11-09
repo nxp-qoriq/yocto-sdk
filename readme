@@ -90,7 +90,7 @@ $: git reset --hard 771fb6d4c0c9530083fcc8c5452270bb9b3915ba
 $: cd ..
 $: git clone https://bitbucket.sw.nxp.com/scm/dnyocto/meta-qoriq-demos.git
 $: cd ..
-$；cp sources/meta-qoriq-demos/scripts/setup-env ./
+$: cp sources/meta-qoriq-demos/scripts/setup-env ./
 
 Building images
 ===============
