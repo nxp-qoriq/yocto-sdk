@@ -63,18 +63,21 @@ Building images
 
 Take ls1088ardb as an example:
 
-1. Setup build envrioment for the target host
+1. Setup build envrioment
 $: . ./setup-env -m ls1088ardb
 
-2. Build EdgeScale bootstrap image on the target host
+2. Build images used to generate EdgeScale bootstrap image
 $: bitbake fsl-image-kernelitb
 
-Note 1: To enable the ima_evm feature, need add following line to build_<machine>/conf/local.conf
+Note 1: Images will be found under tmp/deploy/images/ls1088ardb/.
+
+Note 2: To build images with optee, need to add following line to build_<machine>/conf/local.conf
+DISTRO_FEATURES_append = " edgescale_optee"
+
+Note 3: To enable the ima_evm feature, need to add following line to build_<machine>/conf/local.conf
 DELTA_KERNEL_DEFCONFIG = "ima-evm.config"
 
-Images will be found under tmp/deploy/images/ls1088ardb/.
-
-Note 2: Kernel configuration options to enable upstream version of DPAA driver for PowerPC targets:
+Note 4: Kernel configuration options to enable upstream version of DPAA driver for PowerPC targets:
      CONFIG_FSL_DPAA,  CONFIG_FSL_FMAN and CONFIG_FSL_DPAA_ETH need to be enabled in kernel menuconfig as below:
      Device Drivers  --->
         SOC (System On Chip) specific Drivers  --->
