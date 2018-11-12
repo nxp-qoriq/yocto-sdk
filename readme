@@ -54,7 +54,7 @@ Download the metadata:
 $: export PATH=${PATH}:~/bin
 $: mkdir yocto-sdk
 $: cd yocto-sdk
-$: repo init -u ssh://bitbucket.sw.nxp.com/scm/dnyocto/yocto-sdk.git -b master
+$: repo init -u ssh://git@bitbucket.sw.nxp.com/scm/dnyocto/yocto-sdk.git -b master
 $: repo sync --no-clone-bundle
 
 Note:
