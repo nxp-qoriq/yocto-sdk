@@ -4,6 +4,7 @@ the reference and evaluation boards.
 
 ## Supported boards
 ls1012ardb
+ls1021atwr
 ls1043ardb
 ls1046ardb
 ls1088ardb-pb
