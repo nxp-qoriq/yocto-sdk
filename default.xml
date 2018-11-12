@@ -5,7 +5,7 @@
   <remote fetch="git://git.yoctoproject.org" name="yocto"/>
   <remote fetch="git://git.openembedded.org" name="oe"/>
   <remote fetch="https://github.com" name="github"/>
-  <remote fetch="ssh://git@bitbucket.sw.nxp.com/scm/dnyocto" name="stash"/>
+  <remote fetch="ssh://git@bitbucket.sw.nxp.com/dnyocto" name="stash"/>
 
   <project remote="yocto" revision="thud" name="poky" path="sources/poky"/>
   <project remote="yocto" revision="thud" name="meta-security" path="sources/meta-security"/>
