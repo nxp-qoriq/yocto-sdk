@@ -27,7 +27,7 @@ Download the metadata:
 $ export PATH=${PATH}:~/bin
 $ mkdir yocto-sdk
 $ cd yocto-sdk
-$ repo init -u https://bitbucket.sw.nxp.com/scm/dnyocto/yocto-sdk.git -b edgescale-dev
+$ repo init -u ssh://git@bitbucket.sw.nxp.com/dnyocto/yocto-sdk.git -b edgescale-dev
 $ repo sync --no-clone-bundle
 ```
 
