@@ -40,57 +40,61 @@ t2080rdb-64b
 t4240rdb-64b
  
 
-Setting up to use the Yocto community release
+Download Yocto Layer
 ===================================
-Follow below guide to get your build host ready:
+To make sure the build host is prepared for Yocto running and build, please follow below guide to prepare the build environment. 
+
 https://www.yoctoproject.org/docs/2.5.1/brief-yoctoprojectqs/brief-yoctoprojectqs.html
 
-Install the repo utility:
-$: mkdir ~/bin
-$: curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
-$: chmod a+x ~/bin/repo
+1. Get the Yocto layers from repo manifest:
+   The following is the step of how to use repo utility to download all Yocto layers according to the repo manifest
 
-Download the metadata:
-$: export PATH=${PATH}:~/bin
-$: mkdir yocto-sdk
-$: cd yocto-sdk
-$: repo init -u ssh://git@bitbucket.sw.nxp.com/dnyocto/yocto-sdk.git -b master
-$: repo sync --no-clone-bundle
+   Install the repo utility:
+   $: mkdir ~/bin
+   $: curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
+   $: chmod a+x ~/bin/repo
 
-Note:
-You can get Yocto layers directly from the community by follow below steps:
-$: mkdir yocto-sdk
-$: cd yocto-sdk
-$: mkdir sources
-$: cd sources
-$: git clone git://git.yoctoproject.org/poky
-$: cd  poky 
-$: git reset --hard 84eecb017ef92ef36b4df730908828e54aeff85c
-$: cd ..
-$: git clone git://git.openembedded.org/meta-openembedded
-$: cd meta-openembedded
-$: git reset --hard f1511d254632a34c1deb51f4bf8b8c21e7423f51
-$: cd ..
-$: git clone git://git.yoctoproject.org/meta-freescale
-$: git clone git://git.yoctoproject.org/meta-virtualization
-$: cd meta-virtualization 
-$: git reset --hard d9c64d8aa0d7c5ca8d55e1443684c243b01186f0
-$: cd ..
-$: git clone git://git.yoctoproject.org/meta-cloud-services
-$: cd meta-cloud-services
-$: git reset --hard 4262e890cacaa14ebe78086fbf774c8c2bda92f1
-$: cd ..
-$: git clone git://git.yoctoproject.org/meta-security
-$: cd meta-security
-$: git reset --hard dcb0395033e1b4a5d44d467d041114c5cb5e13eb
-$: cd ..
-$: git clone https://github.com/Freescale/meta-freescale-distro
-$: cd meta-freescale-distro
-$: git reset --hard 771fb6d4c0c9530083fcc8c5452270bb9b3915ba
-$: cd ..
-$: git clone https://bitbucket.sw.nxp.com/scm/dnyocto/meta-qoriq-demos.git
-$: cd ..
-$: cp sources/meta-qoriq-demos/scripts/setup-env ./
+   Download the Yocto layers:
+   $: export PATH=${PATH}:~/bin
+   $: mkdir yocto-sdk
+   $: cd yocto-sdk
+   $: repo init -u ssh://git@bitbucket.sw.nxp.com/dnyocto/yocto-sdk.git -b master
+   $: repo sync --no-clone-bundle
+
+2. Get Yocto layers from community repository
+   The following is the step of how to download all Yocto layers through git command:
+   $: mkdir yocto-sdk
+   $: cd yocto-sdk
+   $: mkdir sources
+   $: cd sources
+   $: git clone git://git.yoctoproject.org/poky
+   $: cd  poky 
+   $: git reset --hard 84eecb017ef92ef36b4df730908828e54aeff85c
+   $: cd ..
+   $: git clone git://git.openembedded.org/meta-openembedded
+   $: cd meta-openembedded
+   $: git reset --hard f1511d254632a34c1deb51f4bf8b8c21e7423f51
+   $: cd ..
+   $: git clone git://git.yoctoproject.org/meta-freescale
+   $: git clone git://git.yoctoproject.org/meta-virtualization
+   $: cd meta-virtualization 
+   $: git reset --hard d9c64d8aa0d7c5ca8d55e1443684c243b01186f0
+   $: cd ..
+   $: git clone git://git.yoctoproject.org/meta-cloud-services
+   $: cd meta-cloud-services
+   $: git reset --hard 4262e890cacaa14ebe78086fbf774c8c2bda92f1
+   $: cd ..
+   $: git clone git://git.yoctoproject.org/meta-security
+   $: cd meta-security
+   $: git reset --hard dcb0395033e1b4a5d44d467d041114c5cb5e13eb
+   $: cd ..
+   $: git clone https://github.com/Freescale/meta-freescale-distro
+   $: cd meta-freescale-distro
+   $: git reset --hard 771fb6d4c0c9530083fcc8c5452270bb9b3915ba
+   $: cd ..
+   $: git clone https://bitbucket.sw.nxp.com/scm/dnyocto/meta-qoriq-demos.git
+   $: cd ..
+   $: cp sources/meta-qoriq-demos/scripts/setup-env ./
 
 Building images
 ===============
