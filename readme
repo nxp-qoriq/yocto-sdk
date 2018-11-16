@@ -1,4 +1,4 @@
-Yocto community release
+Yocto with LSDK Components
 =======================
 Yocto with LSDK components provides recipes for the last Yocto release to use the latest and greatest components from LSDK as they get released. This eventually makes its way into the next community Yocto release at yoctoproject.org. 
 
@@ -44,7 +44,7 @@ Download Yocto Layer
 ===================================
 To make sure the build host is prepared for Yocto running and build, please follow below guide to prepare the build environment. 
 
-https://www.yoctoproject.org/docs/2.5.1/brief-yoctoprojectqs/brief-yoctoprojectqs.html
+https://www.yoctoproject.org/docs/2.6/brief-yoctoprojectqs/brief-yoctoprojectqs.html
 
 1. Get the Yocto layers from repo manifest:
    The following is the step of how to use repo utility to download all Yocto layers according to the repo manifest
