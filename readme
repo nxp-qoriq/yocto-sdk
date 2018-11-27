@@ -254,29 +254,22 @@ Known Issues
 The following known issues exist for PowerPC targets.
 -----------------------------------------------------------------------------------------------------------------------
 | ID          | Description                     | Disposition | Opened In | Workarounds                               |
-|---------------------------------------------------------------------------------------------------------------------|
-| QLINUX-8953 | CONFIG_SUSPEND=y but doesn't    | Open        | LSDK-1803 |                                           |
-|             | support standby mode on p1020   |             |           |                                           |
-| 	      | p2020                           |             |           |                                           |
-|---------------------------------------------------------------------------------------------------------------------|
-| QLINUX-8954 | no "Suspend to RAM and standby" | Open        | LSDK-1803 |                                           |
-|             | in menuconfig for DPAA platform |             |           |                                           |
-|             |                                 |             |           |                                           |
-|             |                                 |             |           |                                           |
-|---------------------------------------------------------------------------------------------------------------------|
-| QLINUX-9022 | fman tgec port got init_phy()   | Open        | LSDK-1803 |                                           |
-|             | failed on p3041                 |             |           |                                           |
-|             |                                 |             |           |                                           |
-|             |                                 |             |           |                                           |
-|             |                                 |             |           |                                           |
-|             |                                 |             |           |                                           |
-|---------------------------------------------------------------------------------------------------------------------|
-| QLINUX-8722 | Talitos driver does not work    | Open        | LSDK-1712 |                                           |
-|             | when running ipsec transport    |             |           |                                           |
-|             | mode on P2020RDB.               |             |           |                                           |
 -----------------------------------------------------------------------------------------------------------------------
-| QLINUX-9199 | lack of 2.5G SGMII node in      | Open        | LSDK-1803 | update t1024rdb.dts                       |
-|             | T1024RDB dts                    |             |           | aliases {                                 |
-|             |                                 |             |           |sg_2500_aqr105_phy4 = &sg_2500_aqr105_phy4;|
-|             |                                 |             |           |          };                               |
+| QLINUX-10188| PM sleep test failed on         | Open        | LSDK-1809 |                                           |
+|             | T1042D4RDB                      |             |           |                                           |
+|             |                                 |             |           |                                           |
+|             |                                 |             |           |                                           |
+|---------------------------------------------------------------------------------------------------------------------|
+| QLINUX-9692 | T2 optical_xfi port not works   | Open        | LSDK-1809 | update t2080rdb.dts                       |
+|             |                                 |             |           |      ethernet@f0000 {                     |
+|             |                                 |             |           |  -     phy-handle = <&xg_cs4315_phy1>;    |
+|             |                                 |             |           |  +     phy-handle = <&xg_cs4315_phy2>;    |
+|             |                                 |             |           |        phy-connection-type = "xgmii";     |
+|             |                                 |             |           |       };                                  |
+|             |                                 |             |           |      ethernet@f2000 {                     |
+|             |                                 |             |           |  -     phy-handle = <&xg_cs4315_phy2>;    |
+|             |                                 |             |           |  +     phy-handle = <&xg_cs4315_phy1>;    |
+|             |                                 |             |           |        phy-connection-type = "xgmii";     |
+|             |                                 |             |           |       };                                  |
+|             |                                 |             |           |                                           |
 -----------------------------------------------------------------------------------------------------------------------
