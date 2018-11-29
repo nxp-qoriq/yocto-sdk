@@ -19,7 +19,7 @@ ls1046ardb-32b
 ls1046ardb-be
 ls1088ardb
 ls1088ardb-be
-ls1088ardb_pb
+ls1088ardb-pb
 ls2088ardb
 ls2088ardb-be
 mpc8548cds
@@ -69,20 +69,23 @@ https://www.yoctoproject.org/docs/2.6/brief-yoctoprojectqs/brief-yoctoprojectqs.
    $: cd sources
    $: git clone git://git.yoctoproject.org/poky
    $: cd  poky 
-   $: git reset --hard 84eecb017ef92ef36b4df730908828e54aeff85c
+   $: git reset --hard eddff2b361928e88e3628ebc22a1a0ebb119e01b
    $: cd ..
    $: git clone git://git.openembedded.org/meta-openembedded
    $: cd meta-openembedded
    $: git reset --hard f1511d254632a34c1deb51f4bf8b8c21e7423f51
    $: cd ..
    $: git clone git://git.yoctoproject.org/meta-freescale
+   $: cd  meta-freescale
+   $: git reset --hard 15adae4343c8242ce150899a30fdc82b1f350e10 
+   $: cd ..
    $: git clone git://git.yoctoproject.org/meta-virtualization
    $: cd meta-virtualization 
-   $: git reset --hard d9c64d8aa0d7c5ca8d55e1443684c243b01186f0
+   $: git reset --hard f226bea1083b2bf7373ac7e4780459d454830cc4
    $: cd ..
    $: git clone git://git.yoctoproject.org/meta-cloud-services
    $: cd meta-cloud-services
-   $: git reset --hard 4262e890cacaa14ebe78086fbf774c8c2bda92f1
+   $: git reset --hard 5dec08769e026980e3b5d3217dbbe2ebd87bf33c
    $: cd ..
    $: git clone git://git.yoctoproject.org/meta-security
    $: cd meta-security
