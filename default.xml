@@ -11,10 +11,10 @@
   <project remote="yocto" revision="dcb0395033e1b4a5d44d467d041114c5cb5e13eb" name="meta-security" path="sources/meta-security"/>
   <project remote="yocto" revision="f226bea1083b2bf7373ac7e4780459d454830cc4" name="meta-virtualization" path="sources/meta-virtualization"/>
   <project remote="yocto" revision="5dec08769e026980e3b5d3217dbbe2ebd87bf33c" name="meta-cloud-services" path="sources/meta-cloud-services"/>
-  <project remote="yocto" revision="master" name="meta-freescale" path="sources/meta-freescale"/>
+  <project remote="yocto" revision="9c801795c886578bc4cd72d040143b18532b145d" name="meta-freescale" path="sources/meta-freescale"/>
   <project remote="oe" revision="f1511d254632a34c1deb51f4bf8b8c21e7423f51" name="meta-openembedded" path="sources/meta-openembedded"/>
   <project remote="github" revision="771fb6d4c0c9530083fcc8c5452270bb9b3915ba" name="Freescale/meta-freescale-distro" path="sources/meta-freescale-distro"/>
-  <project remote="stash" revision="master" name="meta-qoriq-demos" path="sources/meta-qoriq-demos">
+  <project remote="stash" revision="db3fe697fd9b381cc930aaeacc791c97494e20b1" name="meta-qoriq-demos" path="sources/meta-qoriq-demos">
     <copyfile dest="setup-env" src="scripts/setup-env"/>
   </project>
 </manifest>
