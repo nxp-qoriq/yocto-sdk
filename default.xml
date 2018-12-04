@@ -5,7 +5,7 @@
   <remote fetch="git://git.yoctoproject.org" name="yocto"/>
   <remote fetch="git://git.openembedded.org" name="oe"/>
   <remote fetch="https://github.com" name="github"/>
-  <remote fetch="ssh://git@bitbucket.sw.nxp.com/dnyocto" name="stash"/>
+  <remote fetch="https://source.codeaurora.org/external/qoriq/qoriq-components" name="stash"/>
 
   <project remote="yocto" revision="eddff2b361928e88e3628ebc22a1a0ebb119e01b" name="poky" path="sources/poky"/>
   <project remote="yocto" revision="dcb0395033e1b4a5d44d467d041114c5cb5e13eb" name="meta-security" path="sources/meta-security"/>
