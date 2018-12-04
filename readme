@@ -58,7 +58,7 @@ https://www.yoctoproject.org/docs/2.6/brief-yoctoprojectqs/brief-yoctoprojectqs.
    $: export PATH=${PATH}:~/bin
    $: mkdir yocto-sdk
    $: cd yocto-sdk
-   $: repo init -u ssh://git@bitbucket.sw.nxp.com/dnyocto/yocto-sdk.git -b master
+   $: repo init -u https://source.codeaurora.org/external/qoriq/qoriq-components/yocto-sdk -b thud
    $: repo sync --no-clone-bundle
 
 2. Get Yocto layers from community repository
@@ -77,7 +77,7 @@ https://www.yoctoproject.org/docs/2.6/brief-yoctoprojectqs/brief-yoctoprojectqs.
    $: cd ..
    $: git clone git://git.yoctoproject.org/meta-freescale
    $: cd  meta-freescale
-   $: git reset --hard 15adae4343c8242ce150899a30fdc82b1f350e10 
+   $: git reset --hard 9c801795c886578bc4cd72d040143b18532b145d 
    $: cd ..
    $: git clone git://git.yoctoproject.org/meta-virtualization
    $: cd meta-virtualization 
@@ -95,7 +95,9 @@ https://www.yoctoproject.org/docs/2.6/brief-yoctoprojectqs/brief-yoctoprojectqs.
    $: cd meta-freescale-distro
    $: git reset --hard 771fb6d4c0c9530083fcc8c5452270bb9b3915ba
    $: cd ..
-   $: git clone https://bitbucket.sw.nxp.com/scm/dnyocto/meta-qoriq-demos.git
+   $: git clone https://source.codeaurora.org/external/qoriq/qoriq-components/meta-qoriq-demos
+   $: cd meta-qoriq-demos
+   $: get reset --hard db3fe697fd9b381cc930aaeacc791c97494e20b1
    $: cd ..
    $: cp sources/meta-qoriq-demos/scripts/setup-env ./
 
