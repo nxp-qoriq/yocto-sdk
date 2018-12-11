@@ -157,10 +157,10 @@ Booting with fsl-image-networking rootfs:
   => sf read 0x80100000 0xE00000 0x100000
   => fsl_mc start mc 0x80000000 0x80100000
   => sf read 0x80200000 0xd00000 0x100000
-  => fsl_mc apply dpl 0x80200000
+  => fsl_mc lazyapply dpl 0x80200000
   For ls2088ardb:
   => fsl_mc start mc 0x580a00000 0x580e00000
-  => fsl_mc apply dpl 0x580d00000
+  => fsl_mc lazyapply dpl 0x580d00000
 
 4.Download Images and bootup:
   For ls1021atwr:
@@ -219,10 +219,10 @@ Booting with fsl-image-networking-full rootfs:
   => sf read 0x80100000 0xE00000 0x100000
   => fsl_mc start mc 0x80000000 0x80100000
   => sf read 0x80200000 0xd00000 0x100000
-  => fsl_mc apply dpl 0x80200000
+  => fsl_mc lazyapply dpl 0x80200000
   For ls2088ardb:
   => fsl_mc start mc 0x580a00000 0x580e00000
-  => fsl_mc apply dpl 0x580d00000
+  => fsl_mc lazyapply dpl 0x580d00000
 
 5.Download Image and bootup:
   For ls1021atwr:
