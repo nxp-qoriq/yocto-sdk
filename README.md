@@ -52,7 +52,7 @@ DISTRO_FEATURES_append = " edgescale-optee"
 ```
 Note 3: To enable the ima_evm feature, need to add following line to build_ls1012ardb/conf/local.conf
 ```
-DELTA_KERNEL_DEFCONFIG = "ima-evm.config"
+DISTRO_FEATURES_append = " ima-evm"
 ```
 
 ## Build EdgeScale bootstrap images
