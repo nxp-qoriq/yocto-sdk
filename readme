@@ -95,7 +95,7 @@ https://www.yoctoproject.org/docs/2.6/brief-yoctoprojectqs/brief-yoctoprojectqs.
    $: cd ..
    $: git clone https://source.codeaurora.org/external/qoriq/qoriq-components/meta-qoriq-demos
    $: cd meta-qoriq-demos
-   $: get reset --hard db3fe697fd9b381cc930aaeacc791c97494e20b1
+   $: git checkout -b thud origin/thud
    $: cd ..
    $: cp sources/meta-qoriq-demos/scripts/setup-env ./
 
