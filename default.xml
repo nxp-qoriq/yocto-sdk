@@ -7,14 +7,14 @@
   <remote fetch="https://github.com" name="github"/>
   <remote fetch="ssh://git@bitbucket.sw.nxp.com/dnyocto" name="bitbucket"/>
 
-  <project remote="yocto" revision="4b8fd52f6d3682be287cc63d73bd06cb751751f4" name="poky" path="sources/poky"/>
-  <project remote="yocto" revision="729fca6d2cdf9d12d5e8659406029acae65076ee" name="meta-security" path="sources/meta-security"/>
-  <project remote="yocto" revision="f7738717b864f4d7a454034092c66bf95061bfcf" name="meta-virtualization" path="sources/meta-virtualization"/>
-  <project remote="yocto" revision="20f0f487f5f074bc9abc6899e8807c839950bc95" name="meta-cloud-services" path="sources/meta-cloud-services"/>
-  <project remote="bitbucket" revision="888ff58019e5bc383b7ad990b884dacecad56519" name="meta-freescale" path="sources/meta-freescale"/>
-  <project remote="oe" revision="ff0c0a1d83cafde9e039824329f0506335828745" name="meta-openembedded" path="sources/meta-openembedded"/>
-  <project remote="github" revision="771fb6d4c0c9530083fcc8c5452270bb9b3915ba" name="Freescale/meta-freescale-distro" path="sources/meta-freescale-distro"/>
-  <project remote="bitbucket" revision="1334f83b8035c859d873ce38d9e71869fb84b48a" name="meta-qoriq-demos" path="sources/meta-qoriq-demos">
+  <project remote="yocto" revision="753e2a0ede4449917c75353b57f13bbafe70fac8" name="poky" path="sources/poky"/>
+  <project remote="yocto" revision="09366d63fe3fb68ef3afada4da3bcba6a2f4aaa6" name="meta-security" path="sources/meta-security"/>
+  <project remote="yocto" revision="5fd37dbe1c0460362b70885241d04df8e3a47eaf" name="meta-virtualization" path="sources/meta-virtualization"/>
+  <project remote="yocto" revision="7de3b83a87b12c0b9f5982fe246abba75617a07a" name="meta-cloud-services" path="sources/meta-cloud-services"/>
+  <project remote="yocto" revision="master" name="meta-freescale" path="sources/meta-freescale"/>
+  <project remote="oe" revision="5ea50a04748e7caa4974bdbe65ff5df6cb27fc8d" name="meta-openembedded" path="sources/meta-openembedded"/>
+  <project remote="github" revision="8c2553f4e97346dc916ca52058f4a4af07094edc" name="Freescale/meta-freescale-distro" path="sources/meta-freescale-distro"/>
+  <project remote="bitbucket" revision="master" name="meta-qoriq-demos" path="sources/meta-qoriq-demos">
     <copyfile dest="setup-env" src="scripts/setup-env"/>
   </project>
 </manifest>
