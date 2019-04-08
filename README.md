@@ -9,6 +9,7 @@ ls1043ardb
 ls1046ardb
 ls1088ardb-pb
 ls2088ardb
+lx2160ardb
  
 
 ## Setting up to use the Yocto project
@@ -27,7 +28,7 @@ Download the metadata:
 $ export PATH=${PATH}:~/bin
 $ mkdir yocto-sdk
 $ cd yocto-sdk
-$ repo init -u ssh://git@bitbucket.sw.nxp.com/dnyocto/yocto-sdk.git -b edgescale-dev
+$ repo init -u ssh://git@bitbucket.sw.nxp.com/dcca/edgescale-bootstrap.git -b master
 $ repo sync --no-clone-bundle
 ```
 
@@ -39,12 +40,12 @@ Take ls1012ardb as an example:
 $ . ./setup-env -m ls1012ardb
 ```
 
-2. Build images used to generate EdgeScale bootstrap image
+2. Build EdgeScale bootstrap images
 ```
-$ bitbake fsl-image-kernelitb
+$ bitbake edgescale-bootstrap
 ```
 
-Note 1: Images will be found under tmp/deploy/images/ls1012ardb/.
+Note 1: Edgescale bootstrap images will be found under tmp/deploy/images/ls1012ardb/edgescale-bootstrap/.
 
 Note 2: To build images with optee, need to add following line to build_ls1012ardb/conf/local.conf
 ```
@@ -55,24 +56,3 @@ Note 3: To enable the ima_evm feature, need to add following line to build_ls101
 DISTRO_FEATURES_append = " ima-evm"
 ```
 
-## Build EdgeScale bootstrap images
-Take ls1012ardb for example:
-
-1. Download flash image tool
-```
-$ git clone ssh://git@bitbucket.sw.nxp.com/~nxa23275/flash-image-tool.git -b master
-```
-
-2. Build flash image without ima_evm
-```
-$ cd flash-image-tool
-$ ./gen_flash_image.pl -c ls1012ardb/flashmap_qspi.cfg -e ls1012ardb/uboot_env_qspi.txt -d <PATH>/build_ls1012ardb/tmp/deploy/images/ls1012ardb -o qspi_ls1012a.img
-```
-
-3. Build flash image with ima_evm (must be integrated the kernel option, detailes see above "Note 3")
-```
-$ cd flash-image-tool
-$ ./gen_flash_image.pl -c ls1012ardb/flashmap_qspi.cfg -e ls1012ardb/uboot_env_qspi_enable_ima_evm.txt -d <PATH>/build_ls1012ardb/tmp/deploy/images/ls1012ardb -o qspi_ls1012a.img
-```
-
-Note： please choose suitable kernelitb image and then update the flashmap file.
