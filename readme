@@ -60,7 +60,7 @@ https://www.yoctoproject.org/docs/2.6/brief-yoctoprojectqs/brief-yoctoprojectqs.
    $: cd sources
    $: git clone git://git.yoctoproject.org/poky
    $: cd  poky 
-   $: git reset --hard e392026ffefee098a890c39bc3ca1f697bacb52
+   $: git reset --hard 0e392026ffefee098a890c39bc3ca1f697bacb52
    $: cd ..
    $: git clone git://git.openembedded.org/meta-openembedded
    $: cd meta-openembedded
