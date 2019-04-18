@@ -60,35 +60,35 @@ https://www.yoctoproject.org/docs/2.6/brief-yoctoprojectqs/brief-yoctoprojectqs.
    $: cd sources
    $: git clone git://git.yoctoproject.org/poky
    $: cd  poky 
-   $: git reset --hard eddff2b361928e88e3628ebc22a1a0ebb119e01b
+   $: git reset --hard e392026ffefee098a890c39bc3ca1f697bacb52
    $: cd ..
    $: git clone git://git.openembedded.org/meta-openembedded
    $: cd meta-openembedded
-   $: git reset --hard f1511d254632a34c1deb51f4bf8b8c21e7423f51
+   $: git reset --hard 0477c76116cd1dc479d0df0e9721cbbd729ac4d2
    $: cd ..
    $: git clone git://git.yoctoproject.org/meta-freescale
    $: cd  meta-freescale
-   $: git reset --hard 9c801795c886578bc4cd72d040143b18532b145d 
+   $: git reset --hard 3cf8e849e501c1243c0710889e97d14477688784 
    $: cd ..
    $: git clone git://git.yoctoproject.org/meta-virtualization
    $: cd meta-virtualization 
-   $: git reset --hard f226bea1083b2bf7373ac7e4780459d454830cc4
+   $: git reset --hard abcdb5841dfffc1ff4410f6c149dc304d4ac5e42
    $: cd ..
    $: git clone git://git.yoctoproject.org/meta-cloud-services
    $: cd meta-cloud-services
-   $: git reset --hard 5dec08769e026980e3b5d3217dbbe2ebd87bf33c
+   $: git reset --hard 215b97571f52d43915eda1fdc5cd80719687abcd
    $: cd ..
    $: git clone git://git.yoctoproject.org/meta-security
    $: cd meta-security
-   $: git reset --hard dcb0395033e1b4a5d44d467d041114c5cb5e13eb
+   $: git reset --hard 5959e4f4bf6120edf82c71e6c7a0b6118f275419
    $: cd ..
    $: git clone https://github.com/Freescale/meta-freescale-distro
    $: cd meta-freescale-distro
-   $: git reset --hard 771fb6d4c0c9530083fcc8c5452270bb9b3915ba
+   $: git reset --hard 8fbf269e32650cd9392603c1c81d8ace4111f89b
    $: cd ..
    $: git clone https://source.codeaurora.org/external/qoriq/qoriq-components/meta-qoriq-demos
    $: cd meta-qoriq-demos
-   $: get reset --hard db3fe697fd9b381cc930aaeacc791c97494e20b1
+   $: get reset --hard 645cbb692b0a2c77e66fbd19cff328acb86e0a8a
    $: cd ..
    $: cp sources/meta-qoriq-demos/scripts/setup-env ./
 
