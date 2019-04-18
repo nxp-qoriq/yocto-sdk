@@ -5,21 +5,13 @@ Yocto with LSDK components provides recipes for the last Yocto release to use th
 Supported boards
 ================
 ls1012ardb
-ls1012ardb-32b
 ls1012afrwy
-ls1012afrwy-32b
 ls1021atwr
 ls1043ardb
-ls1043ardb-32b
-ls1043ardb-be
 ls1046ardb
-ls1046ardb-32b
-ls1046ardb-be
 ls1088ardb
-ls1088ardb-be
 ls1088ardb-pb
 ls2088ardb
-ls2088ardb-be
 lx2160ardb
 mpc8548cds
 p2020rdb
