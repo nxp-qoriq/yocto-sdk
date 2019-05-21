@@ -240,6 +240,16 @@ Booting with fsl-image-networking-full rootfs:
   $: grep fdt@ fitImage-its-<board>.its
 
 6. Secure boot
+   For build secure boot image ,you need to set the following variables in local.conf
+   DISTRO_FEATURES_append = " secure"
+   ROOTFS_IMAGE = "fsl-image-mfgtool"
+   For arm64 targets:
+   KERNEL_ITS = "kernel-all.its" 
+   For arm32 targets:
+   KERNEL_ITS = "kernel-arm32.its"
+$: bitbake secure-boot-qoriq
+
+
    For information on how to use secure boot, see the "6.1 Secure boot" section. 
    You can find at  https://www.nxp.com/support/developer-resources/run-time-software/linux-software-and-development-tools/layerscape-software-development-kit:LAYERSCAPE-SDK?tab=Documentation_Tab
  
