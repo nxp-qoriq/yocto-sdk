@@ -34,7 +34,7 @@ Download Yocto Layer
 ===================================
 To make sure the build host is prepared for Yocto running and build, please follow below guide to prepare the build environment. 
 
-https://www.yoctoproject.org/docs/2.6/brief-yoctoprojectqs/brief-yoctoprojectqs.html
+https://www.yoctoproject.org/docs/2.7/brief-yoctoprojectqs/brief-yoctoprojectqs.html
 
 1. Get the Yocto layers from repo manifest:
    The following is the step of how to use repo utility to download all Yocto layers according to the repo manifest
