@@ -17,8 +17,6 @@ p2020rdb
 t1042d4rdb
 t1042d4rdb-64b
 t1024rdb
-t2080rdb
-t4240rdb
 p1020rdb
 p2041rdb
 p3041ds
@@ -137,8 +135,6 @@ Booting with fsl-image-networking rootfs:
   => setenv bootargs root=/dev/ram0 rw console=ttyS1,115200 earlycon=uart8250,mmio,0x21c0600 ramdisk_size=0x2000000 default_hugepagesz=1024m hugepagesz=1024m hugepages=8
   For mpc8548cds:
   => setenv bootargs         root=/dev/ram rw console=ttyS1,115200 ramdisk_size=1000000 log_buf_len=128K
-  For t1024rdb:
-  => setenv bootargs         root=/dev/ram rw console=ttyS1,115200 ramdisk_size=30000000 log_buf_len=128K
   For other PowerPC targets:
   => setenv bootargs         root=/dev/ram rw console=ttyS0,115200 ramdisk_size=1000000 log_buf_len=128K
 
@@ -199,10 +195,6 @@ Booting with fsl-image-networking-full rootfs:
   => setenv bootargs root=/dev/sda* rootdelay=5 rw console=ttyS0,115200 earlycon=uart8250,mmio,0x21c0500 default_hugepagesz=2m hugepagesz=2m hugepages=512
   For ls2088ardb:
   => setenv bootargs root=/dev/sda* rootdelay=5 rw console=ttyS1,115200 earlycon=uart8250,mmio,0x21c0600 default_hugepagesz=1024m hugepagesz=1024m hugepages=8
-  For mpc8548cds:
-  => setenv bootargs root=/dev/sda* rootdelay=5 rw console=ttyS1,115200 log_buf_len=128K
-  For other PowerPC targets:
-  => setenv bootargs root=/dev/sda* rootdelay=5 rw console=ttyS0,115200 log_buf_len=128K
 
 4.ls1088ardb-pb and ls2088ardb need run below commands to enable DPAA2 ethernet in Linux:
   For ls1088ardb-pb:
@@ -221,18 +213,6 @@ Booting with fsl-image-networking-full rootfs:
   => tftp 82000000 uImage-ls1021atwr.bin
   => tftp 8f000000 uImage-ls1021a-twr.dtb
   => bootm 82000000 - 8f000000
-  For mpc8548cds:
-  => tftpboot  0x01000000 uImage-mpc8548cds.bin
-  => tftpboot  0x02000000 uImage-mpc8548cds_32b.dtb
-  => bootm 0x01000000 - 0x02000000
-  For p2020rdb:
-  => tftpboot  0x01000000 uImage-p2020rdb.bin
-  => tftpboot  0x00c00000 uImage-p2020rdb-pc_32b.dtb
-  => bootm 0x01000000 - 0x00c00000
-  For other PowerPC targets:
-  => tftpboot  0x01000000 uImage-<board>.bin
-  => tftpboot  0x02000000 uImage-<board>.dtb
-  => bootm 0x01000000 - 0x02000000
   For other boards:
   => tftp a0000000 fitImage-<board>.bin
   => bootm a0000000:kernel@1 - a0000000:<fdt name>
@@ -260,24 +240,6 @@ The following known issues exist for Qoriq targets.
 -----------------------------------------------------------------------------------------------------------------------
 | ID          | Description                     | Disposition | Opened In | Workarounds                               |
 -----------------------------------------------------------------------------------------------------------------------
-| QLINUX-10188| PM sleep test failed on         | Open        | LSDK-1809 |                                           |
-|             | T1042D4RDB                      |             |           |                                           |
-|             |                                 |             |           |                                           |
-|             |                                 |             |           |                                           |
-|---------------------------------------------------------------------------------------------------------------------|
-| QLINUX-9692 | T2 optical_xfi port not works   | Open        | LSDK-1809 | update t2080rdb.dts                       |
-|             |                                 |             |           |      ethernet@f0000 {                     |
-|             |                                 |             |           |  -     phy-handle = <&xg_cs4315_phy1>;    |
-|             |                                 |             |           |  +     phy-handle = <&xg_cs4315_phy2>;    |
-|             |                                 |             |           |        phy-connection-type = "xgmii";     |
-|             |                                 |             |           |       };                                  |
-|             |                                 |             |           |      ethernet@f2000 {                     |
-|             |                                 |             |           |  -     phy-handle = <&xg_cs4315_phy2>;    |
-|             |                                 |             |           |  +     phy-handle = <&xg_cs4315_phy1>;    |
-|             |                                 |             |           |        phy-connection-type = "xgmii";     |
-|             |                                 |             |           |       };                                  |
-|             |                                 |             |           |                                           |
-----------------------------------------------------------------------------------------------------------------------|
 | QSDK-5118   |Openssl offload :                |             |           |                                           |
 |             |asymmetric_ciphers_rsa_caam_jr   |             |           |                                           |
 |             |failed to work                   | Open        | LSDK-1809 |                                           |
@@ -285,9 +247,10 @@ The following known issues exist for Qoriq targets.
 |             |                                 |             |           |                                           |
 |             |                                 |             |           |                                           |
 ----------------------------------------------------------------------------------------------------------------------|
-|QLINUX-10670 |Guest rootfs boot failed on      |             |           |                                           |
+| QYOCTO-586  |guest rootfs boot failed on      |             |           |                                           |
 |             |T2080RDB and T4240RDB with       |             |           |                                           |
-|             |ext2.gz rootfs                   | Open        | LSDK-1809 |                                           |
+|             |ext2.gz on Yocto 2.6 and         |             |           |                                           |
+|             |Yocto 2.7                        | Open        | LSDK-1809 |                                           |
 |             |                                 |             |           |                                           |
 |             |                                 |             |           |                                           |
 |             |                                 |             |           |                                           |
