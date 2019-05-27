@@ -227,13 +227,11 @@ Booting with fsl-image-networking-full rootfs:
    KERNEL_ITS = "kernel-all.its" 
    For arm32 targets:
    KERNEL_ITS = "kernel-arm32.its"
-$: bitbake secure-boot-qoriq
-
+   $: bitbake secure-boot-qoriq
 
    For information on how to use secure boot, see the "6.1 Secure boot" section. 
    You can find at  https://www.nxp.com/support/developer-resources/run-time-software/linux-software-and-development-tools/layerscape-software-development-kit:LAYERSCAPE-SDK?tab=Documentation_Tab
  
-
 Known Issues
 ============
 The following known issues exist for Qoriq targets.
@@ -255,3 +253,7 @@ The following known issues exist for Qoriq targets.
 |             |                                 |             |           |                                           |
 |             |                                 |             |           |                                           |
 |---------------------------------------------------------------------------------------------------------------------|
+| QYOCTO-586  |optee testing failed on yocto 2.7| Open        | LSDK-1903 |                                           |
+|             |                                 |             |           |                                           |
+----------------------------------------------------------------------------------------------------------------------|
+| QYOCTO-581  |Bridging can't work  in YOCTO2.7 | Open        | LSDK-1903 |                                           |                  |             |full rootfs                      |             |           |                                           |             |    |---------------------------------------------------------------------------------------------------------------------|
