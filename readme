@@ -246,9 +246,9 @@ The following known issues exist for Qoriq targets.
 |             |work well on dpaa1 platform      |             |           |                                           |
 |             |                                 | Open        | LSDK-1809 |                                           |
 |---------------------------------------------------------------------------------------------------------------------|
-| QYOCTO-586  |optee testing failed on yocto 2.7|             | LSDK-1903 |                                           |
-|             |                                 | Open        |           |                                           |
+| QYOCTO-584  |optee testing failed on yocto 2.7|             |           |                                           |
+|             |                                 | Open        | LSDK-1903 |                                           |
 ----------------------------------------------------------------------------------------------------------------------|
-| QYOCTO-581  |Bridging can't work  in YOCTO2.7 |             | LSDK-1903 |                                           |
-|             |full rootfs                      | Open        |           |                                           |
+| QYOCTO-581  |Bridging can't work  in YOCTO2.7 |             |           |                                           |
+|             |full rootfs                      | Open        | LSDK-1903 |                                           |
 ----------------------------------------------------------------------------------------------------------------------|
