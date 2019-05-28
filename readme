@@ -46,7 +46,7 @@ https://www.yoctoproject.org/docs/2.7/brief-yoctoprojectqs/brief-yoctoprojectqs.
    $: export PATH=${PATH}:~/bin
    $: mkdir yocto-sdk
    $: cd yocto-sdk
-   $: repo init -u ssh://git@bitbucket.sw.nxp.com/dnyocto/yocto-sdk.git -b master
+   $: repo init -u https://source.codeaurora.org/external/qoriq/qoriq-components/yocto-sdk -b warrior
    $: repo sync --no-clone-bundle
 
 2. Get Yocto layers from community repository
