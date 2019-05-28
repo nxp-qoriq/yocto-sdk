@@ -85,7 +85,7 @@ https://www.yoctoproject.org/docs/2.7/brief-yoctoprojectqs/brief-yoctoprojectqs.
    $: cd ..
    $: git clone https://source.codeaurora.org/external/qoriq/qoriq-components/meta-qoriq-demos
    $: cd meta-qoriq-demos
-   $: get reset --hard dd64b165170782d745d7b8297c699086af6d5b88
+   $: git reset --hard dd64b165170782d745d7b8297c699086af6d5b88
    $: cd ..
    $: cp sources/meta-qoriq-demos/scripts/setup-env ./
 
