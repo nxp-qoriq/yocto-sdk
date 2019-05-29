@@ -96,8 +96,12 @@ $: . ./setup-env -m ls2088ardb
 $: bitbake fsl-image-networking
 or:
 $: bitbake fsl-image-networking-full
+Note: 
+There are 4.19 and 4.14 versions of kernel , "PREFERRED_VERSION" determines which version should be given preference
+please add 'PREFERRED_VERSION_linux-qoriq = "4.14"' in meta-qoriq-demos/conf/distro/fsl-qoriq.conf
 
 Images will be found under tmp/deploy/images/ls2088ardb/.
+
 
 Booting the images for supported boards
 =======================================
