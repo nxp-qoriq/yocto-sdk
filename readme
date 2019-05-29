@@ -155,6 +155,7 @@ Booting with fsl-image-networking rootfs:
   => tftp 8f000000 uImage-ls1021a-twr.dtb
   => bootm 82000000 88000000 8f000000
   For ls1012afrwy and ls1012ardb:
+  => pci enum
   => tftp a0000000 fitImage-fsl-image-networking-<board>.bin
   => pfe stop
   => bootm a0000000
@@ -221,6 +222,7 @@ Booting with fsl-image-networking-full rootfs:
   => tftp 8f000000 uImage-ls1021a-twr.dtb
   => bootm 82000000 - 8f000000
   For ls1012afrwy and ls1012ardb:
+  => pci enum
   => tftp a0000000 fitImage-<board>.bin
   => pfe stop
   => bootm a0000000:kernel@1 - a0000000:<fdt name>
