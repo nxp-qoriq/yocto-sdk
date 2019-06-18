@@ -7,14 +7,14 @@
   <remote fetch="https://github.com" name="github"/>
   <remote fetch="ssh://git@bitbucket.sw.nxp.com/dnyocto" name="stash"/>
 
-  <project remote="yocto" revision="0e392026ffefee098a890c39bc3ca1f697bacb52" name="poky" path="sources/poky"/>
-  <project remote="yocto" revision="5959e4f4bf6120edf82c71e6c7a0b6118f275419" name="meta-security" path="sources/meta-security"/>
-  <project remote="yocto" revision="abcdb5841dfffc1ff4410f6c149dc304d4ac5e42" name="meta-virtualization" path="sources/meta-virtualization"/>
-  <project remote="yocto" revision="215b97571f52d43915eda1fdc5cd80719687abcd" name="meta-cloud-services" path="sources/meta-cloud-services"/>
-  <project remote="yocto" revision="3cf8e849e501c1243c0710889e97d14477688784" name="meta-freescale" path="sources/meta-freescale"/>
-  <project remote="oe" revision="0477c76116cd1dc479d0df0e9721cbbd729ac4d2" name="meta-openembedded" path="sources/meta-openembedded"/>
-  <project remote="github" revision="8fbf269e32650cd9392603c1c81d8ace4111f89b" name="Freescale/meta-freescale-distro" path="sources/meta-freescale-distro"/>
-  <project remote="stash" revision="dd64b165170782d745d7b8297c699086af6d5b88" name="meta-qoriq-demos" path="sources/meta-qoriq-demos">
+  <project remote="yocto" revision="master" name="poky" path="sources/poky"/>
+  <project remote="yocto" revision="master" name="meta-security" path="sources/meta-security"/>
+  <project remote="yocto" revision="master" name="meta-virtualization" path="sources/meta-virtualization"/>
+  <project remote="yocto" revision="master" name="meta-cloud-services" path="sources/meta-cloud-services"/>
+  <project remote="yocto" revision="master" name="meta-freescale" path="sources/meta-freescale"/>
+  <project remote="oe" revision="master" name="meta-openembedded" path="sources/meta-openembedded"/>
+  <project remote="github" revision="master" name="Freescale/meta-freescale-distro" path="sources/meta-freescale-distro"/>
+  <project remote="stash" revision="master" name="meta-qoriq-demos" path="sources/meta-qoriq-demos">
     <copyfile dest="setup-env" src="scripts/setup-env"/>
   </project>
 </manifest>
