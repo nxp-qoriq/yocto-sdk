@@ -58,11 +58,11 @@ https://www.yoctoproject.org/docs/2.7/brief-yoctoprojectqs/brief-yoctoprojectqs.
    $: cd sources
    $: git clone git://git.yoctoproject.org/poky
    $: cd  poky 
-   $: git reset --hard 0e392026ffefee098a890c39bc3ca1f697bacb52
+   $: git reset --hard 4a68a44f56c725914cfa721993a2ea8a3dc6ebd5
    $: cd ..
    $: git clone git://git.openembedded.org/meta-openembedded
    $: cd meta-openembedded
-   $: git reset --hard 0477c76116cd1dc479d0df0e9721cbbd729ac4d2
+   $: git reset --hard 64974b8779291419486338f75f229a732e450d78
    $: cd ..
    $: git clone git://git.yoctoproject.org/meta-freescale
    $: cd  meta-freescale
@@ -70,19 +70,19 @@ https://www.yoctoproject.org/docs/2.7/brief-yoctoprojectqs/brief-yoctoprojectqs.
    $: cd ..
    $: git clone git://git.yoctoproject.org/meta-virtualization
    $: cd meta-virtualization 
-   $: git reset --hard abcdb5841dfffc1ff4410f6c149dc304d4ac5e42
+   $: git reset --hard c6e7bf94debb7bdd7a2b52b222a4b0da732a24b4
    $: cd ..
    $: git clone git://git.yoctoproject.org/meta-cloud-services
    $: cd meta-cloud-services
-   $: git reset --hard 215b97571f52d43915eda1fdc5cd80719687abcd
+   $: git reset --hard 2c4e53bbd77f6ee9d7b4acbd531511ef75116fae
    $: cd ..
    $: git clone git://git.yoctoproject.org/meta-security
    $: cd meta-security
-   $: git reset --hard 5959e4f4bf6120edf82c71e6c7a0b6118f275419
+   $: git reset --hard eabb07f6d2fc3318fd50f05d364372a96e0b12ed
    $: cd ..
    $: git clone https://github.com/Freescale/meta-freescale-distro
    $: cd meta-freescale-distro
-   $: git reset --hard 8fbf269e32650cd9392603c1c81d8ace4111f89b
+   $: git reset --hard 158c579a58a7ed6c4705a601eb70af2b0ff800e7
    $: cd ..
    $: git clone https://source.codeaurora.org/external/qoriq/qoriq-components/meta-qoriq-demos
    $: cd meta-qoriq-demos
