@@ -5,16 +5,16 @@
   <remote fetch="git://git.yoctoproject.org" name="yocto"/>
   <remote fetch="git://git.openembedded.org" name="oe"/>
   <remote fetch="https://github.com" name="github"/>
-  <remote fetch="https://source.codeaurora.org/external/qoriq/qoriq-components" name="stash"/>
+  <remote fetch="ssh://git@bitbucket.sw.nxp.com/dnyocto" name="stash"/>
 
-  <project remote="yocto" revision="4a68a44f56c725914cfa721993a2ea8a3dc6ebd5" name="poky" path="sources/poky"/>
-  <project remote="yocto" revision="eabb07f6d2fc3318fd50f05d364372a96e0b12ed" name="meta-security" path="sources/meta-security"/>
-  <project remote="yocto" revision="c6e7bf94debb7bdd7a2b52b222a4b0da732a24b4" name="meta-virtualization" path="sources/meta-virtualization"/>
-  <project remote="yocto" revision="2c4e53bbd77f6ee9d7b4acbd531511ef75116fae" name="meta-cloud-services" path="sources/meta-cloud-services"/>
-  <project remote="yocto" revision="fe802c0a1fd5b56b8d2edd960fe299d29080e66b" name="meta-freescale" path="sources/meta-freescale"/>
-  <project remote="oe" revision="64974b8779291419486338f75f229a732e450d78" name="meta-openembedded" path="sources/meta-openembedded"/>
-  <project remote="github" revision="158c579a58a7ed6c4705a601eb70af2b0ff800e7" name="Freescale/meta-freescale-distro" path="sources/meta-freescale-distro"/>
-  <project remote="stash" revision="95f69cdc67f3b2450c418d7855afb7bc4b94e4a4" name="meta-qoriq-demos" path="sources/meta-qoriq-demos">
+  <project remote="yocto" revision="master" name="poky" path="sources/poky"/>
+  <project remote="yocto" revision="master" name="meta-security" path="sources/meta-security"/>
+  <project remote="yocto" revision="master" name="meta-virtualization" path="sources/meta-virtualization"/>
+  <project remote="yocto" revision="master" name="meta-cloud-services" path="sources/meta-cloud-services"/>
+  <project remote="yocto" revision="master" name="meta-freescale" path="sources/meta-freescale"/>
+  <project remote="oe" revision="master" name="meta-openembedded" path="sources/meta-openembedded"/>
+  <project remote="github" revision="master" name="Freescale/meta-freescale-distro" path="sources/meta-freescale-distro"/>
+  <project remote="stash" revision="master" name="meta-qoriq-demos" path="sources/meta-qoriq-demos">
     <copyfile dest="setup-env" src="scripts/setup-env"/>
   </project>
 </manifest>
