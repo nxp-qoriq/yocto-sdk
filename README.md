@@ -15,7 +15,7 @@ lx2160ardb
 
 ## Setting up to use the Yocto project
 Follow below guide to get your build host ready:
-https://www.yoctoproject.org/docs/2.7/brief-yoctoprojectqs/brief-yoctoprojectqs.html
+https://www.yoctoproject.org/docs/2.6/brief-yoctoprojectqs/brief-yoctoprojectqs.html
 
 Install the repo utility:
 ```
@@ -29,7 +29,7 @@ Download the metadata:
 $ export PATH=${PATH}:~/bin
 $ mkdir yocto-sdk
 $ cd yocto-sdk
-$ repo init -u ssh://git@bitbucket.sw.nxp.com/dcca/edgescale-bootstrap.git -b master
+$ repo init -u https://source.codeaurora.org/external/qoriq/qoriq-components/yocto-sdk -b refs/tags/yocto_2.6_es_1906
 $ repo sync --no-clone-bundle
 ```
 
