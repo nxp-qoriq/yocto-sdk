@@ -7,6 +7,7 @@ ls1012ardb
 ls1021atwr
 ls1043ardb
 ls1046ardb
+ls1046afrwy
 ls1088ardb-pb
 ls2088ardb
 lx2160ardb
@@ -14,7 +15,7 @@ lx2160ardb
 
 ## Setting up to use the Yocto project
 Follow below guide to get your build host ready:
-http://www.yoctoproject.org/docs/2.4/yocto-project-qs/yocto-project-qs.html#yp-resources
+https://www.yoctoproject.org/docs/2.6/brief-yoctoprojectqs/brief-yoctoprojectqs.html
 
 Install the repo utility:
 ```
