@@ -31,7 +31,7 @@ Download the metadata:
 $ export PATH=${PATH}:~/bin
 $ mkdir yocto-sdk
 $ cd yocto-sdk
-$ repo init -u ssh://git@bitbucket.sw.nxp.com/dcca/edgescale-bootstrap.git -b master
+$ repo init -u https://source.codeaurora.org/external/qoriq/qoriq-components/yocto-sdk -b refs/tags/yocto_2.6_es_1909
 $ repo sync --no-clone-bundle
 ```
 
@@ -57,13 +57,30 @@ Note 1: Edgescale bootstrap images will be found under tmp/deploy/images/ls1012a
 
 Note 2: To build images with optee, need to add following line to build_ls1012ardb/conf/local.conf
 ```
-DISTRO_FEATURES_append = " edgescale-optee"
+DISTRO_FEATURES_append = " optee"
 ```
 Note 3: To enable the ima_evm feature, need to add following line to build_ls1012ardb/conf/local.conf
 ```
 DISTRO_FEATURES_append = " ima-evm"
 ```
-Note 4: ls1021atwr bootstrap image doesn't support single bootstrap,It can only be compiled with "bitbake edgescale-bootstrap" to build images
+Note 4: To enable the Manufacture, need to add following line to build_ls1012ardb/conf/local.conf
+```
+DISTRO_FEATURES_append = " mft"
+```
+Note 5: To enable the secure model, need to add following line to build_ls1012ardb/conf/local.conf
+```
+DISTRO_FEATURES_append = " secure"
+ROOTFS_IMAGE = "fsl-image-edgescale"
+KERNEL_ITS = "kernel-all.its"
+```
+Note 6: Key pairs and files required for the EdgeScale secure bootstrap images will be found under tmp/deploy/images/ls1012ardb/.
+        Without setting the specified key path, the generated key is random
+        To use the specified key pair,need to modify following lines to ../sources/meta-qoriq-demos/recipes-devtools/cst/cst_git.bbappend
+```
+#SECURE_PRI_KEY = "/path/srk.pri"
+#SECURE_PUB_KEY = "/path/srk.pub"
+```
+Note 7: ls1021atwr bootstrap image doesn't support single bootstrap,It can only be compiled with "bitbake edgescale-bootstrap" to build images
 and you need to add following line to build_ls1021atwr/conf/local.conf
 ```
 DISTRO_FEATURES_append = " ota"
