@@ -34,7 +34,7 @@ Download Yocto Layer
 ===================================
 To make sure the build host is prepared for Yocto running and build, please follow below guide to prepare the build environment. 
 
-https://www.yoctoproject.org/docs/2.7/brief-yoctoprojectqs/brief-yoctoprojectqs.html
+https://www.yoctoproject.org/docs/3.0/brief-yoctoprojectqs/brief-yoctoprojectqs.html
 
 1. Get the Yocto layers from repo manifest:
    The following is the step of how to use repo utility to download all Yocto layers according to the repo manifest
@@ -59,31 +59,31 @@ https://www.yoctoproject.org/docs/2.7/brief-yoctoprojectqs/brief-yoctoprojectqs.
    $: cd sources
    $: git clone git://git.yoctoproject.org/poky
    $: cd  poky 
-   $: git reset --hard 4a68a44f56c725914cfa721993a2ea8a3dc6ebd5
+   $: git reset --hard 4cecfe6e9d9e9216d9235feec25460c4011bf65f
    $: cd ..
    $: git clone git://git.openembedded.org/meta-openembedded
    $: cd meta-openembedded
-   $: git reset --hard 64974b8779291419486338f75f229a732e450d78
+   $: git reset --hard 1bfaa2e63a184e21a2db5c286444828d5948a8b4
    $: cd ..
    $: git clone git://git.yoctoproject.org/meta-freescale
    $: cd  meta-freescale
-   $: git reset --hard fe802c0a1fd5b56b8d2edd960fe299d29080e66b 
+   $: git reset --hard 218e7c48e6d7b95f61a9991c0d3c3bf4b38a34c4
    $: cd ..
    $: git clone git://git.yoctoproject.org/meta-virtualization
    $: cd meta-virtualization 
-   $: git reset --hard c6e7bf94debb7bdd7a2b52b222a4b0da732a24b4
+   $: git reset --hard 04e0d9de8cbaeb76aff6e78b90941a6e9a359b87
    $: cd ..
    $: git clone git://git.yoctoproject.org/meta-cloud-services
    $: cd meta-cloud-services
-   $: git reset --hard 2c4e53bbd77f6ee9d7b4acbd531511ef75116fae
+   $: git reset --hard fcf43a2b0a9ca101dd0c4b3d3f7b9fe0278e7173
    $: cd ..
    $: git clone git://git.yoctoproject.org/meta-security
    $: cd meta-security
-   $: git reset --hard eabb07f6d2fc3318fd50f05d364372a96e0b12ed
+   $: git reset --hard 27ddb455543b670097e252ba0d0ad5b7e4101748
    $: cd ..
    $: git clone https://github.com/Freescale/meta-freescale-distro
    $: cd meta-freescale-distro
-   $: git reset --hard 158c579a58a7ed6c4705a601eb70af2b0ff800e7
+   $: git reset --hard 4ee8b933cb6a55e7240b738a50c96be76d4ac408
    $: cd ..
    $: git clone https://source.codeaurora.org/external/qoriq/qoriq-components/meta-qoriq-demos
    $: cd meta-qoriq-demos
