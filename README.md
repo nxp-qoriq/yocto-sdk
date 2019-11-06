@@ -45,7 +45,7 @@ $ . ./setup-env -m ls1012ardb
 
 Note : To build single bootstrap images need to add following line to build_ls1012ardb/conf/local.conf
 ```
-DISTRO_FEATURES_append = " single-boot"
+DISTRO_FEATURES_append = " singleboot"
 ```
 
 2. Build EdgeScale bootstrap images
