@@ -272,3 +272,19 @@ The following known issues exist for Qoriq targets.
 | QYOCTO-581  |Bridging can't work  in YOCTO2.7 |             |           |                                           |
 |             |full rootfs                      | Open        | Yocto 2.7 |                                           |
 ----------------------------------------------------------------------------------------------------------------------|
+
+FAQ
+====
+1. How do I build linux rt in the Yocto Project?   
+   Set PREFERRED_PROVIDER_virtual/kernel = "linux-qoriq-rt" in your local.conf .
+
+2. How to compile atf with OPTEE ?
+   Set DISTRO_FEATURES_append = " optee"  in your local.conf.
+
+3. How to compile atf with specify different RCW image instead of the default one?
+   modify  RCWNOR or RCWSD and RCWNAND in machine conf 
+   For example, ls1043ardb.conf in meta-freescale:
+     RCWNOR ?= "RR_FQPP_1455/rcw_1600"
+                
+4. How to add custom additional packages to default rootfs ?
+   Set IMAGE_INSTALL_append  in your local.conf  
