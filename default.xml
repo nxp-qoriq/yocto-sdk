@@ -12,7 +12,7 @@
   <project remote="yocto" revision="c5b32c4d3a55274c4051c1dc9dc670620fbac5c5" name="meta-selinux" path="sources/meta-selinux"/>
   <project remote="yocto" revision="04e0d9de8cbaeb76aff6e78b90941a6e9a359b87" name="meta-virtualization" path="sources/meta-virtualization"/>
   <project remote="yocto" revision="fcf43a2b0a9ca101dd0c4b3d3f7b9fe0278e7173" name="meta-cloud-services" path="sources/meta-cloud-services"/>
-  <project remote="yocto" revision="218e7c48e6d7b95f61a9991c0d3c3bf4b38a34c4" name="meta-freescale" path="sources/meta-freescale"/>
+  <project remote="yocto" revision="188be007393760d8238725a9bb8903fc383a2028" name="meta-freescale" path="sources/meta-freescale"/>
   <project remote="oe" revision="1bfaa2e63a184e21a2db5c286444828d5948a8b4" name="meta-openembedded" path="sources/meta-openembedded"/>
   <project remote="github" revision="4ee8b933cb6a55e7240b738a50c96be76d4ac408" name="Freescale/meta-freescale-distro" path="sources/meta-freescale-distro"/>
   <project remote="stash" revision="master" name="meta-qoriq-demos" path="sources/meta-qoriq-demos">
