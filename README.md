@@ -57,8 +57,7 @@ Note 1: Edgescale bootstrap images will be found under tmp/deploy/images/ls1012a
 
 Note 2: To build images with customized domain name, need to add following line to build_ls1012ardb/conf/local.conf
 ```
-DISTRO_FEATURES_append = " es-domain"
-ES_DOMAIN_SUFFIX = "edgescale.demo"                                    # change the domain suffix to what you want to use
+ES_DOMAIN_SUFFIX = "edgescale.demo"                                    # change the domain suffix
 ES_CERTIFICATE_PATH = "/path/for/self-signed/edgescale/certificates"   # define this line when self-signed certificates are used
 ```
 
