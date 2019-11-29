@@ -247,6 +247,21 @@ Booting with fsl-image-networking-full rootfs:
    For information on how to use secure boot, see the "6.1 Secure boot" section. 
    You can find at  https://www.nxp.com/support/developer-resources/run-time-software/linux-software-and-development-tools/layerscape-software-development-kit:LAYERSCAPE-SDK?tab=Documentation_Tab
  
+7. build weston
+   For build image that includes gstreamer packages and multimedia packages ,you need to set the following variables in local.conf
+   DISTRO_FEATURES_append = " wayland vulkan alsa"
+   DISTRO_FEATURES_remove = " x11"
+   LICENSE_FLAGS_WHITELIST_append = " commercial"
+   PREFERRED_VERSION_weston_qoriq-arm64 = "5.0.0.imx"
+   PREFERRED_VERSION_wayland-protocols_qoriq-arm64 = "1.17.imx"
+   PREFERRED_VERSION_libdrm_qoriq-arm64 = "2.4.91.imx"
+   PREFERRED_VERSION_libdrm_qoriq-arm64 = "2.4.91.imx"
+   PREFERRED_PROVIDER_virtual/egl = "gpulib"
+   PREFERRED_PROVIDER_virtual/libgles2 = "gpulib"
+   PREFERRED_PROVIDER_virtual/libgbm = "gpulib" 
+   $: bitbake fsl-image-multimedia-full
+
+
 Known Issues
 ============
 The following known issues exist for Qoriq targets.
