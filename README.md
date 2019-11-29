@@ -31,7 +31,7 @@ Download the metadata:
 $ export PATH=${PATH}:~/bin
 $ mkdir yocto-sdk
 $ cd yocto-sdk
-$ repo init -u ssh://git@bitbucket.sw.nxp.com/dcca/edgescale-bootstrap.git -b master
+$ repo init -u https://source.codeaurora.org/external/qoriq/qoriq-components/yocto-sdk -b refs/tags/yocto_2.6_es_1909_update_291119
 $ repo sync --no-clone-bundle
 ```
 
@@ -43,10 +43,17 @@ Take ls1012ardb as an example:
 $ . ./setup-env -m ls1012ardb
 ```
 
-Note : To build single bootstrap images need to add following line to build_ls1012ardb/conf/local.conf
+Note 1: To build single bootstrap images need to add following line to build_ls1012ardb/conf/local.conf
 ```
 DISTRO_FEATURES_append = " singleboot"
 ```
+
+Note 2: To build images with customized domain name, need to add following line to build_ls1012ardb/conf/local.conf
+```
+ES_DOMAIN_SUFFIX = "edgescale.demo"                                    # change the domain suffix
+ES_CERTIFICATE_PATH = "/path/for/self-signed/edgescale/certificates"   # define this line when self-signed certificates are used
+```
+
 
 2. Build EdgeScale bootstrap images
 ```
@@ -55,38 +62,32 @@ $ bitbake single-source-bootstrap
 
 Note 1: Edgescale bootstrap images will be found under tmp/deploy/images/ls1012ardb/single-bootstrap/.
 
-Note 2: To build images with customized domain name, need to add following line to build_ls1012ardb/conf/local.conf
-```
-ES_DOMAIN_SUFFIX = "edgescale.demo"                                    # change the domain suffix
-ES_CERTIFICATE_PATH = "/path/for/self-signed/edgescale/certificates"   # define this line when self-signed certificates are used
-```
-
-Note 3: To build images with optee, need to add following line to build_ls1012ardb/conf/local.conf
+Note 2: To build images with optee, need to add following line to build_ls1012ardb/conf/local.conf
 ```
 DISTRO_FEATURES_append = " optee"
 ```
-Note 4: To enable the ima_evm feature, need to add following line to build_ls1012ardb/conf/local.conf
+Note 3: To enable the ima_evm feature, need to add following line to build_ls1012ardb/conf/local.conf
 ```
 DISTRO_FEATURES_append = " ima-evm"
 ```
-Note 5: To enable the Manufacture, need to add following line to build_ls1012ardb/conf/local.conf
+Note 4: To enable the Manufacture, need to add following line to build_ls1012ardb/conf/local.conf
 ```
 DISTRO_FEATURES_append = " mft"
 ```
-Note 6: To enable the secure model, need to add following line to build_ls1012ardb/conf/local.conf
+Note 5: To enable the secure model, need to add following line to build_ls1012ardb/conf/local.conf
 ```
 DISTRO_FEATURES_append = " secure"
 ROOTFS_IMAGE = "fsl-image-edgescale"
 KERNEL_ITS = "kernel-all.its"
 ```
-Note 7: Key pairs and files required for the EdgeScale secure bootstrap images will be found under tmp/deploy/images/ls1012ardb/.
+Note 6: Key pairs and files required for the EdgeScale secure bootstrap images will be found under tmp/deploy/images/ls1012ardb/.
         Without setting the specified key path, the generated key is random
         To use the specified key pair,need to modify following lines to ../sources/meta-qoriq-demos/recipes-devtools/cst/cst_git.bbappend
 ```
 #SECURE_PRI_KEY = "/path/srk.pri"
 #SECURE_PUB_KEY = "/path/srk.pub"
 ```
-Note 8: ls1021atwr bootstrap image doesn't support single bootstrap,It can only be compiled with "bitbake edgescale-bootstrap" to build images
+Note 7: ls1021atwr bootstrap image doesn't support single bootstrap,It can only be compiled with "bitbake edgescale-bootstrap" to build images
 and you need to add following line to build_ls1021atwr/conf/local.conf
 ```
 DISTRO_FEATURES_append = " ota"
