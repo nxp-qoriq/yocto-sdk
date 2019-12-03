@@ -67,7 +67,7 @@ https://www.yoctoproject.org/docs/3.0/brief-yoctoprojectqs/brief-yoctoprojectqs.
    $: cd ..
    $: git clone git://git.yoctoproject.org/meta-freescale
    $: cd  meta-freescale
-   $: git reset --hard 218e7c48e6d7b95f61a9991c0d3c3bf4b38a34c4
+   $: git reset --hard c5b32c4d3a55274c4051c1dc9dc670620fbac5c5
    $: cd ..
    $: git clone git://git.yoctoproject.org/meta-virtualization
    $: cd meta-virtualization 
@@ -80,6 +80,9 @@ https://www.yoctoproject.org/docs/3.0/brief-yoctoprojectqs/brief-yoctoprojectqs.
    $: git clone git://git.yoctoproject.org/meta-security
    $: cd meta-security
    $: git reset --hard 27ddb455543b670097e252ba0d0ad5b7e4101748
+   $: cd ..
+   $: git clone git://git.yoctoproject.org/meta-selinux
+   $: get reset --hard c5b32c4d3a55274c4051c1dc9dc670620fbac5c5
    $: cd ..
    $: git clone https://github.com/Freescale/meta-freescale-distro
    $: cd meta-freescale-distro
