@@ -87,7 +87,7 @@ https://www.yoctoproject.org/docs/3.0/brief-yoctoprojectqs/brief-yoctoprojectqs.
    $: cd ..
    $: git clone https://source.codeaurora.org/external/qoriq/qoriq-components/meta-qoriq-demos
    $: cd meta-qoriq-demos
-   $: git reset --hard 95f69cdc67f3b2450c418d7855afb7bc4b94e4a4
+   $: git reset --hard aa8d344cba2e91983083a8fb941dd538d74222d7
    $: cd ..
    $: cp sources/meta-qoriq-demos/scripts/setup-env ./
 
@@ -297,3 +297,7 @@ FAQ
                 
 4. How to add custom additional packages to default rootfs ?
    Set IMAGE_INSTALL_append  in your local.conf  
+
+5. How to run weston in targets ?
+   you need to set  XDG_RUNTIME_DIR  before run weston in targets
+   $ export XDG_RUNTIME_DIR=/run/user/`id -u`   
