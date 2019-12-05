@@ -129,6 +129,8 @@ Booting with fsl-image-networking rootfs:
   => setenv bootargs root=/dev/ram0 rw console=ttyS0,115200 earlycon=uart8250,mmio,0x21c0500 ramdisk_size=0x10000000
   For ls1088ardb-pb: 
   => setenv bootargs root=/dev/ram0 rw console=ttyS0,115200 earlycon=uart8250,mmio,0x21c0500 ramdisk_size=0x2000000 default_hugepagesz=2m hugepagesz=2m hugepages=512
+  For ls1028ardb:
+  => setenv bootargs root=/dev/ram0 rw console=ttyS0,115200 earlycon=uart8250,mmio,0x21c0500 default_hugepagesz=2m hugepagesz=2m hugepages=256 ramdisk_size=100000000 video=1920x1080-32@60 cma=256M
   For ls2088ardb:
   => setenv bootargs root=/dev/ram0 rw console=ttyS1,115200 earlycon=uart8250,mmio,0x21c0600 ramdisk_size=0x2000000 default_hugepagesz=1024m hugepagesz=1024m hugepages=8
   For lx2160ardb
@@ -203,6 +205,8 @@ Booting with fsl-image-networking-full rootfs:
   => setenv bootargs root=/dev/sda* rootdelay=5 rw console=ttyS0,115200 earlycon=uart8250,mmio,0x21c0500 default_hugepagesz=2m hugepagesz=2m hugepages=512
   For ls2088ardb:
   => setenv bootargs root=/dev/sda* rootdelay=5 rw console=ttyS1,115200 earlycon=uart8250,mmio,0x21c0600 default_hugepagesz=1024m hugepagesz=1024m hugepages=8
+  For ls1028ardb:
+  => setenv bootargs root=/dev/mmcblk0p4 rw console=ttyS0,115200 earlycon=uart8250,mmio,0x21c0500 video=3840x2160-32@60 cma=256M default_hugepagesz=2m hugepagesz=2m hugepages=256
   For lx2160ardb:
   => setenv bootargs console=ttyAMA0,115200 root=/dev/sda* rw rootdelay=10 earlycon=pl011,mmio32,0x21c0000 ramdisk_size=0x2000000 default_hugepagesz=1024m hugepagesz=1024m hugepages=2 pci=pcie_bus_perf
 
