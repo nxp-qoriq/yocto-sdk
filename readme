@@ -284,6 +284,11 @@ The following known issues exist for Qoriq targets.
 |             |work well on dpaa1 platform      |             |           |                                           |
 |             |                                 | Open        | Yocto 3.0 |                                           |
 |---------------------------------------------------------------------------------------------------------------------|
+| QYOCTO-629  |There is no cmake command in     |             |           |                                           |
+|             |rootfs, XDP build on board failed|             |           |                                           |
+|             |                                 | Open        | Yocto 3.0 |                                           |
+|---------------------------------------------------------------------------------------------------------------------|
+
 
 FAQ
 ====
