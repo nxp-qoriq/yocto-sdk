@@ -14,12 +14,10 @@ ls1088ardb-pb
 ls1028ardb
 ls2088ardb
 lx2160ardb
-mpc8548cds
 p2020rdb
 t1042d4rdb
 t1042d4rdb-64b
 t1024rdb
-p1020rdb
 p2041rdb
 p3041ds
 p4080ds
@@ -28,7 +26,8 @@ p5040ds-64b
 t1024rdb-64b
 t2080rdb-64b
 t4240rdb-64b
- 
+
+Notes: mpc8548cds and p1020rdb are not validated in this release.
 
 Download Yocto Layer
 ===================================
@@ -277,16 +276,20 @@ The following known issues exist for Qoriq targets.
 ----------------------------------------------------------------------------------------------------------------------|
 | QYOCTO-583  |crconf update command can't      |             |           |                                           |
 |             |finish by itself                 |             |           |                                           |
-|             |                                 | Open        | Yocto 3.0 |                                           |
+|             |                                 | Open        | Yocto 2.7 |                                           |
+----------------------------------------------------------------------------------------------------------------------|
+| QYOCTO-585  }gdb failed to debug kernel while |             |           |                                           |
+|             |testing kdump                    | Open        | Yocto 2.7 |                                           |
 ----------------------------------------------------------------------------------------------------------------------|
 | QYOCTO-586  |guest rootfs boot failed on      |             |           |                                           |
 |             |T2080RDB and T4240RDB with       |             |           |                                           |
-|             |ext2.gz on Yocto 2.6 and         |             |           |                                           |
-|             |Yocto 2.7                        | Open        | Yocto 3.0 |                                           |
+|             |ext2.gz                          | Open        | Yocto 2.7 |                                           |
 ----------------------------------------------------------------------------------------------------------------------|
-| QYOCTO-554  |the priority of ceetm doesn't    |             |           |                                           |
-|             |work well on dpaa1 platform      |             |           |                                           |
-|             |                                 | Open        | Yocto 3.0 |                                           |
+| QYOCTO-589  |CEETM: Flow rate is not as expect|             |           |                                           |
+|             |with CEETM: Flow rate is not as  |             |           |                                           |
+|             |expect with cir/eir group        |             |           |                                           |
+|             |scheduler on LS2088A group       |             |           |                                           |
+|             |scheduler on LS2088A             |             | Yocto 2.7 |                                           |
 |---------------------------------------------------------------------------------------------------------------------|
 | QYOCTO-629  |There is no cmake command in     |             |           |                                           |
 |             |rootfs, XDP build on board failed|             |           |                                           |
