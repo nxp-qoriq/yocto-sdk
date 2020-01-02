@@ -31,7 +31,7 @@ Download the metadata:
 $ export PATH=${PATH}:~/bin
 $ mkdir yocto-sdk
 $ cd yocto-sdk
-$ repo init -u https://source.codeaurora.org/external/qoriq/qoriq-components/yocto-sdk -b refs/tags/yocto_2.6_es_1909_update_291119
+$ repo init -u https://source.codeaurora.org/external/qoriq/qoriq-components/yocto-sdk -b refs/tags/yocto_2.6_es_1909_update_311219
 $ repo sync --no-clone-bundle
 ```
 
