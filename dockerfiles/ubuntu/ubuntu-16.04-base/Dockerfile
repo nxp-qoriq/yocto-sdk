@@ -29,6 +29,6 @@ ENV YOCTO_WORKDIR /home/$USER_NAME/yocto-sdk
 RUN mkdir -p $YOCTO_WORKDIR
 
 WORKDIR $YOCTO_WORKDIR
-RUN repo init -u https://source.codeaurora.org/external/qoriq/qoriq-components/yocto-sdk -b refs/tags/yocto_2.6_es_1909_update_291119 && repo sync --no-clone-bundle
+RUN repo init -u https://source.codeaurora.org/external/qoriq/qoriq-components/yocto-sdk -b refs/tags/yocto_2.6_es_1909_update_311219 && repo sync --no-clone-bundle
 
 CMD /bin/bash
