@@ -2,6 +2,35 @@ Yocto with LSDK Components
 =======================
 Yocto with LSDK components provides recipes for the last Yocto release to use the latest and greatest components from LSDK as they get released. This eventually makes its way into the next community Yocto release at yoctoproject.org. 
 
+To use this manifest repo, the 'repo' tool must be isntalled first
+=======================
+
+$: mkdir ~/bin
+$: curl http://commondatastorage.googleapis.com/git-repo-downloads/repo  > ~/bin/repo
+$: chmod a+x ~/bin/repo
+$: PATH=${PATH}:~/bin
+
+To execute 
+$: mkdir <release>
+$: cd <release>
+$: repo init -u https://source.codeaurora.org/external/qoriq/qoriq-components/yocto-sdk -b <branch name>
+$: repo sync
+
+Each branch will have detailed READMEs describing exact syntax.
+
+For example for Yocto Project releases zeus branches will be LSDK 1909 based.
+----------------------------
+| Branch  | Version
+----------------------------
+| zeus    | YP 3.0–LSDK 1909
+----------------------------
+| warrior | YP 2.7–LSDK 1906
+----------------------------
+| thud    | YP 2.6–LSDK 1809
+----------------------------
+| sumo    | YP 2.5–LSDK 1806
+----------------------------
+
 Supported boards
 ================
 ls1012ardb
