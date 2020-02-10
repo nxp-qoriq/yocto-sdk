@@ -15,7 +15,7 @@
   <project remote="yocto" revision="1db79a1dbe1f6835986196b4570ee70eccd35a64" name="meta-freescale" path="sources/meta-freescale"/>
   <project remote="oe" revision="1bfaa2e63a184e21a2db5c286444828d5948a8b4" name="meta-openembedded" path="sources/meta-openembedded"/>
   <project remote="github" revision="4ee8b933cb6a55e7240b738a50c96be76d4ac408" name="Freescale/meta-freescale-distro" path="sources/meta-freescale-distro"/>
-  <project remote="stash" revision="aa8d344cba2e91983083a8fb941dd538d74222d7" name="meta-qoriq-demos" path="sources/meta-qoriq-demos">
+  <project remote="stash" revision="7238e60e342deecf379d122bfd67bbb8e2e57bdd" name="meta-qoriq-demos" path="sources/meta-qoriq-demos">
     <copyfile dest="setup-env" src="scripts/setup-env"/>
   </project>
 </manifest>
