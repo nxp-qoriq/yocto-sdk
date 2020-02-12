@@ -95,7 +95,7 @@ https://www.yoctoproject.org/docs/3.0/brief-yoctoprojectqs/brief-yoctoprojectqs.
    $: cd ..
    $: git clone git://git.yoctoproject.org/meta-freescale
    $: cd  meta-freescale
-   $: git reset --hard c5b32c4d3a55274c4051c1dc9dc670620fbac5c5
+   $: git reset --hard 1db79a1dbe1f6835986196b4570ee70eccd35a64
    $: cd ..
    $: git clone git://git.yoctoproject.org/meta-virtualization
    $: cd meta-virtualization 
