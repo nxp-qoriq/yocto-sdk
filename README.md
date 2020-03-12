@@ -13,6 +13,7 @@ ls1046afrwy
 ls1088ardb-pb
 ls2088ardb
 lx2160ardb
+lx2160ardb-rev2
  
 
 ## Setting up to use the Yocto project
@@ -31,7 +32,7 @@ Download the metadata:
 $ export PATH=${PATH}:~/bin
 $ mkdir yocto-sdk
 $ cd yocto-sdk
-$ repo init -u https://source.codeaurora.org/external/qoriq/qoriq-components/yocto-sdk -b refs/tags/yocto_2.6_es_1909_update_311219
+$ repo init -u ssh://git@bitbucket.sw.nxp.com/dcca/edgescale-bootstrap.git -b master
 $ repo sync --no-clone-bundle
 ```
 
