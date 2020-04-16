@@ -10,11 +10,11 @@ $: curl http://commondatastorage.googleapis.com/git-repo-downloads/repo  > ~/bin
 $: chmod a+x ~/bin/repo
 $: PATH=${PATH}:~/bin
 
-To execute 
+To execute
 $: mkdir <release>
 $: cd <release>
-$: repo init -u https://source.codeaurora.org/external/qoriq/qoriq-components/yocto-sdk -b <branch name>
-$: repo sync
+$: repo init -u https://source.codeaurora.org/external/qoriq/qoriq-components/yocto-sdk -b <branch>
+$: repo sync --force-sync
 
 Each branch will have detailed READMEs describing exact syntax.
 
@@ -74,53 +74,61 @@ https://www.yoctoproject.org/docs/3.0/brief-yoctoprojectqs/brief-yoctoprojectqs.
 
    Download the Yocto layers:
    $: export PATH=${PATH}:~/bin
-   $: mkdir yocto-sdk
-   $: cd yocto-sdk
-   $: repo init -u  https://source.codeaurora.org/external/qoriq/qoriq-components/yocto-sdk -b zeus
-   $: repo sync --no-clone-bundle
+   $: mkdir <release>
+   $: cd <release>
+   $: repo init -u https://source.codeaurora.org/external/qoriq/qoriq-components/yocto-sdk -b <branch>
+   $: repo sync --force-sync
 
 2. Get Yocto layers from community repository
    The following is the step of how to download all Yocto layers through git command:
-   $: mkdir yocto-sdk
-   $: cd yocto-sdk
+   $: mkdir <release>
+   $: cd <release>
    $: mkdir sources
    $: cd sources
-   $: git clone git://git.yoctoproject.org/poky
+   $: git clone https://git.yoctoproject.org/git/poky
    $: cd  poky 
-   $: git reset --hard 4cecfe6e9d9e9216d9235feec25460c4011bf65f
+   $: git reset --hard 0275e68b0576cdefc19718e4b1977044f9f43f48
    $: cd ..
-   $: git clone git://git.openembedded.org/meta-openembedded
-   $: cd meta-openembedded
-   $: git reset --hard 1bfaa2e63a184e21a2db5c286444828d5948a8b4
-   $: cd ..
-   $: git clone git://git.yoctoproject.org/meta-freescale
-   $: cd  meta-freescale
-   $: git reset --hard 1db79a1dbe1f6835986196b4570ee70eccd35a64
-   $: cd ..
-   $: git clone git://git.yoctoproject.org/meta-virtualization
-   $: cd meta-virtualization 
-   $: git reset --hard 04e0d9de8cbaeb76aff6e78b90941a6e9a359b87
-   $: cd ..
-   $: git clone git://git.yoctoproject.org/meta-cloud-services
+   $: git clone https://git.yoctoproject.org/git/meta-cloud-services
    $: cd meta-cloud-services
    $: git reset --hard fcf43a2b0a9ca101dd0c4b3d3f7b9fe0278e7173
    $: cd ..
-   $: git clone git://git.yoctoproject.org/meta-security
+   $: git clone https://git.yoctoproject.org/git/meta-freescale
+   $: cd  meta-freescale
+   $: git reset --hard 0eb21f9d0d023fbb054e284986815510a84dbd66
+   $: cd ..
+   $: git clone https://git.yoctoproject.org/git/meta-security
    $: cd meta-security
    $: git reset --hard 27ddb455543b670097e252ba0d0ad5b7e4101748
    $: cd ..
-   $: git clone git://git.yoctoproject.org/meta-selinux
+   $: git clone https://git.yoctoproject.org/git/meta-selinux
    $: get reset --hard c5b32c4d3a55274c4051c1dc9dc670620fbac5c5
    $: cd ..
-   $: git clone https://github.com/Freescale/meta-freescale-distro
+   $: git clone https://git.yoctoproject.org/git/meta-virtualization
+   $: cd meta-virtualization 
+   $: git reset --hard 04e0d9de8cbaeb76aff6e78b90941a6e9a359b87
+   $: cd ..
+   $: git clone https://github.com/freescale/meta-freescale-distro
    $: cd meta-freescale-distro
-   $: git reset --hard 4ee8b933cb6a55e7240b738a50c96be76d4ac408
+   $: git reset --hard ca27d12e4964d1336e662bcc60184bbff526c857
    $: cd ..
-   $: git clone https://source.codeaurora.org/external/qoriq/qoriq-components/meta-qoriq-demos
-   $: cd meta-qoriq-demos
-   $: git reset --hard aa8d344cba2e91983083a8fb941dd538d74222d7
+   $: git clone https://github.com/openembedded/meta-openembedded
+   $: cd meta-openembedded
+   $: git reset --hard aad5b3d070cd8c58828b0975cf861d8ebc90f460
    $: cd ..
-   $: cp sources/meta-qoriq-demos/scripts/setup-env ./
+   $: git clone https://source.codeaurora.org/external/qoriq/qoriq-components/meta-edgescale
+   $: cd meta-edgescale
+   $: git reset --hard b2ae47355609c0ec5a833a518a9d7eca333de1de
+   $: cd ..
+   $: git clone https://source.codeaurora.org/external/imx/meta-imx
+   $: cd meta-imx
+   $: git reset --hard 435f5e984856a943986491fddd061734a0b9eba5
+   $: cd ..
+   $: git clone https://source.codeaurora.org/external/qoriq/qoriq-components/meta-qoriq
+   $: cd meta-qoriq
+   $: git reset --hard aeed5b885f6a8aa68a242e20fc5c7abbfd155dfe
+   $: cd ..
+   $: cp sources/meta-qoriq/tools/setup-env .
 
 Building images
 ===============
@@ -130,8 +138,9 @@ $: bitbake fsl-image-networking
 or:
 $: bitbake fsl-image-networking-full
 Note: 
-There are 4.19 and 4.14 versions of kernel , "PREFERRED_VERSION" determines which version should be given preference
-please add 'PREFERRED_VERSION_linux-qoriq = "4.14"' in meta-qoriq-demos/conf/distro/fsl-qoriq.conf
+Two kernel versions are supported: 5.4 and 4.19. The default is 5.4. To use 
+4.19, please add below line in conf/local.conf:
+PREFERRED_VERSION_linux-qoriq = "4.19"
 
 Images will be found under tmp/deploy/images/ls2088ardb/.
 
@@ -328,20 +337,20 @@ The following known issues exist for Qoriq targets.
 
 FAQ
 ====
-1. How do I build linux rt in the Yocto Project?   
-   Set PREFERRED_PROVIDER_virtual/kernel = "linux-qoriq-rt" in your local.conf .
+1. How do I build linux rt in the Yocto Project?
+   Set PREFERRED_PROVIDER_virtual/kernel = "linux-qoriq-rt" in your local.conf.
 
-2. How to compile atf with OPTEE ?
-   Set DISTRO_FEATURES_append = " optee"  in your local.conf.
+2. How to compile atf with OPTEE?
+   Set DISTRO_FEATURES_append = " optee" in your local.conf.
 
 3. How to compile atf with specify different RCW image instead of the default one?
    modify  RCWNOR or RCWSD and RCWNAND in machine conf 
    For example, ls1043ardb.conf in meta-freescale:
      RCWNOR ?= "RR_FQPP_1455/rcw_1600"
-                
-4. How to add custom additional packages to default rootfs ?
-   Set IMAGE_INSTALL_append  in your local.conf  
 
-5. How to run weston in targets ?
+4. How to add custom additional packages to default rootfs?
+   Set IMAGE_INSTALL_append  in your local.conf
+
+5. How to run weston in targets?
    you need to set  XDG_RUNTIME_DIR  before run weston in targets
-   $ export XDG_RUNTIME_DIR=/run/user/`id -u`   
+   $ export XDG_RUNTIME_DIR=/run/user/`id -u`
