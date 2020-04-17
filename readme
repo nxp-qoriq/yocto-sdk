@@ -13,7 +13,7 @@ $: PATH=${PATH}:~/bin
 To execute
 $: mkdir <release>
 $: cd <release>
-$: repo init -u https://source.codeaurora.org/external/qoriq/qoriq-components/yocto-sdk -b <branch>
+$: repo init -u ssh://git@bitbucket.sw.nxp.com/yocto/yocto-sdk -b <branch>
 $: repo sync --force-sync
 
 Each branch will have detailed READMEs describing exact syntax.
@@ -64,7 +64,7 @@ https://www.yoctoproject.org/docs/3.0/brief-yoctoprojectqs/brief-yoctoprojectqs.
    $: export PATH=${PATH}:~/bin
    $: mkdir <release>
    $: cd <release>
-   $: repo init -u https://source.codeaurora.org/external/qoriq/qoriq-components/yocto-sdk -b <branch>
+   $: repo init -u ssh://git@bitbucket.sw.nxp.com/yocto/yocto-sdk -b <branch>
    $: repo sync --force-sync
 
 2. Get Yocto layers from community repository
@@ -104,15 +104,15 @@ https://www.yoctoproject.org/docs/3.0/brief-yoctoprojectqs/brief-yoctoprojectqs.
    $: cd meta-openembedded
    $: git reset --hard aad5b3d070cd8c58828b0975cf861d8ebc90f460
    $: cd ..
-   $: git clone https://source.codeaurora.org/external/qoriq/qoriq-components/meta-edgescale
+   $: git clone ssh://git@bitbucket.sw.nxp.com/yocto/meta-edgescale
    $: cd meta-edgescale
    $: git reset --hard b2ae47355609c0ec5a833a518a9d7eca333de1de
    $: cd ..
-   $: git clone https://source.codeaurora.org/external/imx/meta-imx
+   $: git clone ssh://git@bitbucket.sw.nxp.com/imx/meta-imx
    $: cd meta-imx
    $: git reset --hard 435f5e984856a943986491fddd061734a0b9eba5
    $: cd ..
-   $: git clone https://source.codeaurora.org/external/qoriq/qoriq-components/meta-qoriq
+   $: git clone ssh://git@bitbucket.sw.nxp.com/yocto/meta-qoriq
    $: cd meta-qoriq
    $: git reset --hard aeed5b885f6a8aa68a242e20fc5c7abbfd155dfe
    $: cd ..
