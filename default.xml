@@ -5,7 +5,6 @@
   <remote fetch="git://git.yoctoproject.org" name="yocto"/>
   <remote fetch="git://git.openembedded.org" name="oe"/>
   <remote fetch="https://github.com" name="github"/>
-  <remote fetch="ssh://git@bitbucket.sw.nxp.com/dnyocto" name="bitbucket"/>
   <remote fetch="https://source.codeaurora.org/external/qoriq/qoriq-components" name="caf"/>
 
   <project remote="yocto" revision="753e2a0ede4449917c75353b57f13bbafe70fac8" name="poky" path="sources/poky"/>
@@ -15,7 +14,7 @@
   <project remote="yocto" revision="38dce18e6e0bb6fdce572a8c954fd2694743c919" name="meta-freescale" path="sources/meta-freescale"/>
   <project remote="oe" revision="5ea50a04748e7caa4974bdbe65ff5df6cb27fc8d" name="meta-openembedded" path="sources/meta-openembedded"/>
   <project remote="github" revision="8c2553f4e97346dc916ca52058f4a4af07094edc" name="Freescale/meta-freescale-distro" path="sources/meta-freescale-distro"/>
-  <project remote="bitbucket" revision="edgescale-dev" name="meta-qoriq-demos" path="sources/meta-qoriq-demos">
+  <project remote="caf" revision="8298a9795a0279df58bf89596445e1cfc4e233d9" name="meta-qoriq-demos" path="sources/meta-qoriq-demos">
     <copyfile dest="setup-env" src="scripts/setup-env"/>
   </project>
 </manifest>
