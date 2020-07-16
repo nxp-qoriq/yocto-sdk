@@ -12,7 +12,7 @@
   <project remote="yocto" revision="04e0d9de8cbaeb76aff6e78b90941a6e9a359b87" name="meta-virtualization" path="sources/meta-virtualization"/>
   <project remote="github" revision="ca27d12e4964d1336e662bcc60184bbff526c857" name="freescale/meta-freescale-distro" path="sources/meta-freescale-distro"/>
   <project remote="github" revision="aad5b3d070cd8c58828b0975cf861d8ebc90f460" name="openembedded/meta-openembedded" path="sources/meta-openembedded"/>
-  <project remote="nxp" revision="e8d10701034a9cc0b53a99ee885d436376af807f" name="qoriq/qoriq-components/meta-qoriq" path="sources/meta-qoriq">
+  <project remote="nxp" revision="444154a231626e27f49400296b560335c905382d" name="qoriq/qoriq-components/meta-qoriq" path="sources/meta-qoriq">
     <copyfile dest="setup-env" src="tools/setup-env"/>
   </project>
 </manifest>
