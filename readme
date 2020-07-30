@@ -22,6 +22,8 @@ For example for Yocto Project releases zeus branches will be LSDK 1909 based.
 ----------------------------
 | Branch  | Version
 ----------------------------
+| zeus-lsdk-20.04    | YP 3.0–LSDK 2004
+----------------------------
 | zeus    | YP 3.0–LSDK 1909
 ----------------------------
 | warrior | YP 2.7–LSDK 1906
@@ -43,20 +45,6 @@ ls1088ardb-pb
 ls1028ardb
 ls2088ardb
 lx2160ardb
-p2020rdb
-t1042d4rdb
-t1042d4rdb-64b
-t1024rdb
-p2041rdb
-p3041ds
-p4080ds
-p5040ds
-p5040ds-64b
-t1024rdb-64b
-t2080rdb-64b
-t4240rdb-64b
-
-Notes: mpc8548cds and p1020rdb are not validated in this release.
 
 Download Yocto Layer
 ===================================
@@ -137,10 +125,6 @@ $: . ./setup-env -m ls2088ardb
 $: bitbake fsl-image-networking
 or:
 $: bitbake fsl-image-networking-full
-Note: 
-Two kernel versions are supported: 5.4 and 4.19. The default is 5.4. To use 
-4.19, please add below line in conf/local.conf:
-PREFERRED_VERSION_linux-qoriq = "4.19"
 
 Images will be found under tmp/deploy/images/ls2088ardb/.
 
@@ -337,20 +321,17 @@ The following known issues exist for Qoriq targets.
 
 FAQ
 ====
-1. How do I build linux rt in the Yocto Project?
-   Set PREFERRED_PROVIDER_virtual/kernel = "linux-qoriq-rt" in your local.conf.
-
-2. How to compile atf with OPTEE?
+1. How to compile atf with OPTEE?
    Set DISTRO_FEATURES_append = " optee" in your local.conf.
 
-3. How to compile atf with specify different RCW image instead of the default one?
+2. How to compile atf with specify different RCW image instead of the default one?
    modify  RCWNOR or RCWSD and RCWNAND in machine conf 
    For example, ls1043ardb.conf in meta-freescale:
      RCWNOR ?= "RR_FQPP_1455/rcw_1600"
 
-4. How to add custom additional packages to default rootfs?
+3. How to add custom additional packages to default rootfs?
    Set IMAGE_INSTALL_append  in your local.conf
 
-5. How to run weston in targets?
+4. How to run weston in targets?
    you need to set  XDG_RUNTIME_DIR  before run weston in targets
    $ export XDG_RUNTIME_DIR=/run/user/`id -u`
