@@ -51,7 +51,7 @@ The following is the step of how to use repo utility to download all Yocto layer
 ```
 $: mkdir yocto-sdk
 $: cd yocto-sdk
-$: repo init -u https://source.codeaurora.org/external/qoriq/qoriq-components/yocto-sdk -b <branch>
+$: repo init -u ssh://git@bitbucket.sw.nxp.com/yocto/yocto-sdk -b <branch>
 $: repo sync --force-sync
 ```
 
