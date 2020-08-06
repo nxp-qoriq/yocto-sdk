@@ -1,337 +1,46 @@
 Yocto with LSDK Components
-=======================
+==========================
 Yocto with LSDK components provides recipes for the last Yocto release to use the latest and greatest components from LSDK as they get released. This eventually makes its way into the next community Yocto release at yoctoproject.org. 
 
-To use this manifest repo, the 'repo' tool must be isntalled first
-=======================
+Supported boards
+================
+lx2160ardb
 
+Prepare build environment
+=========================
+To make sure the build host is prepared for Yocto running and build, please follow this [guide](https://www.yoctoproject.org/docs/3.0/brief-yoctoprojectqs/brief-yoctoprojectqs.html) to prepare the build environment. 
+
+Install 'repo' tool
+===================
+To use this manifest repo, the 'repo' tool must be isntalled first
+```
 $: mkdir ~/bin
 $: curl http://commondatastorage.googleapis.com/git-repo-downloads/repo  > ~/bin/repo
 $: chmod a+x ~/bin/repo
 $: PATH=${PATH}:~/bin
+```
 
-To execute
-$: mkdir <release>
-$: cd <release>
-$: repo init -u ssh://git@bitbucket.sw.nxp.com/yocto/yocto-sdk -b <branch>
+Download Yocto Layers
+=====================
+The following is the step of how to use repo utility to download all Yocto layers according to the repo manifest.
+
+```
+$: mkdir yocto-sdk
+$: cd yocto-sdk
+$: repo init -u ssh://git@bitbucket.sw.nxp.com/yocto/yocto-sdk -b China_key_account_support
 $: repo sync --force-sync
-
-Each branch will have detailed READMEs describing exact syntax.
-
-For example for Yocto Project releases zeus branches will be LSDK 1909 based.
-----------------------------
-| Branch  | Version
-----------------------------
-| zeus-lsdk-20.04    | YP 3.0–LSDK 2004
-----------------------------
-| zeus    | YP 3.0–LSDK 1909
-----------------------------
-| warrior | YP 2.7–LSDK 1906
-----------------------------
-| thud    | YP 2.6–LSDK 1809
-----------------------------
-| sumo    | YP 2.5–LSDK 1806
-----------------------------
-
-Supported boards
-================
-ls1012ardb
-ls1012afrwy
-ls1021atwr
-ls1043ardb
-ls1046ardb
-ls1046afrwy
-ls1088ardb-pb
-ls1028ardb
-ls2088ardb
-lx2160ardb
-
-Download Yocto Layer
-===================================
-To make sure the build host is prepared for Yocto running and build, please follow below guide to prepare the build environment. 
-
-https://www.yoctoproject.org/docs/3.0/brief-yoctoprojectqs/brief-yoctoprojectqs.html
-
-1. Get the Yocto layers from repo manifest:
-   The following is the step of how to use repo utility to download all Yocto layers according to the repo manifest
-
-   Install the repo utility:
-   $: mkdir ~/bin
-   $: curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
-   $: chmod a+x ~/bin/repo
-
-   Download the Yocto layers:
-   $: export PATH=${PATH}:~/bin
-   $: mkdir <release>
-   $: cd <release>
-   $: repo init -u ssh://git@bitbucket.sw.nxp.com/yocto/yocto-sdk -b <branch>
-   $: repo sync --force-sync
-
-2. Get Yocto layers from community repository
-   The following is the step of how to download all Yocto layers through git command:
-   $: mkdir <release>
-   $: cd <release>
-   $: mkdir sources
-   $: cd sources
-   $: git clone https://git.yoctoproject.org/git/poky
-   $: cd  poky 
-   $: git reset --hard 0275e68b0576cdefc19718e4b1977044f9f43f48
-   $: cd ..
-   $: git clone https://git.yoctoproject.org/git/meta-cloud-services
-   $: cd meta-cloud-services
-   $: git reset --hard fcf43a2b0a9ca101dd0c4b3d3f7b9fe0278e7173
-   $: cd ..
-   $: git clone https://git.yoctoproject.org/git/meta-freescale
-   $: cd  meta-freescale
-   $: git reset --hard 0eb21f9d0d023fbb054e284986815510a84dbd66
-   $: cd ..
-   $: git clone https://git.yoctoproject.org/git/meta-security
-   $: cd meta-security
-   $: git reset --hard 27ddb455543b670097e252ba0d0ad5b7e4101748
-   $: cd ..
-   $: git clone https://git.yoctoproject.org/git/meta-selinux
-   $: get reset --hard c5b32c4d3a55274c4051c1dc9dc670620fbac5c5
-   $: cd ..
-   $: git clone https://git.yoctoproject.org/git/meta-virtualization
-   $: cd meta-virtualization 
-   $: git reset --hard 04e0d9de8cbaeb76aff6e78b90941a6e9a359b87
-   $: cd ..
-   $: git clone https://github.com/freescale/meta-freescale-distro
-   $: cd meta-freescale-distro
-   $: git reset --hard ca27d12e4964d1336e662bcc60184bbff526c857
-   $: cd ..
-   $: git clone https://github.com/openembedded/meta-openembedded
-   $: cd meta-openembedded
-   $: git reset --hard aad5b3d070cd8c58828b0975cf861d8ebc90f460
-   $: cd ..
-   $: git clone ssh://git@bitbucket.sw.nxp.com/yocto/meta-edgescale
-   $: cd meta-edgescale
-   $: git reset --hard b2ae47355609c0ec5a833a518a9d7eca333de1de
-   $: cd ..
-   $: git clone ssh://git@bitbucket.sw.nxp.com/imx/meta-imx
-   $: cd meta-imx
-   $: git reset --hard 435f5e984856a943986491fddd061734a0b9eba5
-   $: cd ..
-   $: git clone ssh://git@bitbucket.sw.nxp.com/yocto/meta-qoriq
-   $: cd meta-qoriq
-   $: git reset --hard aeed5b885f6a8aa68a242e20fc5c7abbfd155dfe
-   $: cd ..
-   $: cp sources/meta-qoriq/tools/setup-env .
+```
 
 Building images
 ===============
 Take ls2088ardb as an example:
+```
 $: . ./setup-env -m ls2088ardb
 $: bitbake fsl-image-networking
+```
 or:
+```
 $: bitbake fsl-image-networking-full
-
+```
 Images will be found under tmp/deploy/images/ls2088ardb/.
 
-
-Booting the images for supported boards
-=======================================
-Prerequisites:
-1. TFTP server being setup to hold the images.
-2. A serial cable connected from your PC to UART1
-3. Ethernet connected to the first ethernet port on the board.
-
-Booting with fsl-image-networking rootfs:
-
-1.Power up or reset the board and press a key on the terminal when prompted
-  to get to the U-Boot command line.
-
-2.Set up the environment in U-Boot:
-  => setenv ipaddr <board_ipaddr>
-  => setenv serverip <tftp_serverip>
-  For ls1021atwr:
-  => setenv bootargs root=/dev/ram0 rw console=ttyS0,115200 ramdisk_size=0x1000000
-  For ls1012a,ls1043a,ls1046a
-  => setenv bootargs root=/dev/ram0 rw console=ttyS0,115200 earlycon=uart8250,mmio,0x21c0500 ramdisk_size=0x10000000
-  For ls1088ardb-pb: 
-  => setenv bootargs root=/dev/ram0 rw console=ttyS0,115200 earlycon=uart8250,mmio,0x21c0500 ramdisk_size=0x2000000 default_hugepagesz=2m hugepagesz=2m hugepages=512
-  For ls1028ardb:
-  => setenv bootargs root=/dev/ram0 rw console=ttyS0,115200 earlycon=uart8250,mmio,0x21c0500 default_hugepagesz=2m hugepagesz=2m hugepages=256 ramdisk_size=100000000 video=1920x1080-32@60 cma=256M
-  For ls2088ardb:
-  => setenv bootargs root=/dev/ram0 rw console=ttyS1,115200 earlycon=uart8250,mmio,0x21c0600 ramdisk_size=0x2000000 default_hugepagesz=1024m hugepagesz=1024m hugepages=8
-  For lx2160ardb
-  => setenv bootargs console=ttyAMA0,115200 root=/dev/ram0 rw rootdelay=10 earlycon=pl011,mmio32,0x21c0000 ramdisk_size=0x2000000 default_hugepagesz=1024m hugepagesz=1024m hugepages=2 pci=pcie_bus_perf
-  For mpc8548cds:
-  => setenv bootargs         root=/dev/ram rw console=ttyS1,115200 ramdisk_size=1000000 log_buf_len=128K
-  For other PowerPC targets:
-  => setenv bootargs         root=/dev/ram rw console=ttyS0,115200 ramdisk_size=1000000 log_buf_len=128K
-
-3.ls1088ardb-pb ,lx2160ardb and ls2088ardb need run below commands to enable DPAA2 ethernet in Linux:
-  For ls1088ardb-pb:
-  => sf probe 0:0
-  => sf read 0x80000000 0xA00000 0x100000
-  => sf read 0x80100000 0xE00000 0x100000
-  => fsl_mc start mc 0x80000000 0x80100000
-  => sf read 0x80200000 0xd00000 0x100000
-  => fsl_mc lazyapply dpl 0x80200000
-  For ls2088ardb:
-  => fsl_mc start mc 0x580a00000 0x580e00000
-  => fsl_mc lazyapply dpl 0x580d00000
-  For lx2160ardb:
-  => fsl_mc start mc 0x20a00000 0x20e00000
-  => fsl_mc lazyapply dpl 0x20d00000
-
-4.Download Images and bootup:
-  For ls1021atwr:
-  => tftp 82000000 uImage-ls1021atwr.bin
-  => tftp 88000000 fsl-image-networking-ls1021atwr.ext2.gz.u-boot
-  => tftp 8f000000 uImage-ls1021a-twr.dtb
-  => bootm 82000000 88000000 8f000000
-  For ls1012afrwy and ls1012ardb:
-  => pci enum
-  => tftp a0000000 fitImage-fsl-image-networking-<board>.bin
-  => pfe stop
-  => bootm a0000000
-  For mpc8548cds:
-  => tftpboot  0x01000000 uImage-mpc8548cds.bin
-  => tftpboot  0x03000000 fsl-image-networking-mpc8548cds.ext2.gz.u-boot
-  => tftpboot  0x02000000 uImage-mpc8548cds_32b.dtb
-  => bootm 0x01000000 0x03000000 0x02000000
-  For p1020rdb,p2041rdb,p3041ds,p4080ds,p5040ds:
-  => tftpboot  0x01000000 uImage-p2020rdb.bin
-  => tftpboot  0x02000000 fsl-image-networking-p2020rdb.ext2.gz.u-boot
-  => tftpboot  0x00c00000 uImage-p2020rdb-pc_32b.dtb
-  => bootm 0x01000000 0x04000000 0x02000000
-  For other PowerPC targets:
-  => tftpboot  0x01000000 uImage-<board>.bin
-  => tftpboot  0x05000000 fsl-image-networking-<board>.ext2.gz.u-boot
-  => tftpboot  0x02000000 uImage-<board>.dtb
-  => bootm 0x01000000 0x05000000 0x02000000
-  For other boards:
-  => tftp a0000000 fitImage-fsl-image-networking-<board>.bin
-  => bootm a0000000
-
-Booting with fsl-image-networking-full rootfs:
-
-1.Prepare the media (sata/sd/usb) and format it as ext2 format
-  mount the ext2 partition and extract a full rootfs in this partition. After
-  uncompressing, unmount this partition.
-
-2.Power up or reset the board and press a key on the terminal when prompted
-  to get to the U-Boot command line.
-
-3.Set up the environment in U-Boot:
-  => setenv ipaddr <board_ipaddr>
-  => setenv serverip <tftp_serverip>
-  For ls1021atwr:
-  => setenv bootargs root=/dev/sda* rootdelay=5 rw console=ttyS0,115200
-  For ls1012a,ls1043a,ls1046a
-  => setenv bootargs root=/dev/sda* rootdelay=5 rw console=ttyS0,115200 earlycon=uart8250,mmio,0x21c0500
-  For ls1088ardb-pb:
-  => setenv bootargs root=/dev/sda* rootdelay=5 rw console=ttyS0,115200 earlycon=uart8250,mmio,0x21c0500 default_hugepagesz=2m hugepagesz=2m hugepages=512
-  For ls2088ardb:
-  => setenv bootargs root=/dev/sda* rootdelay=5 rw console=ttyS1,115200 earlycon=uart8250,mmio,0x21c0600 default_hugepagesz=1024m hugepagesz=1024m hugepages=8
-  For ls1028ardb:
-  => setenv bootargs root=/dev/mmcblk0p4 rw console=ttyS0,115200 earlycon=uart8250,mmio,0x21c0500 video=3840x2160-32@60 cma=256M default_hugepagesz=2m hugepagesz=2m hugepages=256
-  For lx2160ardb:
-  => setenv bootargs console=ttyAMA0,115200 root=/dev/sda* rw rootdelay=10 earlycon=pl011,mmio32,0x21c0000 ramdisk_size=0x2000000 default_hugepagesz=1024m hugepagesz=1024m hugepages=2 pci=pcie_bus_perf
-
-4.ls1088ardb-pb ,lx2160ardb and ls2088ardb need run below commands to enable DPAA2 ethernet in Linux:
-  For ls1088ardb-pb:
-  => sf probe 0:0
-  => sf read 0x80000000 0xA00000 0x100000
-  => sf read 0x80100000 0xE00000 0x100000
-  => fsl_mc start mc 0x80000000 0x80100000
-  => sf read 0x80200000 0xd00000 0x100000
-  => fsl_mc lazyapply dpl 0x80200000
-  For ls2088ardb:
-  => fsl_mc start mc 0x580a00000 0x580e00000
-  => fsl_mc lazyapply dpl 0x580d00000
-  For lx2160ardb:
-  => fsl_mc start mc 0x20a00000 0x20e00000
-  => fsl_mc lazyapply dpl 0x20d00000
-
-5.Download Image and bootup:
-  For ls1021atwr:
-  => tftp 82000000 uImage-ls1021atwr.bin
-  => tftp 8f000000 uImage-ls1021a-twr.dtb
-  => bootm 82000000 - 8f000000
-  For ls1012afrwy and ls1012ardb:
-  => pci enum
-  => tftp a0000000 fitImage-<board>.bin
-  => pfe stop
-  => bootm a0000000:kernel@1 - a0000000:<fdt name>
-  For other boards:
-  => tftp a0000000 fitImage-<board>.bin
-  => bootm a0000000:kernel@1 - a0000000:<fdt name>
-  Note: <fdt name> can be got by command:
-  $: grep fdt@ fitImage-its-<board>.its
-
-6. Secure boot
-   For build secure boot image ,you need to set the following variables in local.conf
-   DISTRO_FEATURES_append = " secure"
-   ROOTFS_IMAGE = "fsl-image-mfgtool"
-   For arm64 targets:
-   KERNEL_ITS = "kernel-all.its" 
-   For arm32 targets:
-   KERNEL_ITS = "kernel-arm32.its"
-   $: bitbake secure-boot-qoriq
-
-   For information on how to use secure boot, see the "6.1 Secure boot" section. 
-   You can find at  https://www.nxp.com/support/developer-resources/run-time-software/linux-software-and-development-tools/layerscape-software-development-kit:LAYERSCAPE-SDK?tab=Documentation_Tab
- 
-7. build weston
-   For build image that includes gstreamer packages and multimedia packages ,you need to set the following variables in local.conf
-   DISTRO_FEATURES_append = " wayland vulkan alsa"
-   DISTRO_FEATURES_remove = " x11"
-   LICENSE_FLAGS_WHITELIST_append = " commercial"
-   PREFERRED_VERSION_weston_qoriq-arm64 = "5.0.0.imx"
-   PREFERRED_VERSION_wayland-protocols_qoriq-arm64 = "1.17.imx"
-   PREFERRED_VERSION_libdrm_qoriq-arm64 = "2.4.91.imx"
-   PREFERRED_VERSION_libdrm_qoriq-arm64 = "2.4.91.imx"
-   PREFERRED_PROVIDER_virtual/egl = "gpulib"
-   PREFERRED_PROVIDER_virtual/libgles2 = "gpulib"
-   PREFERRED_PROVIDER_virtual/libgbm = "gpulib" 
-   $: bitbake fsl-image-multimedia-full
-
-
-Known Issues
-============
-The following known issues exist for Qoriq targets.
------------------------------------------------------------------------------------------------------------------------
-| ID          | Description                     | Disposition | Opened In | Workarounds                               |
-----------------------------------------------------------------------------------------------------------------------|
-| QYOCTO-583  |crconf update command can't      |             |           |                                           |
-|             |finish by itself                 |             |           |                                           |
-|             |                                 | Open        | Yocto 2.7 |                                           |
-----------------------------------------------------------------------------------------------------------------------|
-| QYOCTO-585  }gdb failed to debug kernel while |             |           |                                           |
-|             |testing kdump                    | Open        | Yocto 2.7 |                                           |
-----------------------------------------------------------------------------------------------------------------------|
-| QYOCTO-586  |guest rootfs boot failed on      |             |           |                                           |
-|             |T2080RDB and T4240RDB with       |             |           |                                           |
-|             |ext2.gz                          | Open        | Yocto 2.7 |                                           |
-----------------------------------------------------------------------------------------------------------------------|
-| QYOCTO-589  |CEETM: Flow rate is not as expect|             |           |                                           |
-|             |with CEETM: Flow rate is not as  |             |           |                                           |
-|             |expect with cir/eir group        |             |           |                                           |
-|             |scheduler on LS2088A group       |             |           |                                           |
-|             |scheduler on LS2088A             |             | Yocto 2.7 |                                           |
-|---------------------------------------------------------------------------------------------------------------------|
-| QYOCTO-629  |There is no cmake command in     |             |           |                                           |
-|             |rootfs, XDP build on board failed|             |           |                                           |
-|             |                                 | Open        | Yocto 3.0 |                                           |
-|---------------------------------------------------------------------------------------------------------------------|
-
-
-FAQ
-====
-1. How to compile atf with OPTEE?
-   Set DISTRO_FEATURES_append = " optee" in your local.conf.
-
-2. How to compile atf with specify different RCW image instead of the default one?
-   modify  RCWNOR or RCWSD and RCWNAND in machine conf 
-   For example, ls1043ardb.conf in meta-freescale:
-     RCWNOR ?= "RR_FQPP_1455/rcw_1600"
-
-3. How to add custom additional packages to default rootfs?
-   Set IMAGE_INSTALL_append  in your local.conf
-
-4. How to run weston in targets?
-   you need to set  XDG_RUNTIME_DIR  before run weston in targets
-   $ export XDG_RUNTIME_DIR=/run/user/`id -u`
