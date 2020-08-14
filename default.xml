@@ -15,7 +15,7 @@
   <project remote="github" revision="fbd12ff7e5f80a0e1fd71fa217d52a3c96659d16" name="freescale/meta-freescale-distro" path="sources/meta-freescale-distro"/>
   <project remote="github" revision="cc155826b0b4f202a8fa4ac103b7c38368d32734" name="openembedded/meta-openembedded" path="sources/meta-openembedded"/>
   <project remote="github" revision="439d0a91394024911244e1058febb2933ba9ae2e" name="TimesysGit/meta-timesys" path="sources/meta-timesys"/>
-  <project remote="nxp" revision="760e52a9a4c05729689595d4a884ebf97cba81ad" name="yocto/meta-qoriq" path="sources/meta-qoriq">
+  <project remote="nxp" revision="dunfell-bb3" name="yocto/meta-qoriq" path="sources/meta-qoriq">
     <copyfile dest="setup-env" src="tools/setup-env"/>
   </project>
 </manifest>
