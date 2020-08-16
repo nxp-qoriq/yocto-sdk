@@ -27,15 +27,15 @@ The following is the step of how to use repo utility to download all Yocto layer
 ```
 $: mkdir yocto-sdk
 $: cd yocto-sdk
-$: repo init -u ssh://git@bitbucket.sw.nxp.com/yocto/yocto-sdk -b China_key_account_support
+$: repo init -u https://source.codeaurora.org/external/qoriq/qoriq-components/yocto-sdk -b Key_Account_C_Support
 $: repo sync --force-sync
 ```
 
 Building images
 ===============
-Take ls2088ardb as an example:
+Take lx2160ardb as an example:
 ```
-$: . ./setup-env -m ls2088ardb
+$: . ./setup-env -m lx2160ardb
 $: bitbake fsl-image-networking
 ```
 or:
