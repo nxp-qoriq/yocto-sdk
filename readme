@@ -19,7 +19,7 @@ $ chmod a+x ~/bin/repo
 $ export PATH=${PATH}:~/bin
 $ mkdir yocto-sdk
 $ cd yocto-sdk
-$ repo init -u https://source.codeaurora.org/external/qoriq/qoriq-components/yocto-sdk -b refs/tags/lx2162a-bsp0.1
+$ repo init -u https://source.codeaurora.org/external/qoriq/qoriq-components/yocto-sdk -b refs/tags/lx2162a-bsp0.2
 $ repo sync --force-sync
 
 (4) Build images:
