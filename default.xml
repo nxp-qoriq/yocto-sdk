@@ -14,7 +14,7 @@
   <project remote="github" revision="aad5b3d070cd8c58828b0975cf861d8ebc90f460" name="openembedded/meta-openembedded" path="sources/meta-openembedded"/>
   <project remote="nxp" revision="b2ae47355609c0ec5a833a518a9d7eca333de1de" name="qoriq/qoriq-components/meta-edgescale" path="sources/meta-edgescale"/>
   <project remote="nxp" revision="435f5e984856a943986491fddd061734a0b9eba5" name="imx/meta-imx" path="sources/meta-imx"/>
-  <project remote="nxp" revision="e39e67850313fa2843c5ec1bb3daacfcd385e45c" name="qoriq/qoriq-components/meta-qoriq" path="sources/meta-qoriq">
+  <project remote="nxp" revision="cc3c536ecb7a8c7c9857d6f47041dab22266dba1" name="qoriq/qoriq-components/meta-qoriq" path="sources/meta-qoriq">
     <copyfile dest="setup-env" src="tools/setup-env"/>
   </project>
 </manifest>
