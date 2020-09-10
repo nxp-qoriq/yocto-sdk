@@ -1,109 +1,27 @@
-Yocto with LSDK Components
-==========================
-Yocto with LSDK components provides recipes for the last Yocto release to use the latest and greatest components from LSDK as they get released. This eventually makes its way into the next community Yocto release at yoctoproject.org. 
+QorIQ Yocto SDK Project
+=======================
+QorIQ Yocto SDK is a complete Linux kit for NXP QorIQ SoC's and
+the reference and evaluation boards.
 
 Supported boards
 ================
-ls1012ardb
-ls1012afrwy
-ls1021atwr
-ls1043ardb
-ls1046ardb
-ls1046afrwy
-ls1088ardb-pb
-ls1028ardb
-ls2088ardb
-lx2160ardb
-p2020rdb
-t1042d4rdb
-t1042d4rdb-64b
-t1024rdb
-p2041rdb
-p3041ds
-p4080ds
-p5040ds
-p5040ds-64b
-t1024rdb-64b
-t2080rdb-64b
-t4240rdb-64b
+lx2160abluebox3
 
-Notes: mpc8548cds and p1020rdb are not validated in this release.
+Setting up to use the Yocto project
+===================================
 
-Prepare build environment
-=========================
-To make sure the build host is prepared for Yocto running and build, please follow this [guide](https://www.yoctoproject.org/docs/3.1/brief-yoctoprojectqs/brief-yoctoprojectqs.html) to prepare the build environment. 
+(1) Install the 'repo' tool:
+$ mkdir ~/bin
+$ curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
+$ chmod a+x ~/bin/repo
 
+(2) Download the metadata:
+$ export PATH=${PATH}:~/bin
+$ mkdir yocto-sdk
+$ cd yocto-sdk
+$ repo init -u ssh://git@bitbucket.sw.nxp.com/yocto/yocto-sdk.git -b dunfell-bb3
+$ repo sync --force-sync
 
-Install 'repo' tool
-===================
-To use this manifest repo, the 'repo' tool must be isntalled first
-```
-$: mkdir ~/bin
-$: curl http://commondatastorage.googleapis.com/git-repo-downloads/repo  > ~/bin/repo
-$: chmod a+x ~/bin/repo
-$: PATH=${PATH}:~/bin
-```
-
-Download Yocto Layers
-=====================
-The following is the step of how to use repo utility to download all Yocto layers according to the repo manifest. Replace <branch> with the real name (see Yocto branch and version below).
-
-```
-$: mkdir yocto-sdk
-$: cd yocto-sdk
-$: repo init -u ssh://git@bitbucket.sw.nxp.com/yocto/yocto-sdk -b <branch>
-$: repo sync --force-sync
-```
-
-Yocto branch and version
-========================
-| Branch  | Version          |
-|---------|------------------|
-| dunfell | YP 3.1–LSDK 2004 |
-| zeus    | YP 3.0–LSDK 1909 |
-| warrior | YP 2.7–LSDK 1906 |
-| thud    | YP 2.6–LSDK 1809 |
-| sumo    | YP 2.5–LSDK 1806 |
-
-Building images
-===============
-Take ls2088ardb as an example:
-```
-$: . ./setup-env -m ls2088ardb
-$: bitbake fsl-image-networking
-```
-or:
-```
-$: bitbake fsl-image-networking-full
-```
-Images will be found under tmp/deploy/images/ls2088ardb/.
-
-
-FAQ
-====
-1. How to compile atf with OPTEE?
-   Set DISTRO_FEATURES_append = " optee" in your local.conf.
-
-2. How to compile atf with specify different RCW image instead of the default one?
-   modify  RCWNOR or RCWSD and RCWNAND in machine conf 
-   For example, ls1043ardb.conf in meta-freescale:
-     RCWNOR ?= "RR_FQPP_1455/rcw_1600"
-
-3. How to add custom additional packages to default rootfs?
-   Set 'IMAGE_INSTALL_append = " <packages to be added>"' in your local.conf
-
-4. Secure boot
-   For build secure boot image ,you need to set the following variables in local.conf
-   DISTRO_FEATURES_append = " secure"
-   ROOTFS_IMAGE = "fsl-image-mfgtool"
-   For arm64 targets:
-   KERNEL_ITS = "kernel-all.its" 
-   For arm32 targets:
-   KERNEL_ITS = "kernel-arm32.its"
-```
-   $: bitbake secure-boot-qoriq
-```
-
-   For information on how to use secure boot, see the "6.1 Secure boot" section. 
-   You can find at  https://www.nxp.com/support/developer-resources/run-time-software/linux-software-and-development-tools/layerscape-software-development-kit:LAYERSCAPE-SDK?tab=Documentation_Tab
- 
+(4) Build images:
+$ . ./setup-env -m lx2160abluebox3
+$ bitbake fsl-image-kernelitb
