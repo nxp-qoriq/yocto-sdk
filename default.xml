@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
-  <remote fetch="https://git.yoctoproject.org/git" name="yocto"/>
-  <remote fetch="https://github.com" name="github"/>
-  <remote fetch="https://source.codeaurora.org/external" name="nxp"/>
-
-  <project remote="yocto" revision="c253fd28ad26b4996666b0794dfee1d59c14e3ca" name="poky" path="sources/poky"/>
-  <project remote="yocto" revision="ba99cce99d248b383871db562d694be5b3d52c77" name="meta-cloud-services" path="sources/meta-cloud-services"/>
-  <project remote="yocto" revision="682c00566aa3cf0deeff0cfd349494f078f38a04" name="meta-freescale" path="sources/meta-freescale"/>
-  <project remote="yocto" revision="d83f7cb0c90666fedd127d5173e6c8b972755c32" name="meta-security" path="sources/meta-security"/>
-  <project remote="yocto" revision="f677a09992413f32e6b2c4c607ae44fb42de72c2" name="meta-selinux" path="sources/meta-selinux"/>
-  <project remote="yocto" revision="5c2de3daedd3f65171b9debf938683ce6e7746ea" name="meta-virtualization" path="sources/meta-virtualization"/>
-  <project remote="github" revision="80205badc4611045bd77769871e3def74d6088c6" name="OSSystems/meta-browser" path="sources/meta-browser"/>
-  <project remote="github" revision="ee1dcdfbb8d31f168b26c2e3e5be97efea6537df" name="kraj/meta-clang" path="sources/meta-clang"/>
-  <project remote="github" revision="fbd12ff7e5f80a0e1fd71fa217d52a3c96659d16" name="freescale/meta-freescale-distro" path="sources/meta-freescale-distro"/>
-  <project remote="github" revision="cc155826b0b4f202a8fa4ac103b7c38368d32734" name="openembedded/meta-openembedded" path="sources/meta-openembedded"/>
-  <project remote="github" revision="439d0a91394024911244e1058febb2933ba9ae2e" name="TimesysGit/meta-timesys" path="sources/meta-timesys"/>
-  <project remote="nxp" revision="760e52a9a4c05729689595d4a884ebf97cba81ad" name="qoriq/qoriq-components/meta-qoriq" path="sources/meta-qoriq">
-    <copyfile dest="setup-env" src="tools/setup-env"/>
+  <remote name="github" fetch="https://github.com"/>
+  <remote name="nxp" fetch="https://source.codeaurora.org/external"/>
+  <remote name="yocto" fetch="https://git.yoctoproject.org/git"/>
+  
+  <project name="OSSystems/meta-browser" path="sources/meta-browser" remote="github" revision="5e07a7897945dd91d75169975178005d9d9aa200"/>
+  <project name="TimesysGit/meta-timesys" path="sources/meta-timesys" remote="github" revision="801a256711c367a2efc74ae2094f843362589b62"/>
+  <project name="freescale/meta-freescale-distro" path="sources/meta-freescale-distro" remote="github" revision="11be3f01962df8436c5c7b0d61cd3dbd1b872905"/>
+  <project name="kraj/meta-clang" path="sources/meta-clang" remote="github" revision="61faae011fb95712064f2c58abe6293f0daeeab5"/>
+  <project name="meta-cloud-services" path="sources/meta-cloud-services" remote="yocto" revision="9175f5b7a6d0ecfe82f908abb1cda233fcab4296"/>
+  <project name="meta-freescale" path="sources/meta-freescale" remote="yocto" revision="41d4f625c6db7a778f0f9a735c2cb48e023bc49b"/>
+  <project name="meta-security" path="sources/meta-security" remote="yocto" revision="d0adcbaa53ffdf5618a90456b93ec7d25612b541"/>
+  <project name="meta-selinux" path="sources/meta-selinux" remote="yocto" revision="be95d6f88c68df94db44a2129de5a7a3a0b9c7d9"/>
+  <project name="meta-virtualization" path="sources/meta-virtualization" remote="yocto" revision="74e0b8d2acc6b9bbc0345a500a700932d70772f4"/>
+  <project name="openembedded/meta-openembedded" path="sources/meta-openembedded" remote="github" revision="ac4ccd2fbbb599d75ca4051911fcbaca39dbe6d7"/>
+  <project name="poky" path="sources/poky" remote="yocto" revision="943ef2fad8428f002850e3655a3312e13d0dcb2c"/>
+  <project name="qoriq/qoriq-components/meta-qoriq" path="sources/meta-qoriq" remote="nxp" revision="5c2417905c9df08d6b0a6433539c5e32622890f0">
+    <copyfile src="tools/setup-env" dest="setup-env"/>
   </project>
 </manifest>
