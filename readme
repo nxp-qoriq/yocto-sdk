@@ -18,7 +18,7 @@ lx2162aqds
 
 Prepare build environment
 =========================
-To make sure the build host is prepared for Yocto running and build, please follow this [guide](https://www.yoctoproject.org/docs/3.2/brief-yoctoprojectqs/brief-yoctoprojectqs.html) to prepare the build environment. 
+To make sure the build host is prepared for Yocto running and build, please follow this [guide](https://www.yoctoproject.org/docs/3.3/brief-yoctoprojectqs/brief-yoctoprojectqs.html) to prepare the build environment. 
 
 
 Install 'repo' tool
@@ -46,6 +46,7 @@ Yocto branch and version
 ========================
 | Branch      | Version          |
 |-------------|------------------|
+| hardknott   | YP 3.3–lf-5.10.35|
 | gatesgarth  | YP 3.2–lf-5.10.y |
 | dunfell     | YP 3.1–LSDK 2004 |
 | zeus        | YP 3.0–LSDK 1909 |
@@ -83,7 +84,6 @@ FAQ
 4. Secure boot
    For build secure boot image ,you need to set the following variables in local.conf
    DISTRO_FEATURES_append = " secure"
-   ROOTFS_IMAGE = "fsl-image-mfgtool"
 ```
    $: bitbake secure-boot-qoriq
 ```

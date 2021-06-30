@@ -4,18 +4,17 @@
   <remote name="nxp" fetch="https://source.codeaurora.org/external"/>
   <remote name="yocto" fetch="https://git.yoctoproject.org/git"/>
   
-  <project name="OSSystems/meta-browser" path="sources/meta-browser" remote="github" revision="5e07a7897945dd91d75169975178005d9d9aa200"/>
-  <project name="TimesysGit/meta-timesys" path="sources/meta-timesys" remote="github" revision="801a256711c367a2efc74ae2094f843362589b62"/>
-  <project name="freescale/meta-freescale-distro" path="sources/meta-freescale-distro" remote="github" revision="11be3f01962df8436c5c7b0d61cd3dbd1b872905"/>
-  <project name="kraj/meta-clang" path="sources/meta-clang" remote="github" revision="61faae011fb95712064f2c58abe6293f0daeeab5"/>
-  <project name="meta-cloud-services" path="sources/meta-cloud-services" remote="yocto" revision="9175f5b7a6d0ecfe82f908abb1cda233fcab4296"/>
-  <project name="meta-freescale" path="sources/meta-freescale" remote="yocto" revision="41d4f625c6db7a778f0f9a735c2cb48e023bc49b"/>
-  <project name="meta-security" path="sources/meta-security" remote="yocto" revision="d0adcbaa53ffdf5618a90456b93ec7d25612b541"/>
-  <project name="meta-selinux" path="sources/meta-selinux" remote="yocto" revision="be95d6f88c68df94db44a2129de5a7a3a0b9c7d9"/>
-  <project name="meta-virtualization" path="sources/meta-virtualization" remote="yocto" revision="74e0b8d2acc6b9bbc0345a500a700932d70772f4"/>
-  <project name="openembedded/meta-openembedded" path="sources/meta-openembedded" remote="github" revision="ac4ccd2fbbb599d75ca4051911fcbaca39dbe6d7"/>
-  <project name="poky" path="sources/poky" remote="yocto" revision="943ef2fad8428f002850e3655a3312e13d0dcb2c"/>
-  <project name="qoriq/qoriq-components/meta-qoriq" path="sources/meta-qoriq" remote="nxp" revision="5c2417905c9df08d6b0a6433539c5e32622890f0">
+  <project name="OSSystems/meta-browser" path="sources/meta-browser" remote="github" revision="cb3278e31340c7f081e8deb0683df2145da515c9"/>
+  <project name="freescale/meta-freescale-distro" path="sources/meta-freescale-distro" remote="github" revision="916df6d24c0a33a3b1533bde70b6a2724ec77af4"/>
+  <project name="kraj/meta-clang" path="sources/meta-clang" remote="github" revision="d797409435d3b0e9f2859992439989ff1d81e66d"/>
+  <project name="meta-cloud-services" path="sources/meta-cloud-services" remote="yocto" revision="eb1ad5403e7572abfe21c62616e78c66e3da7131"/>
+  <project name="meta-freescale" path="sources/meta-freescale" remote="yocto" revision="80dbe4bd63bd537fc9cfda2e009f8543464b4698"/>
+  <project name="meta-security" path="sources/meta-security" remote="yocto" revision="ca9264b1e1b5a8b84bf95f5a4eb93f2947b3b75c"/>
+  <project name="meta-selinux" path="sources/meta-selinux" remote="yocto" revision="5753d1522526ce5e9ef8df138e151aa9248016ac"/>
+  <project name="meta-virtualization" path="sources/meta-virtualization" remote="yocto" revision="1f9a36fa1a54c8daeb697bf50277f79b3196a5a4"/>
+  <project name="openembedded/meta-openembedded" path="sources/meta-openembedded" remote="github" revision="c3a36263f91e42302ad7c347e051cf1cd83e39f6"/>
+  <project name="poky" path="sources/poky" remote="yocto" revision="58cbdaecf75b0248f96780b6882e8d4f232d038a"/>
+  <project name="qoriq/qoriq-components/meta-qoriq" path="sources/meta-qoriq" remote="nxp" revision="11f91e4a6840428fb3d2fd987e409eb02b07eb96">
     <copyfile src="tools/setup-env" dest="setup-env"/>
   </project>
 </manifest>
