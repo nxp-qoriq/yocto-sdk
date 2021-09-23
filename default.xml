@@ -4,17 +4,17 @@
   <remote name="nxp" fetch="https://source.codeaurora.org/external"/>
   <remote name="yocto" fetch="https://git.yoctoproject.org/git"/>
   
-  <project name="OSSystems/meta-browser" path="sources/meta-browser" remote="github" revision="cb3278e31340c7f081e8deb0683df2145da515c9"/>
+  <project name="OSSystems/meta-browser" path="sources/meta-browser" remote="github" revision="8be1d3a0ba0cf32e61144900597207af5698c10d"/>
   <project name="freescale/meta-freescale-distro" path="sources/meta-freescale-distro" remote="github" revision="916df6d24c0a33a3b1533bde70b6a2724ec77af4"/>
-  <project name="kraj/meta-clang" path="sources/meta-clang" remote="github" revision="d797409435d3b0e9f2859992439989ff1d81e66d"/>
+  <project name="kraj/meta-clang" path="sources/meta-clang" remote="github" revision="7ef47d048267cf755c496a3962b34314f6f1f1e1"/>
   <project name="meta-cloud-services" path="sources/meta-cloud-services" remote="yocto" revision="eb1ad5403e7572abfe21c62616e78c66e3da7131"/>
-  <project name="meta-freescale" path="sources/meta-freescale" remote="yocto" revision="80dbe4bd63bd537fc9cfda2e009f8543464b4698"/>
+  <project name="meta-freescale" path="sources/meta-freescale" remote="yocto" revision="2027a8045384463b7c793381dd887b0591037e2f"/>
   <project name="meta-security" path="sources/meta-security" remote="yocto" revision="ca9264b1e1b5a8b84bf95f5a4eb93f2947b3b75c"/>
   <project name="meta-selinux" path="sources/meta-selinux" remote="yocto" revision="5753d1522526ce5e9ef8df138e151aa9248016ac"/>
-  <project name="meta-virtualization" path="sources/meta-virtualization" remote="yocto" revision="1f9a36fa1a54c8daeb697bf50277f79b3196a5a4"/>
-  <project name="openembedded/meta-openembedded" path="sources/meta-openembedded" remote="github" revision="c3a36263f91e42302ad7c347e051cf1cd83e39f6"/>
-  <project name="poky" path="sources/poky" remote="yocto" revision="58cbdaecf75b0248f96780b6882e8d4f232d038a"/>
-  <project name="qoriq/qoriq-components/meta-qoriq" path="sources/meta-qoriq" remote="nxp" revision="11f91e4a6840428fb3d2fd987e409eb02b07eb96">
+  <project name="meta-virtualization" path="sources/meta-virtualization" remote="yocto" revision="679a22e1307c490ac357a48eb820ad34af05e724"/>
+  <project name="openembedded/meta-openembedded" path="sources/meta-openembedded" remote="github" revision="5a4b2ab29d38c02535f24d5308cc40615739f557"/>
+  <project name="poky" path="sources/poky" remote="yocto" revision="14c5392fded42f17962e1cc07fcc0446881b4fa0"/>
+  <project name="qoriq/qoriq-components/meta-qoriq" path="sources/meta-qoriq" remote="nxp" revision="44017d44eb8e5e649be683fcf6292ecb577331fc">
     <copyfile src="tools/setup-env" dest="setup-env"/>
   </project>
 </manifest>
