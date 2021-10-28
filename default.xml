@@ -2,7 +2,7 @@
 <manifest>
   <remote fetch="https://git.yoctoproject.org/git" name="yocto"/>
   <remote fetch="https://github.com" name="github"/>
-  <remote fetch="ssh://git@bitbucket.sw.nxp.com" name="nxp"/>
+  <remote fetch="https://source.codeaurora.org/external" name="nxp"/>
 
   <project remote="yocto" revision="c253fd28ad26b4996666b0794dfee1d59c14e3ca" name="poky" path="sources/poky"/>
   <project remote="yocto" revision="ba99cce99d248b383871db562d694be5b3d52c77" name="meta-cloud-services" path="sources/meta-cloud-services"/>
@@ -15,7 +15,7 @@
   <project remote="github" revision="fbd12ff7e5f80a0e1fd71fa217d52a3c96659d16" name="freescale/meta-freescale-distro" path="sources/meta-freescale-distro"/>
   <project remote="github" revision="cc155826b0b4f202a8fa4ac103b7c38368d32734" name="openembedded/meta-openembedded" path="sources/meta-openembedded"/>
   <project remote="github" revision="439d0a91394024911244e1058febb2933ba9ae2e" name="TimesysGit/meta-timesys" path="sources/meta-timesys"/>
-  <project remote="nxp" revision="1dfc9827dcb51d133145f2552f39d3102636ab35" name="yocto/meta-qoriq" path="sources/meta-qoriq">
+  <project remote="nxp" revision="5609abd09a5c1fab498431aa7f26c59e0f5d3b79" name="qoriq/qoriq-components/meta-qoriq" path="sources/meta-qoriq">
     <copyfile dest="setup-env" src="tools/setup-env"/>
   </project>
 </manifest>
