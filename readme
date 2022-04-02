@@ -46,6 +46,7 @@ Yocto branch and version
 ========================
 | Branch      | Version          |
 |-------------|------------------|
+| honister    | YP 3.4–lf-5.15.5 |
 | hardknott   | YP 3.3–lf-5.10.72|
 | gatesgarth  | YP 3.2–lf-5.10.9 |
 | dunfell     | YP 3.1–LSDK 2004 |
