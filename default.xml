@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+  <remote name="github" fetch="https://github.com"/>
+  <remote name="nxp" fetch="https://source.codeaurora.org/external"/>
+  <remote name="yocto" fetch="https://git.yoctoproject.org/git"/>
+
+  <default sync-j="2"/>
+
+  <project name="OSSystems/meta-browser" path="sources/meta-browser" remote="github" revision="d25d8ee98a656b2534d0eec6138ef264529fab4f"/>
+  <project name="freescale/meta-freescale-distro" path="sources/meta-freescale-distro" remote="github" revision="fc15f5003043da23212596be7366ae2547c308ad" upstream="kirkstone"/>
+  <project name="kraj/meta-clang" path="sources/meta-clang" remote="github" revision="85d956d95401479ca666139e31f662f60c156d5f" upstream="kirkstone"/>
+  <project name="meta-cloud-services" path="sources/meta-cloud-services" remote="yocto" revision="58de4a7436b0636ef7daf9dd635c5be780e9f4f8" upstream="master"/>
+  <project name="meta-freescale" path="sources/meta-freescale" remote="yocto" revision="2fb1ce365338126aad365012ebb913b3e4a9f1be" upstream="kirkstone"/>
+  <project name="meta-security" path="sources/meta-security" remote="yocto" revision="7628a3e90b6c51f64fd80ab2180885da4a37412f" upstream="master"/>
+  <project name="meta-selinux" path="sources/meta-selinux" remote="yocto" revision="26655dfdf6a607811cc61612e91bd9f7beb55b8a" upstream="master"/>
+  <project name="meta-virtualization" path="sources/meta-virtualization" remote="yocto" revision="973c8d0964c6f40338857efe5b8009b2f647d485"/>
+  <project name="openembedded/meta-openembedded" path="sources/meta-openembedded" remote="github" revision="5357c7a40eaf8d1bcf7ff58edbba8e9527e40c7d" upstream="kirkstone"/>
+  <project name="poky" path="sources/poky" remote="yocto" revision="27de52e402ae000dfa502d52908cd6e6aef923ec" upstream="kirkstone"/>
+  <project name="qoriq/qoriq-components/meta-qoriq" path="sources/meta-qoriq" remote="nxp" revision="9360097caaec77aeaf2a901ff3687f9dc79b1e0f" upstream="kirkstone">
+    <copyfile dest="setup-env" src="tools/setup-env"/>
+  </project>
+
+</manifest>
