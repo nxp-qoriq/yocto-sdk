@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+
+  <include name="ls-5.15.32-2.0.0.xml"/>
+  <remote name="CAF" fetch="https://source.codeaurora.org/external/imx"/>
+
+  <project name="meta-nxp-desktop" path="sources/meta-nxp-desktop" remote="CAF" revision="refs/tags/rel_lf_5.15.32_2.0.0_desktop" upstream="lf-5.15.32-2.0.0-kirkstone" >
+    <linkfile src="tools/setup-env" dest="distro-setup-env"/>
+    <linkfile src="README.md" dest="README-DISTRO"/>
+  </project>
+
+</manifest>
