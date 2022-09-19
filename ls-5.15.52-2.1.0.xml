@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+  <remote name="github" fetch="https://github.com"/>
+  <remote name="yocto" fetch="https://git.yoctoproject.org/git"/>
+
+  <default sync-j="2"/>
+
+  <project name="OSSystems/meta-browser" path="sources/meta-browser" remote="github" revision="e232c2e21b96dc092d9af8bea4b3a528e7a46dd6"/>
+  <project name="freescale/meta-freescale-distro" path="sources/meta-freescale-distro" remote="github" revision="fc15f5003043da23212596be7366ae2547c308ad" upstream="kirkstone"/>
+  <project name="kraj/meta-clang" path="sources/meta-clang" remote="github" revision="d669d873edf68dc7440bb07096737203bb7ec505" upstream="kirkstone"/>
+  <project name="meta-cloud-services" path="sources/meta-cloud-services" remote="yocto" revision="12efde8056a004e8d3a337edb2728d05edbc383b" upstream="master"/>
+  <project name="meta-freescale" path="sources/meta-freescale" remote="yocto" revision="06e1cf4099caa53da33c10e1884064f73dc184dd" upstream="kirkstone"/>
+  <project name="meta-security" path="sources/meta-security" remote="yocto" revision="c79262a30bd385f5dbb009ef8704a1a01644528e" upstream="master"/>
+  <project name="meta-selinux" path="sources/meta-selinux" remote="yocto" revision="a401f4b2816a0b41ce8d9351542658c721935bcd" upstream="master"/>
+  <project name="meta-virtualization" path="sources/meta-virtualization" remote="yocto" revision="cca772a457a75b2661371932ff79c392da3118db"/>
+  <project name="openembedded/meta-openembedded" path="sources/meta-openembedded" remote="github" revision="8f2dc1023482863e2630d1b94052c41ce748b38f" upstream="kirkstone"/>
+  <project name="poky" path="sources/poky" remote="yocto" revision="602922d492351ee747d2ff00f8ed5aab284a706b" upstream="kirkstone"/>
+  <project name="nxp-qoriq/meta-qoriq" path="sources/meta-qoriq" remote="github" revision="11a03b05a703d9d350c39f616142cdeb7a25b427" upstream="kirkstone">
+    <copyfile dest="setup-env" src="tools/setup-env"/>
+  </project>
+
+</manifest>
