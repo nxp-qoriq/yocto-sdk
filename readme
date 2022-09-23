@@ -38,7 +38,7 @@ The following is the step of how to use repo utility to download all Yocto layer
 ```
 $: mkdir yocto-sdk
 $: cd yocto-sdk
-$: repo init -u https://source.codeaurora.org/external/qoriq/qoriq-components/yocto-sdk -b <branch>
+$: repo init -u https://github.com/nxp-qoriq/yocto-sdk -b <branch>
 $: repo sync --force-sync
 ```
 
@@ -46,7 +46,7 @@ Yocto branch and version
 ========================
 | Branch      | Version          |
 |-------------|------------------|
-| kirkstone   | YP 4.0–lf-5.15.32|
+| kirkstone   | YP 4.0–lf-5.15.52|
 | honister    | YP 3.4–lf-5.15.5 |
 | hardknott   | YP 3.3–lf-5.10.72|
 | gatesgarth  | YP 3.2–lf-5.10.9 |
