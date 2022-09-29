@@ -1,3 +1,32 @@
+# Date: 9/30/2022
+# Release: 5.15.52-2.1.0
+### New Features
+- Support for LS1043ARDB-PD Redesign
+- Kernel v5.15.52
+- Preempt RT Kernel v5.15.52
+- DPDK
+  - Support for VPP v2202
+  - Support for mTCP on DPAA1 and DPAA2
+- Linux kernel driver
+  - DPAA2-eth: support for AF_XDP zero-copy
+  - DPAA2-switch: support for LAG offload
+- Management Complex 10.35.0
+- OPTEE
+  - Removal of OPTEE support on LS1012AFRWY
+- Software Workaround for SoC Errata
+  - A-010383
+### Bug Fixes
+| ID    |  Description   |
+| --- | --- |
+| DPDK-3599 | dpdk_ovs: failed to get throughput data on dpaa2 platform |
+| DPDK-3607	| IPSEC event mode does not work on LS1046ARDB |
+| LF-6294 | LX2120A does not boot up |
+| LF-6322 | IFC-NOR secure-boot failed for error "BL2: Failed to load image" on LS2088ARDB |
+| LF-6323 | SD secure boot fails on LX2160ARDB |
+| LFU-340 | In secure boot, kernel itb validation crashes during booting |
+| LFU-346 | In secure boot, pfe firmware validation crashes on LS1012ARDB |
+| LFU-350 | SD secure boot fails on LS1021ATWR |
+
 # Date: 6/30/2022
 # Release: 5.15.32-2.0.0
 ### New Features
