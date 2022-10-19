@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+
+  <include name="ls-5.15.52-2.1.0.xml"/>
+
+  <project name="nxp-imx/meta-nxp-desktop" path="sources/meta-nxp-desktop" remote="github" revision="refs/tags/rel_lf_5.15.52_2.1.0_desktop" upstream="lf-5.15.52-2.1.0-kirkstone" >
+    <linkfile src="tools/setup-env" dest="distro-setup-env"/>
+    <linkfile src="README.md" dest="README-DISTRO"/>
+  </project>
+
+</manifest>
