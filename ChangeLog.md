@@ -1,3 +1,21 @@
+# Date: 12/16/2022
+# Release: 5.15.71-2.2.0
+### New Features
+- Kernel v5.15.71
+- Preempt RT Kernel v5.15.71
+- DPDK
+  - Support for OVS 2.17
+- Linux kernel driver
+  - DPAA2: support for MC over SMMU
+  - ENETC: support for AF_XDP zero-copy
+- OPTEE 3.19
+### Bug fixes
+| ID    |  Description   |
+| --- | --- |
+| DPDK-3666 | L3 forwarding performance degrades on 1 core and 2G throughputs on LS1028ARDB |
+| DPDK-3718 | QDMA hangs on PCIe read on LS1046ARDB |
+| LF-7599   | Weston service cannot start automatically when system boots up on LS1028ARDB |
+
 # Date: 9/30/2022
 # Release: 5.15.52-2.1.0
 ### New Features
