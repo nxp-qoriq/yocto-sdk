@@ -7,7 +7,7 @@
 
   <project name="OSSystems/meta-browser" path="sources/meta-browser" remote="github" revision="e232c2e21b96dc092d9af8bea4b3a528e7a46dd6"/>
   <project name="freescale/meta-freescale-distro" path="sources/meta-freescale-distro" remote="github" revision="d5bbb487b2816dfc74984a78b67f7361ce404253" upstream="kirkstone"/>
-  <project name="kraj/meta-clang" path="sources/meta-clang" remote="github" revision="d5bbb487b2816dfc74984a78b67f7361ce404253" upstream="kirkstone"/>
+  <project name="kraj/meta-clang" path="sources/meta-clang" remote="github" revision="c728c3f9168c8a4ed05163a51dd48ca1ad8ac21d" upstream="kirkstone"/>
   <project name="meta-cloud-services" path="sources/meta-cloud-services" remote="yocto" revision="12efde8056a004e8d3a337edb2728d05edbc383b" upstream="kirkstone"/>
   <project name="meta-freescale" path="sources/meta-freescale" remote="yocto" revision="c82d4634e7aba8bc0de73ce1dfc997b630051571" upstream="kirkstone"/>
   <project name="meta-security" path="sources/meta-security" remote="yocto" revision="c79262a30bd385f5dbb009ef8704a1a01644528e" upstream="kirkstone"/>
