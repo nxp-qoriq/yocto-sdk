@@ -16,7 +16,7 @@
   <project name="openembedded/meta-openembedded" path="sources/meta-openembedded" remote="github" revision="744a4b6eda88b9a9ca1cf0df6e18be384d9054e3" upstream="kirkstone"/>
   <project name="poky" path="sources/poky" remote="yocto" revision="24a3f7b3648185e33133f5d96b184a6cb6524f3d" upstream="kirkstone"/>
 
-  <project name="nxp-qoriq/meta-qoriq" path="sources/meta-qoriq" remote="github" revision="ffa1255ebdfe5ca5c27488e49eb90a1a0fc0d7a5" upstream="kirkstone">
+  <project name="nxp-qoriq/meta-qoriq" path="sources/meta-qoriq" remote="github" revision="5bb34453c033230ebdf6aea66c9b6e1427e6c09e" upstream="kirkstone">
     <copyfile dest="setup-env" src="tools/setup-env"/>
   </project>
 
