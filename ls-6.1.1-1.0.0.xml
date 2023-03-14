@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+
+  <remote name="yocto"       fetch="https://git.yoctoproject.org"/>
+  <remote name="oe"          fetch="https://github.com/openembedded"/>
+  <remote name="kraj"        fetch="https://github.com/kraj"/>
+
+  <remote name="community"   fetch="https://github.com/Freescale"/>
+  <remote name="ossystems"   fetch="https://github.com/OSSystems"/>
+
+  <remote name="nxp-qoriq"     fetch="https://github.com/nxp-qoriq"/>
+
+  <project name="meta-browser" path="sources/meta-browser" remote="ossystems" revision="e232c2e21b96dc092d9af8bea4b3a528e7a46dd6"/>
+  <project name="meta-clang" path="sources/meta-clang" remote="kraj" revision="22f1cc330d3501923d2dc27cd3fc424c69c3a73a" upstream="master"/>
+  <project name="meta-cloud-services" path="sources/meta-cloud-services" remote="yocto" revision="b7eaf24eb1e007aad05760771944a5a0d23f78ad" upstream="master"/>
+
+  <project name="meta-freescale" path="sources/meta-freescale" remote="community" revision="09c47379218167dda9fb0098129909a667fea2ec" upstream="master"/>
+  <project name="meta-freescale-distro" path="sources/meta-freescale-distro" remote="community" revision="1069c2f210b18cd707a4d8a82140a684a42a4ff6" upstream="master"/>
+  <project name="meta-security" path="sources/meta-security" remote="yocto" revision="2aa48e6f4e519abc7d6bd56da2c067309a303e80" upstream="langdale"/>
+  <project name="meta-selinux" path="sources/meta-selinux" remote="yocto" revision="91c8ba58140cbc05e9bf9b43113007ed3bb3d052" upstream="master"/>
+  <project name="meta-virtualization" path="sources/meta-virtualization" remote="yocto" revision="8857b36ebfec3d548755755b009adc491ef320ab" upstream="langdale"/>
+  <project name="meta-openembedded" path="sources/meta-openembedded" remote="oe" revision="c354f92778c1d4bcd3680af7e0fb0d1414de2344" upstream="langdale"/>
+  <project name="poky" path="sources/poky" remote="yocto" revision="b50f718e4cb73214e7ad298484ecdadd6cfeb866" upstream="langdale"/>
+
+  <project name="meta-qoriq" path="sources/meta-qoriq" remote="nxp-qoriq" revision="36cb7a032083394fdc38a136383f735752fbce59" upstream="langdale">
+    <copyfile dest="setup-env" src="tools/setup-env"/>
+  </project>
+
+</manifest>
