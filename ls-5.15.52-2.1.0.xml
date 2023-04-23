@@ -15,7 +15,7 @@
   <project name="meta-virtualization" path="sources/meta-virtualization" remote="yocto" revision="cca772a457a75b2661371932ff79c392da3118db"/>
   <project name="openembedded/meta-openembedded" path="sources/meta-openembedded" remote="github" revision="8f2dc1023482863e2630d1b94052c41ce748b38f" upstream="kirkstone"/>
   <project name="poky" path="sources/poky" remote="yocto" revision="602922d492351ee747d2ff00f8ed5aab284a706b" upstream="kirkstone"/>
-  <project name="nxp-qoriq/meta-qoriq" path="sources/meta-qoriq" remote="github" revision="fa5ba1374d300661a12b0b3864d38548193026b4" upstream="kirkstone">
+  <project name="nxp-qoriq/meta-qoriq" path="sources/meta-qoriq" remote="github" revision="b36afaff5e1969d5d5047e9a4a68955b44395440" upstream="kirkstone-5.15.52-2.1.0">
     <copyfile dest="setup-env" src="tools/setup-env"/>
   </project>
 
