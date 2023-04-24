@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
   <remote name="github" fetch="https://github.com"/>
-  <remote name="nxp" fetch="https://source.codeaurora.org/external"/>
   <remote name="yocto" fetch="https://git.yoctoproject.org/git"/>
 
   <default sync-j="2"/>
@@ -16,7 +15,7 @@
   <project name="meta-virtualization" path="sources/meta-virtualization" remote="yocto" revision="973c8d0964c6f40338857efe5b8009b2f647d485"/>
   <project name="openembedded/meta-openembedded" path="sources/meta-openembedded" remote="github" revision="5357c7a40eaf8d1bcf7ff58edbba8e9527e40c7d" upstream="kirkstone"/>
   <project name="poky" path="sources/poky" remote="yocto" revision="27de52e402ae000dfa502d52908cd6e6aef923ec" upstream="kirkstone"/>
-  <project name="qoriq/qoriq-components/meta-qoriq" path="sources/meta-qoriq" remote="nxp" revision="065e7ef5516d54c76f6dda50cdd1fdab56669256" upstream="kirkstone">
+  <project name="nxp-qoriq/meta-qoriq" path="sources/meta-qoriq" remote="github" revision="4916a28f7d3606e8e56de78a33ccf85f5f5d1653" upstream="kirkstone-5.15.32-2.0.0">
     <copyfile dest="setup-env" src="tools/setup-env"/>
   </project>
 
