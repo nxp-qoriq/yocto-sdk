@@ -22,5 +22,5 @@
 | LF-9183 | Build mesa-demos fails for GPU on LS1028ARDB |
 
 ### Known limitation 
-- GPU demo fails run on LS1028ARDB display.
+- GPU demo fails run on LS1028ARDB display. (Work around: export WAYLAND_DISPLAY=wayland-1 before running demos)
 - Secure boot fails on DPAA1 platforms and LS1012A platforms.
