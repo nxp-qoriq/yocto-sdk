@@ -23,4 +23,6 @@
 
 ### Known limitation 
 - GPU demo fails run on LS1028ARDB display. (Work around: export WAYLAND_DISPLAY=wayland-1 before running demos)
-- Secure boot fails on DPAA1 platforms and LS1012A platforms.
+- Secure boot fails on DPAA1 platforms and LS1012A platforms. (Work around:
+  Remove dependency of config ESBC_ADDR_64BIT on ESBC_HDR_LS inside
+  arch/Kconfig.nxp file)
