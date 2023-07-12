@@ -75,7 +75,7 @@ Images will be found under tmp/deploy/images/ls2088ardb/.
 FAQ
 ====
 1. How to compile atf with OPTEE?
-   Set DISTRO_FEATURES_append = " optee" in your local.conf.
+   Set DISTRO_FEATURES:append = " optee" in your local.conf.
 
 2. How to compile atf with specify different RCW image instead of the default one?
    modify  RCWNOR or RCWSD and RCWNAND in machine conf
@@ -83,11 +83,11 @@ FAQ
      RCWNOR ?= "RR_FQPP_1455/rcw_1600"
 
 3. How to add custom additional packages to default rootfs?
-   Set 'IMAGE_INSTALL_append = " <packages to be added>"' in your local.conf
+   Set 'IMAGE_INSTALL:append = " <packages to be added>"' in your local.conf
 
 4. Secure boot
    For build secure boot image ,you need to set the following variables in local.conf
-   DISTRO_FEATURES_append = " secure"
+   DISTRO_FEATURES:append = " secure"
 ```
    $: bitbake secure-boot-qoriq
 ```
