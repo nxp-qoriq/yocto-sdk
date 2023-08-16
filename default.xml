@@ -15,7 +15,7 @@
   <project name="meta-virtualization" path="sources/meta-virtualization" remote="yocto" revision="ed52ba982179087ecc84f7dc3b0a16cfe25f2f8e" upstream="honister"/>
   <project name="openembedded/meta-openembedded" path="sources/meta-openembedded" remote="github" revision="4647e3ea3708d30eeb0149f6d5626c9576bff520" upstream="honister"/>
   <project name="poky" path="sources/poky" remote="yocto" revision="4d7162798ec19c726877e85509e4c7a99eb6576d" upstream="honister"/>
-  <project name="nxp-qoriq/meta-qoriq" path="sources/meta-qoriq" remote="github" revision="8ec8a191e5eb3444a61399a54e4370937b5bb944" upstream="honister">
+  <project name="nxp-qoriq/meta-qoriq" path="sources/meta-qoriq" remote="github" revision="refs/tags/lf-5.15.5-1.0.0" upstream="honister">
     <copyfile dest="setup-env" src="tools/setup-env"/>
   </project>
 
