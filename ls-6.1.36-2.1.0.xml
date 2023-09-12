@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+
+  <remote name="yocto"       fetch="https://git.yoctoproject.org"/>
+  <remote name="oe"          fetch="https://github.com/openembedded"/>
+  <remote name="kraj"        fetch="https://github.com/kraj"/>
+
+  <remote name="community"   fetch="https://github.com/Freescale"/>
+  <remote name="ossystems"   fetch="https://github.com/OSSystems"/>
+
+  <remote name="nxp-qoriq"     fetch="https://github.com/nxp-qoriq"/>
+
+  <project name="meta-arm" path="sources/meta-arm" remote="yocto" revision="0e043288fd0b17fbf31cf00ae33045107a991144" upstream="master"/>
+  <project name="meta-browser" path="sources/meta-browser" remote="ossystems" revision="e232c2e21b96dc092d9af8bea4b3a528e7a46dd6"/>
+  <project name="meta-clang" path="sources/meta-clang" remote="kraj" revision="af4dcba009ba98250315520f3003fde4ee164cce" upstream="mickledore"/>
+  <project name="meta-cloud-services" path="sources/meta-cloud-services" remote="yocto" revision="589cdff6528b3b677b2a76a18d80694ccd9991fb" upstream="mickledore"/>
+
+  <project name="meta-freescale" path="sources/meta-freescale" remote="community" revision="9b00d40b787c2b7105ce209f5635cc1a0cab81ca" upstream="master"/>
+  <project name="meta-freescale-distro" path="sources/meta-freescale-distro" remote="community" revision="b09c18a3f649f0cf1b40432bb39e76ba16fe94e2" upstream="master"/>
+  <project name="meta-security" path="sources/meta-security" remote="yocto" revision="d7db0a3bd1a8639df7570483f003ce00cbe274a2" upstream="mickledore"/>
+  <project name="meta-selinux" path="sources/meta-selinux" remote="yocto" revision="47858343ed2cdc8e39d9e1f916c27db738513dd3" upstream="master"/>
+  <project name="meta-virtualization" path="sources/meta-virtualization" remote="yocto" revision="56593e277a377157944a6676e57497066b770a35" upstream="master"/>
+  <project name="meta-openembedded" path="sources/meta-openembedded" remote="oe" revision="75cf318cef3b4ee81fad2782cf063ecd69ba8842" upstream="mickledore"/>
+  <project name="poky" path="sources/poky" remote="yocto" revision="0a98281d37b0bd8dc1548c390216cb3978e36e0e" upstream="mickledore"/>
+
+  <project name="meta-qoriq" path="sources/meta-qoriq" remote="nxp-qoriq" revision="refs/tags/lf-6.1.36-2.1.0" upstream="mickledore">
+    <copyfile dest="setup-env" src="tools/setup-env"/>
+  </project>
+
+</manifest>
