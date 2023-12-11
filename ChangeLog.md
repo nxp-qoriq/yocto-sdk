@@ -1,3 +1,25 @@
+# Date: 12/15/2023
+# Release: 6.1.55-2.2.0
+### New Features
+- LX2160ARDB revD
+- Kernel v6.1.55
+- DPAA1-eth: Copper backplane support (10GBase-KR)
+- MC 10.38.0
+- OPTEE v4.0.0
+- RCW to support QSPI secure boot on LS1021ATWR
+
+# Date: 9/28/2023
+# Release: 6.1.36-2.1.0
+### New Features
+- Kernel v6.1.36
+- DPAA2-eth: Copper backplane support (10GBase-KR, 25GBase-KR, 40GBase-KR, 100GBase-KR)
+### Bug fixes
+| ID    |  Description   |
+| --- | --- |
+|  | GPU demo fails run on LS1028ARDB display |
+|  | Secure boot fails on DPAA1 platforms and LS1012A platforms |
+
+
 # Date: 6/30/2023
 # Release: 6.1.22-2.0.0
 ### New Features
