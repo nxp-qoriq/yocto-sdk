@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
 
-  <remote name="yocto"       fetch="https://git.yoctoproject.org"/>
+  <remote name="yp"          fetch="https://git.yoctoproject.org"/>
   <remote name="oe"          fetch="https://github.com/openembedded"/>
   <remote name="kraj"        fetch="https://github.com/kraj"/>
 
@@ -17,7 +17,7 @@
 
   <project name="meta-freescale" remote="community" path="sources/meta-freescale" revision="7327e03c61823268a5a957fe090c4cc5e1735b34" upstream="master" />
   <project name="meta-freescale-distro" remote="community" path="sources/meta-freescale-distro" revision="7956a0ab407a33c40fdc6eb4fabdcb7dc54fd359" upstream="master" />
-  <project name="meta-security" path="sources/meta-security" remote="yocto" revision="d7db0a3bd1a8639df7570483f003ce00cbe274a2" upstream="mickledore"/>
+  <project name="meta-security" path="sources/meta-security" remote="yp" revision="d7db0a3bd1a8639df7570483f003ce00cbe274a2" upstream="mickledore"/>
   <project name="meta-selinux" path="sources/meta-selinux" remote="yp" revision="ff95c536a54a758185958bcfeff86d9ba595b13e" upstream="master"/>
   <project name="meta-virtualization" remote="yp" path="sources/meta-virtualization" revision="38e6b3e2fe0219c773f4637a09221ca5d15bf6fc" upstream="mickledore" />
   <project name="poky" remote="yp" path="sources/poky" revision="a57506c46d92bf0767060102d2139be06d46f575" upstream="mickledore"/>
