@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+
+  <include name="ls-6.1.55-2.2.0.xml"/>
+  <remote name="nxp-imx"     fetch="https://github.com/nxp-imx"/>
+
+  <project name="meta-nxp-desktop" path="sources/meta-nxp-desktop" remote="nxp-imx" revision="refs/tags/rel_lf_6.1.55_2.2.0_ldp" upstream="lf-6.1.55-2.2.0-mickledore" >
+    <linkfile src="tools/setup-env" dest="distro-setup-env"/>
+    <linkfile src="README.md" dest="README-DISTRO"/>
+  </project>
+
+</manifest>
