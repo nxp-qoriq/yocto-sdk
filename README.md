@@ -46,7 +46,8 @@ Yocto branch and version
 ========================
 | Branch      | Version          |
 |-------------|------------------|
-| scarthgap   | YP 5.0-lf-6.6.52
+| styhead     | YP 5.1-lf-6.12.3 |
+| scarthgap   | YP 5.0-lf-6.6.52 |
 | scarthgap   | YP 5.0-lf-6.6.36 |
 | nanbield    | YP 4.3-lf-6.6.3  |
 | mickledore  | YP 4.2–lf-6.1.55 |
