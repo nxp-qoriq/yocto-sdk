@@ -1,3 +1,8 @@
+Date: 3/10/2025
+Release: 6.12.3-1.0.0
+- Kernel v6.12.3
+- Yocto Styhead 5.1
+
 Date: 12/16/2024
 Release: 6.6.52-2.2.0
 - LS1088ARDB-PB RevC Board Re-design
