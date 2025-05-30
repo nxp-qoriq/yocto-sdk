@@ -1,3 +1,11 @@
+Date: 6/30/2025
+Release: 6.12.20-2.0.0
+- Kernel v6.12.20
+- U-boot v2025.04
+- OPTEE v4.6.0
+- TF-A v2.12
+- Yocto walnascar 5.2
+
 Date: 3/10/2025
 Release: 6.12.3-1.0.0
 - Kernel v6.12.3
