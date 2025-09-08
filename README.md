@@ -46,7 +46,7 @@ Yocto branch and version
 ========================
 | Branch      | Version          |
 |-------------|------------------|
-| walnascar   | YP 5.2-lf-6.12.20|
+| walnascar   | YP 5.2-lf-6.12.34|
 | styhead     | YP 5.1-lf-6.12.3 |
 | scarthgap   | YP 5.0-lf-6.6.52 |
 | nanbield    | YP 4.3-lf-6.6.3  |
