@@ -1,3 +1,9 @@
+Date: 9/30/2025
+Release: 6.12.34-2.1.0
+- Kernel v6.12.34
+- flex-installer 1.27.1412
+- LS1046ARDB RevE Board Re-design
+
 Date: 6/30/2025
 Release: 6.12.20-2.0.0
 - Kernel v6.12.20
@@ -41,6 +47,3 @@ Release: 6.6.3-1.0.0
 - Yocto Nanbield 4.3
 - mdio-proxy.ko kernel module in rootfs
 - aquantia-firmwar-utility tool in rootfs
-
-
-
