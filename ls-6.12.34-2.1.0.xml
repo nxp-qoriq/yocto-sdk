@@ -9,7 +9,7 @@
 
   <remote name="nxp-qoriq"     fetch="https://github.com/nxp-qoriq"/>
 
-  <project name="meta-arm" remote="yocto" path="sources/meta-arm" revision="b642d6a4a93a23d5b99886844ff7b224aa7e13bf" upstream="walnascar"/>
+  <project name="meta-arm" remote="yocto" path="sources/meta-arm" revision="2de04c3d31e119d4bedbea24b9c63a8c113a1ce3" upstream="walnascar"/>
   <project name="meta-cloud-services" remote="yocto" path="sources/meta-cloud-services" revision="6c5afb77aa5580dbe737f682ee2f792122c0c2f3" upstream="master"/>
   <project name="meta-security" remote="yocto" path="sources/meta-security" revision="784ca4b6584101e971b2d5d76ec7b716ad1301b5" upstream="walnascar"/>
   <project name="meta-virtualization" remote="yocto" path="sources/meta-virtualization" revision="898239e810acbb7db93299f20deec8afe434f11b" upstream="walnascar"/>
@@ -20,7 +20,7 @@
   <project name="meta-freescale" remote="community" path="sources/meta-freescale" revision="167ff4ddb79299cf5477e94620a9e598659c407b" upstream="walnascar"/>
   <project name="meta-freescale-distro" remote="community" path="sources/meta-freescale-distro" revision="b9c3536b68271c420fe5de36fc284781ceaa32ab" upstream="walnascar"/>
 
-  <project name="meta-openembedded" remote="oe" path="sources/meta-openembedded" revision="0d2d2d193a1619b6dbebaf335f1ef785478049e3" upstream="walnascar"/>
+  <project name="meta-openembedded" remote="oe" path="sources/meta-openembedded" revision="dca497d728792e3cb655c78455c2d649af312ce8" upstream="walnascar"/>
 
   <project name="meta-qoriq" remote="nxp-qoriq" path="sources/meta-qoriq" revision="refs/tags/lf-6.12.34-2.1.0" upstream="walnascar">
     <copyfile dest="setup-env" src="tools/setup-env"/>
