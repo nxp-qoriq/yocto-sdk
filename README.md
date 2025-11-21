@@ -46,7 +46,7 @@ Yocto branch and version
 ========================
 | Branch      | Version          |
 |-------------|------------------|
-| walnascar   | YP 5.2-lf-6.12.34|
+| walnascar   | YP 5.2-lf-6.12.49|
 | styhead     | YP 5.1-lf-6.12.3 |
 | scarthgap   | YP 5.0-lf-6.6.52 |
 | nanbield    | YP 4.3-lf-6.6.3  |
@@ -102,7 +102,7 @@ Install image by flex-installer
 ------------------------------
 prepare for install flex-installer on Linux host PC
 ```
-$ sudo cp meta-qoriq/meta-qoriq-sdk/recipes-extended/flex-installer/flex-installer/flex-installer  /user/bin/
+$ sudo cp meta-qoriq/meta-qoriq-sdk/recipes-extended/flex-installer/flex-installer/flex-installer  /usr/bin/
 $ sudo chmod +x /usr/bin/flex-installer
 ```
  Plugin SD card on linux host PC and install Layerscape BSP firmware, boot tarball and Yocto-rootfs as below:
