@@ -1,3 +1,8 @@
+Date: 12/17/2025
+Release: 6.12.49-2.2.0
+- Kernel v6.12.49
+- OPTEE v4.8.0
+
 Date: 9/30/2025
 Release: 6.12.34-2.1.0
 - Kernel v6.12.34
