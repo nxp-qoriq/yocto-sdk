@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+
+  <remote name="yp"       fetch="https://git.yoctoproject.org"/>
+  <remote name="oe"          fetch="https://github.com/openembedded"/>
+
+  <remote name="community"   fetch="https://github.com/Freescale"/>
+  <remote name="ossystems"   fetch="https://github.com/OSSystems"/>
+
+  <remote name="nxp-qoriq"     fetch="https://github.com/nxp-qoriq"/>
+
+  <project name="bitbake"           remote="oe" path="sources/bitbake"           revision="6e511d035a3d1e4129dab7b0dfbf216bd8e99b47" upstream="master" />
+  <project name="openembedded-core" remote="oe" path="sources/openembedded-core" revision="9964fa3da2fa1e7243fba1a826e59f7bb1813706" upstream="whinlatter" />
+  <project name="meta-openembedded" remote="oe" path="sources/meta-openembedded" revision="a4e768dcfae181dd99e39c4286fa0729ca7f4e47" upstream="whinlatter" />
+
+  <project name="meta-yocto"          remote="yp" path="sources/meta-yocto"          revision="d02d3faaf4d6075ea03e9eb47654ec7639f929a0" upstream="whinlatter" />
+  <project name="meta-arm"            remote="yp" path="sources/meta-arm"            revision="3752c4e4478a6dbdf7a722a261d16ebc7a4a99e5" upstream="whinlatter" />
+  <project name="meta-virtualization" remote="yp" path="sources/meta-virtualization" revision="b9a29d2423407c1e50f19dc3f3e154d164c5f0ec" upstream="whinlatter" />
+  <project name="meta-cloud-services" remote="yp" path="sources/meta-cloud-services" revision="93864b8b8d7aaee1063f10237242284df1d274e9" upstream="master" />
+  <project name="meta-selinux"        remote="yp" path="sources/meta-selinux"        revision="9a913243ffaf26e06f151c3c293b62e28ec549f1" upstream="whinlatter" />
+
+  <project name="meta-browser" remote="ossystems" path="sources/meta-browser" revision="26ce9f7e67880ffb819c4012e89a8863c5f853ba" />
+
+  <project name="meta-freescale"        remote="community" path="sources/meta-freescale"        revision="2781242e499e601ef9454009aceed16186a48d9e" upstream="whinlatter"/>
+  <project name="meta-freescale-distro" remote="community" path="sources/meta-freescale-distro" revision="8001652aa3e2c6436c2bfce744e99f398c680858" upstream="whinlatter" />
+
+  <project name="meta-qoriq" remote="nxp-qoriq" path="sources/meta-qoriq" revision="refs/tags/lf-6.18.2-1.0.0" upstream="whinlatter">
+    <linkfile src="tools/setup-env" dest="setup-env"/>
+  </project>
+
+</manifest>
