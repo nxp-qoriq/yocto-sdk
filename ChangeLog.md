@@ -1,3 +1,8 @@
+Date: 3/31/2026
+Release: 6.18.2-1.0.0
+- Kernel v6.18.2
+- Yocto whinlatter 5.3
+
 Date: 12/17/2025
 Release: 6.12.49-2.2.0
 - Kernel v6.12.49
