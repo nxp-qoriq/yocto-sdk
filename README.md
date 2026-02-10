@@ -46,6 +46,7 @@ Yocto branch and version
 ========================
 | Branch      | Version          |
 |-------------|------------------|
+| whinlatter  | YP 5.3-lf-6.18.2 |
 | walnascar   | YP 5.2-lf-6.12.49|
 | styhead     | YP 5.1-lf-6.12.3 |
 | scarthgap   | YP 5.0-lf-6.6.52 |
@@ -94,7 +95,7 @@ Generate boot partition tarball
 ```
 $ bitbake generate-boottgz
 ```
-boot_<machine>_lts_6.12.tgz will be found under tmp/deploy/images/lx2160ardb-rev2/
+boot_<machine>_lts_6.18.tgz will be found under tmp/deploy/images/lx2160ardb-rev2/
 
 
 
@@ -108,7 +109,7 @@ $ sudo chmod +x /usr/bin/flex-installer
  Plugin SD card on linux host PC and install Layerscape BSP firmware, boot tarball and Yocto-rootfs as below:
 ```
 $ flex-installer -i pf -d /dev/mmcblkX (format SD card)
-$ flex-installer -m <machine> -d /dev/<sdX/mmcblkX> -f firmware_<machine>_uboot_sdboot.img -b boot_lts_6.12.tgz -r fsl-image-networking-<machine>.rootfs.tar.gz
+$ flex-installer -m <machine> -d /dev/<sdX/mmcblkX> -f firmware_<machine>_uboot_sdboot.img -b boot_lts_6.18.tgz -r fsl-image-networking-<machine>.rootfs.tar.gz
 ```
 
 FAQ
