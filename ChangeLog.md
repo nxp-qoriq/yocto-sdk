@@ -1,3 +1,9 @@
+Date: 6/12/2025
+Release: 6.12.49-2.2.0-lsdk
+- management-complex v10.40.0
+- DPDK v25.11
+- ovs v3.7
+
 Date: 12/17/2025
 Release: 6.12.49-2.2.0
 - Kernel v6.12.49
