@@ -44,23 +44,24 @@ $: repo sync --force-sync
 
 Yocto branch and version
 ========================
-| Branch      | Version          |
-|-------------|------------------|
-| walnascar   | YP 5.2-lf-6.12.49|
-| styhead     | YP 5.1-lf-6.12.3 |
-| scarthgap   | YP 5.0-lf-6.6.52 |
-| nanbield    | YP 4.3-lf-6.6.3  |
-| mickledore  | YP 4.2–lf-6.1.55 |
-| langdale    | YP 4.1–lf-6.1.1  |
-| kirkstone   | YP 4.0–lf-5.15.71|
-| honister    | YP 3.4–lf-5.15.5 |
-| hardknott   | YP 3.3–lf-5.10.72|
-| gatesgarth  | YP 3.2–lf-5.10.9 |
-| dunfell     | YP 3.1–LSDK 2004 |
-| zeus        | YP 3.0–LSDK 1909 |
-| warrior     | YP 2.7–LSDK 1906 |
-| thud        | YP 2.6–LSDK 1809 |
-| sumo        | YP 2.5–LSDK 1806 |
+| Branch         | Version               |
+|----------------|-----------------------|
+| walnascar-lsdk | YP 5.2-lf-6.12.49-lsdk|
+| walnascar      | YP 5.2-lf-6.12.49     |
+| styhead        | YP 5.1-lf-6.12.3      |
+| scarthgap      | YP 5.0-lf-6.6.52      |
+| nanbield       | YP 4.3-lf-6.6.3       |
+| mickledore     | YP 4.2–lf-6.1.55      |
+| langdale       | YP 4.1–lf-6.1.1       |
+| kirkstone      | YP 4.0–lf-5.15.71     |
+| honister       | YP 3.4–lf-5.15.5      |
+| hardknott      | YP 3.3–lf-5.10.72     |
+| gatesgarth     | YP 3.2–lf-5.10.9      |
+| dunfell        | YP 3.1–LSDK 2004      |
+| zeus           | YP 3.0–LSDK 1909      |
+| warrior        | YP 2.7–LSDK 1906      |
+| thud           | YP 2.6–LSDK 1809      |
+| sumo           | YP 2.5–LSDK 1806      |
 
 Building images
 ===============
