@@ -1,7 +1,18 @@
+Date: 6/30/2026
+Release: 6.18.20-2.0.0
+- Kernel v6.18.20
+- U-boot v2026.04
+- TF-A v2.14
+- Yocto 6.0 LTS (Wrynose)
+- OPTEE v4.10.0
+- DPAA Ethernet
+  - Management Complex Firmware: Upgrade to 10.40.0
+- DPDK:25.11
+
 Date: 3/31/2026
 Release: 6.18.2-1.0.0
 - Kernel v6.18.2
-- Yocto whinlatter 5.3
+- Yocto 5.3 (Whinlatter)
 
 Date: 12/17/2025
 Release: 6.12.49-2.2.0
@@ -20,12 +31,12 @@ Release: 6.12.20-2.0.0
 - U-boot v2025.04
 - OPTEE v4.6.0
 - TF-A v2.12
-- Yocto walnascar 5.2
+- Yocto 5.2 (Walnascar)
 
 Date: 3/10/2025
 Release: 6.12.3-1.0.0
 - Kernel v6.12.3
-- Yocto Styhead 5.1
+- Yocto 5.1 (Styhead)
 
 Date: 12/16/2024
 Release: 6.6.52-2.2.0
@@ -45,7 +56,7 @@ Release: 6.6.23-2.0.0
 - OPTEE v4.2.0
 - TF-A v2.10
 - U-boot v2024.04
-- Yocto Scarthgap 5.0
+- Yocto 5.0 LTS (Scarthgap)
 - DPAA Ethernet
   - Dynamic protocol reconfiguration on Lynx10G SerDes device
   - DPAA1 configure L4 checksum validation with ethtool
@@ -54,6 +65,6 @@ Release: 6.6.23-2.0.0
 Date: 3/29/2024
 Release: 6.6.3-1.0.0
 - Kernel v6.6.3
-- Yocto Nanbield 4.3
+- Yocto 4.3 (Nanbield)
 - mdio-proxy.ko kernel module in rootfs
 - aquantia-firmwar-utility tool in rootfs
