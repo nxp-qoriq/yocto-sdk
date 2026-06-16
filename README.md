@@ -46,6 +46,7 @@ Yocto branch and version
 ========================
 | Branch      | Version          |
 |-------------|------------------|
+| wrynose     | YP 6.0-lf-6.18.20|
 | whinlatter  | YP 5.3-lf-6.18.2 |
 | walnascar   | YP 5.2-lf-6.12.49|
 | styhead     | YP 5.1-lf-6.12.3 |
