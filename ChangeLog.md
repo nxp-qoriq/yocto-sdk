@@ -1,3 +1,8 @@
+Date: 9/30/2026
+Release: 6.18.37-2.1.0
+- Kernel v6.18.37
+- flex-installer:2026.06
+
 Date: 6/30/2026
 Release: 6.18.20-2.0.0
 - Kernel v6.18.20
