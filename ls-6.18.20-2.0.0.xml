@@ -24,7 +24,7 @@
   <project name="meta-freescale"        remote="community" path="sources/meta-freescale"        revision="3949624f36cbc5b7fd4033ce5ef001d83fc1a3e9" upstream="master"/>
   <project name="meta-freescale-distro" remote="community" path="sources/meta-freescale-distro" revision="70b7591ecaa99cb6366f93ee05df7c38d94d724b" upstream="master" />
 
-  <project name="meta-qoriq" remote="nxp-qoriq" path="sources/meta-qoriq" revision="refs/tags/lf-6.18.20-2.0.0" upstream="wrynose">
+  <project name="meta-qoriq" remote="nxp-qoriq" path="sources/meta-qoriq" revision="refs/tags/lf-6.18.20-2.0.0" upstream="wrynose-6.18.20-2.0.0">
     <linkfile src="tools/setup-env" dest="setup-env"/>
   </project>
 
