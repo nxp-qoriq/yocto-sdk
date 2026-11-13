@@ -22,8 +22,9 @@
 
   <project name="meta-openembedded" remote="oe" path="sources/meta-openembedded" revision="dca497d728792e3cb655c78455c2d649af312ce8" upstream="walnascar"/>
 
-  <project name="meta-qoriq" remote="nxp-qoriq" path="sources/meta-qoriq" revision="refs/tags/lf-6.12.34-2.1.0" upstream="walnascar">
+  <project name="meta-qoriq" remote="nxp-qoriq" path="sources/meta-qoriq" revision="refs/tags/lf-6.12.34-2.1.0" upstream="walnascar-6.12.34-2.1.0">
     <copyfile dest="setup-env" src="tools/setup-env"/>
   </project>
 
 </manifest>
+
